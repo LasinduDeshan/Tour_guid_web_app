@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: tour-guid-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: tour_guid_admin
+      POSTGRES_PASSWORD: tour_guid_secure_pass123
+      POSTGRES_DB: tour_guid_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

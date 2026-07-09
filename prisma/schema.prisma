@@ -1,0 +1,170 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tour {
+  id          String        @id @default(uuid())
+  title       String
+  category    String
+  description String
+  duration    String
+  price       Float
+  image       String
+  facilities  String[]
+  roadmap     RoadmapStep[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model RoadmapStep {
+  id          String   @id @default(uuid())
+  day         Int
+  location    String
+  title       String
+  description String
+  lat         Float
+  lng         Float
+  tourId      String
+  tour        Tour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Advertisement {
+  id          String   @id @default(uuid())
+  title       String
+  subtitle    String?
+  image       String
+  link        String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PageDetail {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String   @db.Text
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Booking {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  date        String
+  guests      String
+  message     String?
+  tourId      String
+  tourTitle   String
+  status      String   @default("PENDING") // PENDING, CONFIRMED, CANCELLED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Destination {
+  id             String   @id @default(uuid())
+  name           String
+  region         String
+  description    String
+  image          String
+  bestTime       String
+  temp           String
+  attractions    String[]
+  activities     String[]
+  features       String[]
+  gallery        String[]
+  lat            Float
+  lng            Float
+  categoryFilter String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Inquiry {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String   @db.Text
+  source    String   @default("CONTACT_FORM") // CONTACT_FORM | WIDGET
+  status    String   @default("NEW")          // NEW | READ | REPLIED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BentoPackage {
+  id              String   @id @default(uuid())
+  title           String
+  highlight       String
+  headerDesc      String   @db.Text
+  tabName         String
+  sectionBg       String   @default("bg-[#9CBFA7]")
+  
+  // Card 1
+  card1Title       String
+  card1Desc        String   @db.Text
+  card1FooterTitle String
+  card1FooterSub   String
+  card1Bg          String   @default("bg-[#0E1B15]")
+  card1Text        String   @default("text-white")
+  
+  // Card 2
+  card2Title       String
+  card2Desc        String   @db.Text
+  card2Image       String
+  card2Link        String
+  card2Button      String
+  
+  // Card 3
+  card3Bg          String   @default("bg-[#C5B4F3]")
+  card3Text        String   @default("text-[#002244]")
+  card3Title       String
+  card3Footer      String
+  card3Inclusions  Json     // JSON array of inclusions: [{ icon, title, desc }]
+  
+  // Card 4
+  card4Title       String
+  card4Desc        String   @db.Text
+  card4Image       String
+  card4Link        String
+  card4Button      String
+
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String   @db.Text
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
