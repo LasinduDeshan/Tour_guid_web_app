@@ -9,22 +9,23 @@ WORKDIR /app
 COPY package*.json ./
 COPY prisma ./prisma/
 
-# Install all dependencies including devDependencies needed for build
+# Install all dependencies
 RUN npm install
 
 # Copy application source code
 COPY . .
 
-# Provide fallback DATABASE_URL for build phase (Prisma client generation and Next.js static analysis)
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 
-# Generate Prisma Client & Build Next.js
-RUN npx prisma generate
-RUN npm run build
+# Use ARG for build-time ONLY so it is NOT baked into the runtime image
+ARG DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
+
+# Generate Prisma Client & Build Next.js with build-time fallback
+RUN DATABASE_URL="$DATABASE_URL" npx prisma generate
+RUN DATABASE_URL="$DATABASE_URL" npm run build
 
 EXPOSE 3000
 
-# Push Prisma schema to Railway Postgres and start Next.js on runtime
-CMD ["sh", "-c", "npx prisma db push && npm run start"]
+# On container start, verify DATABASE_URL is provided, run db push and start the app
+CMD ["sh", "-c", "if [ -z \"$DATABASE_URL\" ] || echo \"$DATABASE_URL\" | grep -q 'dummy'; then echo 'CRITICAL ERROR: DATABASE_URL is not configured in Railway Variables!'; exit 1; fi && npx prisma db push && npm run start"]
