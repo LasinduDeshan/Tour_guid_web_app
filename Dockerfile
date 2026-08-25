@@ -17,6 +17,8 @@ COPY . .
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
 # Use ARG for build-time ONLY so it is NOT baked into the runtime image
 ARG DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
@@ -27,5 +29,5 @@ RUN DATABASE_URL="$DATABASE_URL" npm run build
 
 EXPOSE 3000
 
-# On container start, verify DATABASE_URL is provided, run db push and start the app
-CMD ["sh", "-c", "if [ -z \"$DATABASE_URL\" ] || echo \"$DATABASE_URL\" | grep -q 'dummy'; then echo 'CRITICAL ERROR: DATABASE_URL is not configured in Railway Variables!'; exit 1; fi && npx prisma db push && npm run start"]
+# Container startup: Sync Prisma schema and start Next.js on 0.0.0.0 and dynamically assigned PORT
+CMD ["sh", "-c", "npx prisma db push && npm run start"]
