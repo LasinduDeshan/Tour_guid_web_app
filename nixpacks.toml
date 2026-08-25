@@ -1,0 +1,12 @@
+# Nixpacks configuration for Railway deployment
+[variables]
+DATABASE_URL = "postgresql://dummy:dummy@localhost:5432/dummy"
+
+[phases.setup]
+nixPkgs = ["...", "openssl"]
+
+[phases.build]
+cmds = [
+  "npx prisma generate",
+  "npm run build"
+]
