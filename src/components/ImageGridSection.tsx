@@ -77,7 +77,7 @@ const BentoSlot = ({ src, span }: { src: string; span: string }) => {
         >
           <NextImage
             src={src}
-            alt="Ceyora Traveler Moment"
+            alt="Windmark Traveler Moment"
             fill
             className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"

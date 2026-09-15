@@ -54,7 +54,7 @@ export default function FloatingWidget() {
 
         {/* WhatsApp Button */}
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27m%20interested%20in%20a%20tour%20to%20Sri%20Lanka!`}
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27m%20interested%20in%20a%20tour%20to%20Sri%20Lanka%20with%20Windmark%20Tours!`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

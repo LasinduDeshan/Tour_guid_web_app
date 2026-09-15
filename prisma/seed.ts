@@ -25,7 +25,7 @@ async function main() {
   const admin = await prisma.user.create({
     data: {
       name: "Admin User",
-      email: "admin@ceyoratours.com",
+      email: "admin@windmarktours.com",
       password: adminPassword,
       role: "ADMIN" as any,
     },
@@ -81,7 +81,7 @@ async function main() {
     },
     {
       key: "bento_intro_description",
-      value: "Discover Sri Lanka with expertly curated journeys by Ceyora Tours. Enjoy seamless travel in private cars or group vans with multilingual guides. Immerse in culture, history, and nature as you explore iconic sites and hidden gems effortlessly.",
+      value: "Discover Sri Lanka with expertly curated journeys by Windmark Tours. Enjoy seamless travel in private cars or group vans with multilingual guides. Immerse in culture, history, and nature as you explore iconic sites and hidden gems effortlessly.",
       description: "Bento section intro text body",
     },
   ];

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { Menu, X, User, ChevronDown, Compass, Search, Globe } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useTranslation } from "@/lib/LanguageContext";
 import { Language } from "@/lib/translations";
@@ -30,8 +30,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const [searchVal, setSearchVal] = useState("");
   const { t, language, setLanguage } = useTranslation();
   const { currency, setCurrency } = useCurrency();
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchVal.trim()) {
+      router.push(`/tours?search=${encodeURIComponent(searchVal.trim())}`);
+      setIsOpen(false);
+    }
+  };
 
   const [destinations, setDestinations] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
@@ -141,7 +151,7 @@ const Navbar = () => {
           <div className="text-black">
             <Compass size={20} />
           </div>
-          ceyora<span className="font-semibold text-black font-montserrat">tours</span>
+          windmark<span className="font-semibold text-black font-montserrat">tours</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -286,10 +296,18 @@ const Navbar = () => {
           <div className="w-[1px] h-6 bg-black/10 mx-0.5"></div>
 
           {/* Search Bar */}
-          <div className="flex items-center gap-2 bg-black/5 px-3 py-1.5 rounded-full text-neutral-500 border border-transparent focus-within:bg-white focus-within:border-black focus-within:ring-2 focus-within:ring-black/5 transition-all duration-200">
-            <Search size={14} />
-            <input type="text" placeholder={t("nav.search")} className="border-none bg-transparent outline-none text-xs w-[100px] text-neutral-900 font-poppins" />
-          </div>
+          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 bg-black/5 px-3 py-1.5 rounded-full text-neutral-500 border border-transparent focus-within:bg-white focus-within:border-black focus-within:ring-2 focus-within:ring-black/5 transition-all duration-200">
+            <button type="submit" className="text-neutral-500 hover:text-black">
+              <Search size={14} />
+            </button>
+            <input 
+              type="text" 
+              value={searchVal}
+              onChange={(e) => setSearchVal(e.target.value)}
+              placeholder={t("nav.search")} 
+              className="border-none bg-transparent outline-none text-xs w-[100px] text-neutral-900 font-poppins" 
+            />
+          </form>
 
           {/* Premium Glassmorphic Language Selector Dropdown */}
           <div className="relative group/lang">

@@ -111,10 +111,11 @@ function ToursContent() {
 
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
+  const queryParam = searchParams.get("search") || searchParams.get("q");
 
   const [tours, setTours] = useState<Tour[]>([]);
   const [isLoadingTours, setIsLoadingTours] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(queryParam || "");
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [sortBy, setSortBy] = useState<string>("default");
   const [categories, setCategories] = useState<string[]>([
@@ -179,6 +180,13 @@ function ToursContent() {
       setActiveCategory("All");
     }
   }, [categoryParam]);
+
+  // Sync search query parameter on load or change
+  useEffect(() => {
+    if (queryParam !== null) {
+      setSearchQuery(queryParam);
+    }
+  }, [queryParam]);
 
   // Modal states
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);

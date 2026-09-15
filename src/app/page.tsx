@@ -73,8 +73,8 @@ export default async function Home() {
         <div className="container mx-auto px-8 max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex flex-col">
-              <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 font-montserrat tracking-tight leading-tight text-left">Why Choose <span className="font-semibold text-black">Ceyora Tours</span></h2>
-              <p className="mb-10 text-neutral-500 font-light font-poppins leading-relaxed">With over 50 years of experience, we are the pioneers of tourism in Sri Lanka. Our commitment to excellence ensures your journey is seamless and unforgettable.</p>
+              <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 font-montserrat tracking-tight leading-tight text-left">Why Choose <span className="font-semibold text-black">Windmark Tours</span></h2>
+              <p className="mb-10 text-neutral-500 font-light font-poppins leading-relaxed">Dedicated to delivering authentic, immersive, and unforgettable bespoke travel journeys across Sri Lanka. Our commitment to excellence ensures your journey is seamless from arrival to departure.</p>
               
               <div className="flex flex-col gap-8">
                 <div className="flex gap-6 items-start">
@@ -107,8 +107,8 @@ export default async function Home() {
               <div className="w-full aspect-[4/5] bg-gradient-to-br from-neutral-900 to-black rounded-[2rem] relative overflow-hidden shadow-2xl">
                 {/* Visual experience badge */}
                 <div className="absolute bottom-8 left-8 md:-left-8 bg-black text-white px-8 py-6 rounded-2xl shadow-2xl flex flex-col items-center text-center font-bold leading-tight border border-white/10">
-                  <span className="text-4xl block mb-1 font-montserrat">50+</span>
-                  <span className="text-[0.65rem] tracking-wider uppercase font-semibold text-neutral-400 font-poppins">Years of Experience</span>
+                  <span className="text-4xl block mb-1 font-montserrat">100%</span>
+                  <span className="text-[0.65rem] tracking-wider uppercase font-semibold text-neutral-400 font-poppins">Bespoke Journeys</span>
                 </div>
               </div>
             </div>

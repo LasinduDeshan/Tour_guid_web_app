@@ -57,7 +57,7 @@ const LoginPage = () => {
       >
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-light font-montserrat tracking-tight mb-2 block text-black">
-            TOUR<span className="font-semibold text-black font-montserrat">GUID</span>
+            windmark<span className="font-semibold text-black font-montserrat">tours</span>
           </Link>
           <h2 className="text-2xl font-semibold text-neutral-800 mb-1 font-montserrat">Welcome Back</h2>
           <p className="text-sm text-neutral-400 font-light font-poppins">Login to manage your bookings and profile</p>
@@ -112,7 +112,7 @@ const LoginPage = () => {
         </form>
 
         <div className="mt-8 p-4 bg-neutral-50 rounded-xl text-[0.8rem] text-neutral-500 font-light font-poppins leading-relaxed border border-neutral-100 flex flex-col gap-1.5">
-          <p><strong>Admin:</strong> admin@ceyoratours.com / admin123</p>
+          <p><strong>Admin:</strong> admin@windmarktours.com / admin123</p>
           <p><strong>User:</strong> user@example.com / user123</p>
         </div>
 

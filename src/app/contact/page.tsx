@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "hello@ceyoratours.com",
+    value: "hello@windmarktours.com",
     sub: "We reply within 2 hours",
     color: "bg-amber-50 text-amber-600",
   },
@@ -279,7 +279,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ceyora Tours Office Location"
+                title="Windmark Tours Office Location"
               />
             </div>
 
@@ -288,10 +288,10 @@ export default function ContactPage() {
               <h3 className="font-montserrat font-bold text-neutral-900 text-sm mb-4">Follow Our Journey</h3>
               <div className="flex flex-col gap-3">
                 {[
-                  { icon: Heart, label: "@ceyoratours.lk", handle: "Instagram", color: "text-pink-500" },
-                  { icon: Share2, label: "Ceyora Tours Sri Lanka", handle: "Facebook", color: "text-blue-600" },
-                  { icon: AtSign, label: "@ceyoratours", handle: "Twitter / X", color: "text-sky-500" },
-                  { icon: Globe, label: "www.ceyoratours.com", handle: "Website", color: "text-emerald-600" },
+                  { icon: Heart, label: "@windmarktours.lk", handle: "Instagram", color: "text-pink-500" },
+                  { icon: Share2, label: "Windmark Tours Sri Lanka", handle: "Facebook", color: "text-blue-600" },
+                  { icon: AtSign, label: "@windmarktours", handle: "Twitter / X", color: "text-sky-500" },
+                  { icon: Globe, label: "www.windmarktours.com", handle: "Website", color: "text-emerald-600" },
                 ].map(s => (
                   <div key={s.handle} className="flex items-center gap-3">
                     <div className={`w-8 h-8 rounded-xl bg-white border border-neutral-200 flex items-center justify-center ${s.color}`}>
@@ -308,7 +308,7 @@ export default function ContactPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/94771234567?text=Hi%2C%20I%27m%20interested%20in%20a%20Sri%20Lanka%20tour!"
+              href="https://wa.me/94771234567?text=Hi%2C%20I%27m%20interested%20in%20a%20Sri%20Lanka%20tour%20with%20Windmark%20Tours!"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-[#25D366] hover:bg-[#1EBE5A] text-white rounded-2xl px-6 py-4 transition-all duration-200 shadow-md shadow-green-500/20 hover:-translate-y-0.5 group"

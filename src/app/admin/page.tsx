@@ -172,7 +172,7 @@ export default function AdminDashboard() {
     home_hero_title_bold: "The Wonder of Sri Lanka",
     home_hero_description: "Embark on an extraordinary journey through the island's timeless wonders...",
     bento_intro_title: "Seamless Cultural Journeys Across Sri Lanka",
-    bento_intro_description: "Discover Sri Lanka with expertly curated journeys by Ceyora Tours...",
+    bento_intro_description: "Discover Sri Lanka with expertly curated journeys by Windmark Tours...",
   });
 
   // Bento Packages States
@@ -972,7 +972,7 @@ export default function AdminDashboard() {
             </div>
             <div className="flex flex-col">
               <h3 className="text-md font-medium tracking-tight font-montserrat text-neutral-900 leading-none">Platform</h3>
-              <span className="text-[9px] font-normal text-indigo-500 uppercase tracking-widest mt-1">Ceyora CMS</span>
+              <span className="text-[9px] font-normal text-indigo-500 uppercase tracking-widest mt-1">Windmark CMS</span>
             </div>
           </div>
 
@@ -1063,7 +1063,7 @@ export default function AdminDashboard() {
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-xs font-medium text-slate-800 leading-tight truncate">{session?.user?.name || "Admin Operator"}</span>
-            <span className="text-[9px] font-normal text-neutral-400 truncate">{session?.user?.email || "admin@ceyoratours.com"}</span>
+            <span className="text-[9px] font-normal text-neutral-400 truncate">{session?.user?.email || "admin@windmarktours.com"}</span>
           </div>
         </div>
       </aside>
@@ -1570,7 +1570,7 @@ export default function AdminDashboard() {
                 <div className="flex flex-col gap-2">
                   <label className="text-[10px] uppercase font-normal text-neutral-400 text-left">Bento Welcome Description</label>
                   <textarea 
-                    required rows={3} placeholder="Discover Sri Lanka with expertly curated journeys by Ceyora Tours..."
+                    required rows={3} placeholder="Discover Sri Lanka with expertly curated journeys by Windmark Tours..."
                     value={pageDetails.bento_intro_description} onChange={(e) => setPageDetails(p => ({ ...p, bento_intro_description: e.target.value }))}
                     className="px-4 py-3 bg-white/80 border border-slate-200/60 rounded-xl outline-none resize-none focus:border-indigo-400 text-slate-800 text-xs font-normal leading-relaxed text-left"
                   />

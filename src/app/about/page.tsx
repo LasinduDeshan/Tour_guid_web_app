@@ -69,7 +69,7 @@ const timeline = [
   { year: "2015", title: "Wildlife Division Launched", desc: "Expanded into wildlife safaris with dedicated rangers and custom-built 4×4 safari jeeps." },
   { year: "2018", title: "International Recognition", desc: "Named 'Best Boutique Tour Operator in Sri Lanka' by the Asian Tourism Awards." },
   { year: "2021", title: "Luxury Portfolio Added", desc: "Launched a bespoke luxury line featuring private villa stays and personalised itineraries." },
-  { year: "2024", title: "Digital Transformation", desc: "Launched the Ceyora Tours platform — making it seamless to discover, plan and book your ideal Sri Lanka journey." },
+  { year: "2024", title: "Digital Transformation", desc: "Launched the Windmark Tours platform — making it seamless to discover, plan and book your ideal Sri Lanka journey." },
 ];
 
 export default function AboutPage() {
@@ -106,7 +106,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="mt-6 text-neutral-400 text-base max-w-2xl mx-auto font-light leading-relaxed"
             >
-              Since 2012, Ceyora Tours has been the trusted companion for travellers seeking authentic, sustainable and deeply personal journeys across the wonder of Sri Lanka.
+              Since inception, Windmark Tours has been the trusted companion for travellers seeking authentic, sustainable and deeply personal journeys across the wonder of Sri Lanka.
             </motion.p>
           </div>
         </section>

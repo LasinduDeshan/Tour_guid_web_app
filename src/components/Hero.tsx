@@ -3,17 +3,29 @@
 import { Search, MapPin, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/LanguageContext";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+  const [whereTo, setWhereTo] = useState("");
+  const [when, setWhen] = useState("");
   
   const videos = ["/hero-video.mp4", "/hero-video-2.mp4"];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const handleVideoEnd = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (whereTo.trim()) {
+      router.push(`/tours?search=${encodeURIComponent(whereTo.trim())}`);
+    } else {
+      router.push(`/tours`);
+    }
   };
 
   return (
@@ -46,7 +58,8 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.form 
+          onSubmit={handleSearch}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -56,7 +69,13 @@ const Hero = () => {
             <div className="text-black flex-shrink-0"><MapPin size={18} /></div>
             <div className="flex flex-col items-start w-full">
               <label className="text-[0.65rem] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">{t("hero.where_to")}</label>
-              <input type="text" placeholder={t("hero.where_placeholder")} className="border-none bg-transparent outline-none text-sm w-full text-neutral-800 placeholder-neutral-400 font-poppins" />
+              <input 
+                type="text" 
+                value={whereTo}
+                onChange={(e) => setWhereTo(e.target.value)}
+                placeholder={t("hero.where_placeholder")} 
+                className="border-none bg-transparent outline-none text-sm w-full text-neutral-800 placeholder-neutral-400 font-poppins" 
+              />
             </div>
           </div>
           
@@ -64,15 +83,21 @@ const Hero = () => {
             <div className="text-black flex-shrink-0"><Calendar size={18} /></div>
             <div className="flex flex-col items-start w-full">
               <label className="text-[0.65rem] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">{t("hero.when")}</label>
-              <input type="text" placeholder={t("hero.when_placeholder")} className="border-none bg-transparent outline-none text-sm w-full text-neutral-800 placeholder-neutral-400 font-poppins" />
+              <input 
+                type="text" 
+                value={when}
+                onChange={(e) => setWhen(e.target.value)}
+                placeholder={t("hero.when_placeholder")} 
+                className="border-none bg-transparent outline-none text-sm w-full text-neutral-800 placeholder-neutral-400 font-poppins" 
+              />
             </div>
           </div>
 
-          <button className="bg-black text-white hover:bg-neutral-800 rounded-2xl md:rounded-full py-4 px-8 text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
+          <button type="submit" className="bg-black text-white hover:bg-neutral-800 rounded-2xl md:rounded-full py-4 px-8 text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
             <Search size={16} />
             {t("hero.search_btn")}
           </button>
-        </motion.div>
+        </motion.form>
       </div>
     </section>
   );
