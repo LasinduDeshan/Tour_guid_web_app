@@ -2,31 +2,26 @@
 
 import { motion } from "framer-motion";
 import {
-  Shield, 
-  Compass, 
-  Star, 
-  Heart, 
-  Users, 
-  MapPin, 
-  Clock, 
-  Sparkles, 
-  ArrowRight, 
-  CheckCircle2, 
-  Car, 
-  Hotel, 
-  Trees, 
+  Shield,
+  Compass,
+  Star,
+  Heart,
+  Users,
+  MapPin,
+  Clock,
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  Car,
+  Hotel,
+  Trees,
   MessageSquare,
   BadgeCheck
 } from "lucide-react";
 import Link from "next/link";
 import NextImage from "next/image";
 
-const stats = [
-  { value: "6+", label: "Years of Travel Experience", icon: Clock },
-  { value: "100%", label: "Private & Bespoke Routes", icon: Compass },
-  { value: "24/7", label: "Dedicated Concierge Support", icon: MessageSquare },
-  { value: "Handpicked", label: "Boutique Stays & Lodges", icon: Hotel },
-];
+
 
 const pillars = [
   {
@@ -108,19 +103,24 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white font-poppins">
 
       {/* 1. Hero Section */}
-      <section className="relative bg-[#0E1B15] pt-36 pb-28 px-6 overflow-hidden text-white">
-        <div className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle at 20% 50%, #4ade80 0%, transparent 50%), radial-gradient(circle at 80% 20%, #3b82f6 0%, transparent 40%)"
-          }}
+      <section className="relative pt-44 pb-36 px-6 overflow-hidden text-white min-h-[520px] flex flex-col justify-center">
+        {/* Background Image */}
+        <NextImage
+          src="/about/hero-about.jpg"
+          alt="Traditional fishing boat on Sri Lankan beach"
+          fill
+          priority
+          className="object-cover object-[center_80%] z-0"
         />
-        <div className="container mx-auto max-w-5xl relative z-10 text-center">
-          
+        {/* Dark Cinematic Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-black/80 z-1" />
+
+        <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-end text-right">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold font-montserrat text-white tracking-tight leading-tight"
+            className="text-4xl md:text-6xl font-medium text-white tracking-tight leading-tight"
           >
             Discover Sri Lanka,<br />
             <span className="text-[#9CBFA7]">Your Way.</span>
@@ -129,53 +129,45 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-neutral-300 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed font-poppins"
+            className="mt-6 text-neutral-200 text-sm md:text-base max-w-xl ml-auto font-light leading-relaxed font-poppins"
           >
-            Windmark Tours was created with a simple belief: the best journeys are the ones that leave room for you to truly enjoy them—not rush through a rigid checklist.
+            Windmark Tours was created with a simple belief: the best journeys are the ones that leave room for you to truly enjoy them not rush through a rigid checklist.
           </motion.p>
         </div>
-      </section>
 
-      {/* 2. Stats Section */}
-      <section className="container mx-auto max-w-5xl px-6 -mt-10 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              className="bg-white rounded-2xl p-6 shadow-xl border border-neutral-100 text-center"
-            >
-              <div className="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center mx-auto mb-3 text-neutral-800">
-                <s.icon size={18} />
-              </div>
-              <p className="text-2xl md:text-3xl font-bold font-montserrat text-neutral-900 leading-none">{s.value}</p>
-              <p className="text-[11px] text-neutral-500 mt-2 leading-tight font-poppins">{s.label}</p>
-            </motion.div>
-          ))}
+        {/* Photo Attribution Credit */}
+        <div className="absolute bottom-3 left-6 z-10 text-[10px] text-white/50 font-light font-poppins">
+          Photo by{" "}
+          <a
+            href="https://www.pexels.com/photo/traditional-fishing-boat-on-sri-lankan-beach-31887565/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/80 transition-colors"
+          >
+            Sergey Polyakov on Pexels
+          </a>
         </div>
       </section>
 
-      {/* 3. Our Story & The Experience Behind Windmark */}
-      <section className="container mx-auto max-w-5xl px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 2. Our Story & The Experience Behind Windmark */}
+      <section className="container mx-auto max-w-5xl px-6 pt-28 md:pt-36 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="lg:col-span-7 space-y-5"
         >
-          <span className="text-xs font-semibold text-emerald-700 font-poppins">Who We Are</span>
-          <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-neutral-900 leading-tight">
+          <span className="text-5xl md:text-7xl font-semibold text-black font-poppins block mb-2">Who We Are</span>
+          <h2 className="text-3xl md:text-4xl font-medium   leading-tight">
             Personal, Flexible Travel with Real Local Knowledge.
           </h2>
-          <p className="text-neutral-600 text-sm leading-relaxed font-light font-poppins">
+          <p className="text-neutral-600 text-sm leading-relaxed font-light ">
             With over 6 years of relevant experience planning custom itineraries and touring Sri Lanka, our team understands that travel is deeply personal. Rather than herding travelers into standardized bus tours, we focus exclusively on private, tailor-made journeys.
           </p>
           <p className="text-neutral-600 text-sm leading-relaxed font-light font-poppins">
             From the cool pine forests of Ella to the historic ramparts of Galle Fort, we connect you with authentic local experiences, reliable transport, and trusted accommodations tailored to your budget and interests.
           </p>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
             {[
               "Private air-conditioned vehicles with driver",
@@ -199,7 +191,7 @@ export default function AboutPage() {
         >
           <div className="bg-[#0E1B15] text-white p-8 rounded-3xl shadow-xl relative overflow-hidden border border-white/10">
             <div className="space-y-4 relative z-10">
-              <span className="text-xs uppercase tracking-wider font-bold text-[#9CBFA7] font-poppins">Our Promise</span>
+              <span className="text-xs  font-bold text-[#9CBFA7] font-poppins">Our Promise</span>
               <h3 className="text-2xl font-bold font-montserrat leading-snug">
                 Travel at your pace, with someone who knows the way.
               </h3>
@@ -223,13 +215,13 @@ export default function AboutPage() {
       <section className="bg-neutral-50 py-20 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-semibold text-emerald-700 font-poppins">Our Approach</span>
-            <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-2">How We Travel</h2>
+            
+            <h2 className="text-5xl md:text-6xl font-bold font-montserrat text-neutral-900 mt-2">How We Travel</h2>
             <p className="text-neutral-500 text-xs md:text-sm max-w-xl mx-auto mt-2 font-light font-poppins">
               Four simple commitments that shape every itinerary we create.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {pillars.map((v, idx) => (
               <motion.div
