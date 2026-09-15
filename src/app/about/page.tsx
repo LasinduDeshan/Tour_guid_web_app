@@ -2,292 +2,381 @@
 
 import { motion } from "framer-motion";
 import {
-  Shield, Leaf, Star, Heart, Users, Globe2, Award, TrendingUp, ArrowRight, CheckCircle2
+  Shield, 
+  Compass, 
+  Star, 
+  Heart, 
+  Users, 
+  MapPin, 
+  Clock, 
+  Sparkles, 
+  ArrowRight, 
+  CheckCircle2, 
+  Car, 
+  Hotel, 
+  Trees, 
+  MessageSquare,
+  BadgeCheck
 } from "lucide-react";
 import Link from "next/link";
+import NextImage from "next/image";
 
 const stats = [
-  { value: "12+", label: "Years of Experience", icon: TrendingUp },
-  { value: "4,800+", label: "Tours Completed", icon: Award },
-  { value: "38", label: "Countries Served", icon: Globe2 },
-  { value: "99%", label: "Client Satisfaction", icon: Star },
+  { value: "6+", label: "Years of Travel Experience", icon: Clock },
+  { value: "100%", label: "Private & Bespoke Routes", icon: Compass },
+  { value: "24/7", label: "Dedicated Concierge Support", icon: MessageSquare },
+  { value: "Handpicked", label: "Boutique Stays & Lodges", icon: Hotel },
 ];
 
-const team = [
+const pillars = [
   {
-    name: "Amara Silva",
-    role: "Founder & Lead Guide",
-    bio: "Born and raised in Kandy, Amara has spent 15 years crafting journeys that blend cultural depth with luxury comfort.",
-    emoji: "👤",
-    badge: "Expert Naturalist",
+    icon: Clock,
+    title: "Unhurried, Flexible Pacing",
+    desc: "We believe the best trips leave room to breathe. We design balanced itineraries that let you linger at sites, enjoy scenic drives, and travel at your own comfortable pace.",
+    color: "bg-emerald-50 text-emerald-700 border-emerald-100",
   },
   {
-    name: "Dilshan Perera",
-    role: "Wildlife & Safari Specialist",
-    bio: "A former park ranger with 10 years in Yala National Park. Dilshan knows every leopard trail and elephant migration route.",
-    emoji: "👤",
-    badge: "Certified Ranger",
+    icon: Compass,
+    title: "Tailored to Your Style",
+    desc: "Every traveler is unique. Whether you are traveling as a couple, family, or solo adventurer, we plan your route, stays, and activities around your exact preferences.",
+    color: "bg-blue-50 text-blue-700 border-blue-100",
   },
   {
-    name: "Nirosha Fernando",
-    role: "Luxury Travel Curator",
-    bio: "Nirosha specialises in high-end bespoke itineraries — private beach dinners, pool villa stays, and Ayurvedic retreats.",
-    emoji: "👤",
-    badge: "Luxury Certified",
+    icon: Car,
+    title: "Smooth, Private Travel",
+    desc: "Travel comfortably across the island in modern, air-conditioned vehicles with experienced, friendly local chauffeur-guides dedicated solely to your party.",
+    color: "bg-amber-50 text-amber-700 border-amber-100",
   },
-];
-
-const values = [
   {
     icon: Shield,
-    title: "Safety First",
-    desc: "Every tour is risk-assessed, guides are certified, and vehicles are insured to international standards.",
-    color: "bg-blue-50 text-blue-600 border-blue-100",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainability",
-    desc: "We partner only with eco-certified resorts and offset our carbon footprint on every trip.",
-    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
-  },
-  {
-    icon: Heart,
-    title: "Authenticity",
-    desc: "We go beyond tourist traps — village home-stays, local family dinners, and off-map trails.",
-    color: "bg-rose-50 text-rose-600 border-rose-100",
-  },
-  {
-    icon: Star,
-    title: "Excellence",
-    desc: "Premium vehicles, 5-star accommodation partnerships, and 24/7 on-trip concierge support.",
-    color: "bg-amber-50 text-amber-600 border-amber-100",
+    title: "Transparent & Honest",
+    desc: "Clear pricing with no hidden surprises. We itemize your accommodations, transport, and site admissions upfront so you can travel with complete peace of mind.",
+    color: "bg-teal-50 text-teal-700 border-teal-100",
   },
 ];
 
-const timeline = [
-  { year: "2012", title: "Founded in Colombo", desc: "Started as a two-person operation offering cultural day trips around the Cultural Triangle." },
-  { year: "2015", title: "Wildlife Division Launched", desc: "Expanded into wildlife safaris with dedicated rangers and custom-built 4×4 safari jeeps." },
-  { year: "2018", title: "International Recognition", desc: "Named 'Best Boutique Tour Operator in Sri Lanka' by the Asian Tourism Awards." },
-  { year: "2021", title: "Luxury Portfolio Added", desc: "Launched a bespoke luxury line featuring private villa stays and personalised itineraries." },
-  { year: "2024", title: "Digital Transformation", desc: "Launched the Windmark Tours platform — making it seamless to discover, plan and book your ideal Sri Lanka journey." },
+const services = [
+  {
+    title: "Private Multi-Day Round Tours",
+    desc: "5 to 12-day comprehensive island journeys connecting ancient kingdoms, misty tea highlands, wildlife safaris, and golden southern beaches.",
+    badge: "5–12 Days",
+    link: "/tours?category=Private%20Sri%20Lanka%20Tours"
+  },
+  {
+    title: "Custom & Tailor-Made Itineraries",
+    desc: "Bespoke itineraries designed from scratch around your specific dates, interests, preferred accommodation tiers, and pacing.",
+    badge: "100% Bespoke",
+    link: "/contact"
+  },
+  {
+    title: "Day Tours & Excursions",
+    desc: "Focused single-day private trips to Colombo highlights, Galle Fort, Sigiriya Lion Rock, or Kandy sacred shrines with private transport.",
+    badge: "1 Day",
+    link: "/tours?category=Day%20Tours%20%26%20Excursions"
+  },
+  {
+    title: "Wildlife & Safari Expeditions",
+    desc: "Dedicated 4x4 game drives in Yala, Minneriya, and Kaudulla to observe wild elephants, leopards, and birdlife with experienced park trackers.",
+    badge: "Safaris",
+    link: "/tours?category=Wildlife%20%26%20Safari"
+  }
+];
+
+const teamHighlights = [
+  {
+    role: "Itinerary Specialists",
+    title: "Personal Trip Planning",
+    desc: "Our travel planners listen to your ideas, recommend realistic routes, and craft personalized day-by-day itineraries tailored to your style.",
+    icon: Compass
+  },
+  {
+    role: "Local Chauffeur-Guides",
+    title: "Friendly Island Drivers",
+    desc: "Courteous, knowledgeable local drivers with extensive island experience ensuring safe, smooth journeys and great local recommendations.",
+    icon: Car
+  },
+  {
+    role: "National Park Trackers",
+    title: "Licensed Safari Guides",
+    desc: "Experienced local park trackers in Yala and Minneriya who know the terrain and wildlife habits intimately for rewarding game drives.",
+    icon: Trees
+  }
 ];
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white font-poppins">
 
-        {/* Hero */}
-        <section className="relative bg-[#0E1B15] pt-36 pb-28 px-6 overflow-hidden">
-          <div className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: "radial-gradient(circle at 20% 50%, #4ade80 0%, transparent 50%), radial-gradient(circle at 80% 20%, #3b82f6 0%, transparent 40%)"
-            }}
-          />
-          <div className="container mx-auto max-w-5xl relative z-10 text-center">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold tracking-widest uppercase font-poppins mb-4"
-            >
-              <Users size={12} /> Our Story
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold font-montserrat text-white tracking-tight leading-tight"
-            >
-              Crafting Unforgettable<br />
-              <span className="text-emerald-400">Sri Lanka Experiences</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mt-6 text-neutral-400 text-base max-w-2xl mx-auto font-light leading-relaxed"
-            >
-              Since inception, Windmark Tours has been the trusted companion for travellers seeking authentic, sustainable and deeply personal journeys across the wonder of Sri Lanka.
-            </motion.p>
-          </div>
-        </section>
+      {/* 1. Hero Section */}
+      <section className="relative bg-[#0E1B15] pt-36 pb-28 px-6 overflow-hidden text-white">
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle at 20% 50%, #4ade80 0%, transparent 50%), radial-gradient(circle at 80% 20%, #3b82f6 0%, transparent 40%)"
+          }}
+        />
+        <div className="container mx-auto max-w-5xl relative z-10 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 text-[#9CBFA7] text-xs font-semibold font-poppins mb-4"
+          >
+            <Compass size={14} /> Our Story & Approach
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold font-montserrat text-white tracking-tight leading-tight"
+          >
+            Discover Sri Lanka,<br />
+            <span className="text-[#9CBFA7]">Your Way.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 text-neutral-300 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed font-poppins"
+          >
+            Windmark Tours was created with a simple belief: the best journeys are the ones that leave room for you to truly enjoy them—not rush through a rigid checklist.
+          </motion.p>
+        </div>
+      </section>
 
-        {/* Stats */}
-        <section className="container mx-auto max-w-5xl px-6 -mt-10 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-neutral-100 text-center"
-              >
-                <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center mx-auto mb-3">
-                  <s.icon size={18} className="text-neutral-600" />
-                </div>
-                <p className="text-3xl font-bold font-montserrat text-neutral-900 leading-none">{s.value}</p>
-                <p className="text-[11px] text-neutral-500 mt-2 leading-tight">{s.label}</p>
-              </motion.div>
+      {/* 2. Stats Section */}
+      <section className="container mx-auto max-w-5xl px-6 -mt-10 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              className="bg-white rounded-2xl p-6 shadow-xl border border-neutral-100 text-center"
+            >
+              <div className="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center mx-auto mb-3 text-neutral-800">
+                <s.icon size={18} />
+              </div>
+              <p className="text-2xl md:text-3xl font-bold font-montserrat text-neutral-900 leading-none">{s.value}</p>
+              <p className="text-[11px] text-neutral-500 mt-2 leading-tight font-poppins">{s.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Our Story & The Experience Behind Windmark */}
+      <section className="container mx-auto max-w-5xl px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-7 space-y-5"
+        >
+          <span className="text-xs font-semibold text-emerald-700 font-poppins">Who We Are</span>
+          <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-neutral-900 leading-tight">
+            Personal, Flexible Travel with Real Local Knowledge.
+          </h2>
+          <p className="text-neutral-600 text-sm leading-relaxed font-light font-poppins">
+            With over 6 years of relevant experience planning custom itineraries and touring Sri Lanka, our team understands that travel is deeply personal. Rather than herding travelers into standardized bus tours, we focus exclusively on private, tailor-made journeys.
+          </p>
+          <p className="text-neutral-600 text-sm leading-relaxed font-light font-poppins">
+            From the cool pine forests of Ella to the historic ramparts of Galle Fort, we connect you with authentic local experiences, reliable transport, and trusted accommodations tailored to your budget and interests.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+            {[
+              "Private air-conditioned vehicles with driver",
+              "Handpicked boutique hotels & lodges",
+              "Customizable daily schedule & pacing",
+              "Clear, honest pricing with no surprises"
+            ].map(item => (
+              <div key={item} className="flex items-start gap-2.5 text-xs text-neutral-700 font-poppins">
+                <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </div>
             ))}
           </div>
-        </section>
+        </motion.div>
 
-        {/* Mission */}
-        <section className="container mx-auto max-w-5xl px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 font-poppins">Our Mission</span>
-            <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-3 mb-5 leading-tight">
-              More than a tour.<br />A transformation.
-            </h2>
-            <p className="text-neutral-600 text-sm leading-relaxed mb-4">
-              We believe travel should be more than ticking off landmarks. Our carefully designed journeys immerse you in the real Sri Lanka — its people, traditions, flavours and landscapes — in a way that stays with you long after you return home.
-            </p>
-            <p className="text-neutral-600 text-sm leading-relaxed mb-6">
-              Every itinerary is crafted by a local specialist who knows every hidden beach, every sacred temple, and every family-run spice farm worth visiting.
-            </p>
-            <div className="flex flex-col gap-2.5">
-              {["Certified local guides with 10+ years experience", "24/7 on-trip support and emergency assistance", "Fully flexible itineraries — change plans any time", "Transparent pricing with no hidden charges"].map(item => (
-                <div key={item} className="flex items-center gap-2.5 text-sm text-neutral-700">
-                  <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Timeline */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="absolute left-[26px] top-2 bottom-2 w-[2px] bg-neutral-200 rounded-full" />
-            <div className="flex flex-col gap-6">
-              {timeline.map((item, idx) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex gap-5 pl-2"
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-5"
+        >
+          <div className="bg-[#0E1B15] text-white p-8 rounded-3xl shadow-xl relative overflow-hidden border border-white/10">
+            <div className="space-y-4 relative z-10">
+              <span className="text-xs uppercase tracking-wider font-bold text-[#9CBFA7] font-poppins">Our Promise</span>
+              <h3 className="text-2xl font-bold font-montserrat leading-snug">
+                Travel at your pace, with someone who knows the way.
+              </h3>
+              <p className="text-neutral-300 text-xs font-light leading-relaxed font-poppins">
+                We handle the logistics—from route timing and airport pick-ups to pre-arranged site tickets and hotel bookings—so you can immerse yourself in Sri Lanka with complete peace of mind.
+              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-[#9CBFA7] hover:bg-[#8bb096] text-neutral-900 font-bold text-xs px-6 py-3 rounded-full transition-all duration-200"
                 >
-                  <div className="w-9 h-9 rounded-full bg-[#0E1B15] text-white flex items-center justify-center text-[10px] font-bold font-poppins flex-shrink-0 relative z-10 shadow-md">
-                    {item.year.slice(2)}
-                  </div>
-                  <div className="pt-1.5">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] text-neutral-400 font-bold tracking-widest">{item.year}</span>
-                    </div>
-                    <p className="text-sm font-semibold text-neutral-900 font-montserrat">{item.title}</p>
-                    <p className="text-xs text-neutral-500 mt-1 leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Values */}
-        <section className="bg-neutral-50 py-20 px-6">
-          <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 font-poppins">What We Stand For</span>
-              <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-3">Our Core Values</h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {values.map((v, idx) => (
-                <motion.div
-                  key={v.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className={`bg-white rounded-2xl p-6 border ${v.color.split(" ")[2]} shadow-sm flex flex-col gap-4`}
-                >
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${v.color.split(" ").slice(0, 2).join(" ")}`}>
-                    <v.icon size={18} />
-                  </div>
-                  <div>
-                    <h3 className="font-montserrat font-bold text-neutral-900 text-sm">{v.title}</h3>
-                    <p className="text-xs text-neutral-500 mt-2 leading-relaxed">{v.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+                  Plan Your Journey <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
-        </section>
+        </motion.div>
+      </section>
 
-        {/* Team */}
-        <section className="container mx-auto max-w-5xl px-6 py-20">
+      {/* 4. How We Travel (Our Approach) */}
+      <section className="bg-neutral-50 py-20 px-6">
+        <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 font-poppins">The People Behind the Magic</span>
-            <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-3">Meet Our Team</h2>
+            <span className="text-xs font-semibold text-emerald-700 font-poppins">Our Approach</span>
+            <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-2">How We Travel</h2>
+            <p className="text-neutral-500 text-xs md:text-sm max-w-xl mx-auto mt-2 font-light font-poppins">
+              Four simple commitments that shape every itinerary we create.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {team.map((member, idx) => (
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {pillars.map((v, idx) => (
               <motion.div
-                key={member.name}
+                key={v.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white rounded-3xl border border-neutral-100 shadow-sm overflow-hidden group hover:shadow-lg transition-all duration-300"
+                className={`bg-white rounded-2xl p-6 border ${v.color.split(" ")[2]} shadow-sm flex flex-col justify-between`}
               >
-                {/* Avatar area */}
-                <div className="h-40 bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center relative">
-                  <div className="w-20 h-20 rounded-full bg-[#0E1B15] flex items-center justify-center text-3xl shadow-lg">
-                    {member.emoji}
+                <div>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${v.color.split(" ").slice(0, 2).join(" ")}`}>
+                    <v.icon size={18} />
                   </div>
-                  <span className="absolute top-4 right-4 text-[10px] font-bold bg-white border border-neutral-200 text-neutral-700 px-2.5 py-1 rounded-full">
-                    {member.badge}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-montserrat font-bold text-neutral-900">{member.name}</h3>
-                  <p className="text-xs text-emerald-600 font-semibold mt-0.5">{member.role}</p>
-                  <p className="text-xs text-neutral-500 mt-3 leading-relaxed">{member.bio}</p>
+                  <h3 className="font-montserrat font-bold text-neutral-900 text-sm leading-snug">{v.title}</h3>
+                  <p className="text-xs text-neutral-500 mt-2.5 leading-relaxed font-light font-poppins">{v.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <section className="bg-[#0E1B15] py-20 px-6">
-          <div className="container mx-auto max-w-3xl text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+      {/* 5. What We Offer */}
+      <section className="container mx-auto max-w-5xl px-6 py-20">
+        <div className="text-center mb-12">
+          <span className="text-xs font-semibold text-emerald-700 font-poppins">Travel Services</span>
+          <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-2">What We Offer</h2>
+          <p className="text-neutral-500 text-xs md:text-sm max-w-xl mx-auto mt-2 font-light font-poppins">
+            Explore our core travel services across Sri Lanka, all tailored to your travel plans.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((serv, idx) => (
+            <motion.div
+              key={serv.title}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold font-montserrat text-white"
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white p-7 rounded-2xl border border-neutral-200/70 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
             >
-              Ready to Start Your<br />Sri Lanka Adventure?
-            </motion.h2>
-            <p className="text-neutral-400 text-sm mt-4 mb-8 font-light">
-              Talk to one of our travel specialists today and get a free personalised itinerary.
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-[10px] font-semibold px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full font-poppins">
+                    {serv.badge}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold font-montserrat text-neutral-900 mb-2">
+                  {serv.title}
+                </h3>
+                <p className="text-xs text-neutral-500 font-light leading-relaxed font-poppins">
+                  {serv.desc}
+                </p>
+              </div>
+              <div className="pt-5 mt-4 border-t border-neutral-100 flex justify-end">
+                <Link
+                  href={serv.link}
+                  className="text-xs font-bold text-neutral-900 group-hover:text-emerald-700 flex items-center gap-1 font-poppins transition-colors"
+                >
+                  Explore Route <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. Meet the Team / Local Expertise */}
+      <section className="bg-neutral-50 py-20 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold text-emerald-700 font-poppins">Our Network</span>
+            <h2 className="text-3xl font-bold font-montserrat text-neutral-900 mt-2">Local Expertise on the Ground</h2>
+            <p className="text-neutral-500 text-xs md:text-sm max-w-xl mx-auto mt-2 font-light font-poppins">
+              Backed by experienced travel planners, courteous chauffeur-guides, and licensed park naturalists.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/contact"
-                className="flex items-center justify-center gap-2 bg-white text-[#0E1B15] hover:bg-neutral-100 font-bold text-sm px-8 py-3.5 rounded-full transition-all duration-200 shadow-md hover:-translate-y-0.5"
-              >
-                Contact Us <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/packages"
-                className="flex items-center justify-center gap-2 border border-white/20 text-white hover:bg-white/10 font-medium text-sm px-8 py-3.5 rounded-full transition-all duration-200"
-              >
-                Browse Tour Packages
-              </Link>
-            </div>
           </div>
-        </section>
-      </main>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {teamHighlights.map((member, idx) => (
+              <motion.div
+                key={member.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-2xl p-7 border border-neutral-200/60 shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-neutral-100 text-neutral-800 flex items-center justify-center mb-4">
+                    <member.icon size={22} />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-poppins block mb-1">
+                    {member.role}
+                  </span>
+                  <h3 className="font-montserrat font-bold text-base text-neutral-900 mb-2">
+                    {member.title}
+                  </h3>
+                  <p className="text-xs text-neutral-500 font-light leading-relaxed font-poppins">
+                    {member.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Contact / Plan Your Trip CTA */}
+      <section className="bg-[#0E1B15] py-20 px-6 text-white">
+        <div className="container mx-auto max-w-3xl text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold font-montserrat text-white leading-tight"
+          >
+            Ready to Plan Your Sri Lanka Journey?
+          </motion.h2>
+          <p className="text-neutral-300 text-xs md:text-sm mt-4 mb-8 font-light font-poppins max-w-xl mx-auto">
+            Tell us where you want to go, how many days you have, and your preferred travel style. We’ll craft a personalized itinerary for you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2 bg-[#9CBFA7] text-neutral-900 hover:bg-[#8bb096] font-bold text-xs px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:-translate-y-0.5 font-poppins"
+            >
+              Contact Our Travel Team <ArrowRight size={14} />
+            </Link>
+            <Link
+              href="/tours"
+              className="flex items-center justify-center gap-2 border border-white/20 text-white hover:bg-white/10 font-medium text-xs px-8 py-4 rounded-full transition-all duration-200 font-poppins"
+            >
+              Browse Tour Packages
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

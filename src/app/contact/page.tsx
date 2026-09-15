@@ -10,22 +10,22 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Our Office",
-    value: "45 Galle Road, Colombo 03, Sri Lanka",
+    value: "Vihara Mawatha, Hewagama, Kaduwela, Sri Lanka",
     sub: "Head Office",
     color: "bg-rose-50 text-rose-600",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+94 77 123 4567",
+    value: "+94 74 227 6037",
     sub: "Mon–Sat, 9am–7pm",
     color: "bg-blue-50 text-blue-600",
   },
   {
     icon: Mail,
     label: "Email Us",
-    value: "hello@windmarktours.com",
-    sub: "We reply within 2 hours",
+    value: "info@windmarktours.com",
+    sub: "Prompt reply in business hours",
     color: "bg-amber-50 text-amber-600",
   },
   {
@@ -88,7 +88,7 @@ export default function ContactPage() {
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-block text-emerald-400 text-xs font-bold tracking-widest uppercase font-poppins mb-4"
+              className="inline-block text-emerald-400 text-xs font-semibold font-poppins mb-4"
             >
               Get In Touch
             </motion.span>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   <item.icon size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">{item.label}</p>
+                  <p className="text-xs font-semibold text-neutral-400 font-poppins">{item.label}</p>
                   <p className="text-sm font-semibold text-neutral-900 mt-0.5 leading-snug">{item.value}</p>
                   <p className="text-xs text-neutral-400 mt-0.5">{item.sub}</p>
                 </div>
@@ -148,7 +148,7 @@ export default function ContactPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold font-montserrat text-neutral-900">Send us a message</h2>
               <p className="text-neutral-500 text-sm mt-2 leading-relaxed">
-                Fill in the form and a travel specialist will reach out within 2 business hours.
+                Fill in the form and a travel specialist will reach out promptly during business hours.
               </p>
             </div>
 
@@ -163,7 +163,7 @@ export default function ContactPage() {
                   <CheckCircle className="text-emerald-500 w-16 h-16" />
                   <h3 className="font-montserrat font-bold text-xl text-neutral-900">Message Received!</h3>
                   <p className="text-neutral-500 text-sm max-w-xs">
-                    Thank you for reaching out. One of our travel specialists will contact you within 2 hours.
+                    Thank you for reaching out. One of our travel specialists will contact you shortly.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -272,7 +272,7 @@ export default function ContactPage() {
             {/* Map placeholder */}
             <div className="rounded-3xl overflow-hidden border border-neutral-200 shadow-md h-[340px] bg-neutral-100 relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58570999548!2d79.77642065!3d6.9218374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9123849767227!2d79.9806325!3d6.9011326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25732152862d5%3A0xa64639918b958c27!2sKaduwela%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -308,7 +308,7 @@ export default function ContactPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/94771234567?text=Hi%2C%20I%27m%20interested%20in%20a%20Sri%20Lanka%20tour%20with%20Windmark%20Tours!"
+              href="https://wa.me/94742276037?text=Hi%2C%20I%27m%20interested%20in%20a%20Sri%20Lanka%20tour%20with%20Windmark%20Tours!"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-[#25D366] hover:bg-[#1EBE5A] text-white rounded-2xl px-6 py-4 transition-all duration-200 shadow-md shadow-green-500/20 hover:-translate-y-0.5 group"

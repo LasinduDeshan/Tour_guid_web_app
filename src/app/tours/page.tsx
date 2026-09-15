@@ -113,27 +113,27 @@ function ToursContent() {
   const categoryParam = searchParams.get("category");
   const queryParam = searchParams.get("search") || searchParams.get("q");
 
-  const [tours, setTours] = useState<Tour[]>([]);
+  const defaultCategories = [
+    "All",
+    "Private Sri Lanka Tours",
+    "Custom / Tailor-Made Trips",
+    "Day Tours & Excursions",
+    "Wildlife & Safari",
+    "Culture & Heritage",
+    "Beaches & Coastal Escapes",
+    "Hill Country & Tea",
+    "Adventure & Nature",
+    "Honeymoon & Couples"
+  ];
+
+  const [tours, setTours] = useState<Tour[]>(mockTours);
   const [isLoadingTours, setIsLoadingTours] = useState(true);
   const [searchQuery, setSearchQuery] = useState(queryParam || "");
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [sortBy, setSortBy] = useState<string>("default");
-  const [categories, setCategories] = useState<string[]>([
-    "All",
-    "Colombo Tours",
-    "Beach Tours",
-    "Cultural Tours",
-    "Adventure Tours",
-    "Wildlife Tours",
-    "Ayurvedic Tours",
-    "Hill Country Tours",
-    "Honeymoon Tours",
-    "Family Tours",
-    "Golf Tours",
-    "Ramayana Tours"
-  ]);
+  const [categories, setCategories] = useState<string[]>(defaultCategories);
 
-  // Fetch Tours dynamically from PostgreSQL database via Prisma
+  // Fetch Tours dynamically from PostgreSQL database via Prisma with fallback to mockTours
   useEffect(() => {
     const fetchTours = async () => {
       try {
@@ -141,30 +141,23 @@ function ToursContent() {
         const res = await fetch(`/api/tours?lang=${language}`, { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
-          setTours(data);
-
-          // Dynamically aggregate and merge any custom tour categories in the database
-          const dbCategories = Array.from(new Set(data.map((t: any) => t.category)))
-            .filter(Boolean) as string[];
-
-          const merged = ["All", ...Array.from(new Set([
-            "Colombo Tours",
-            "Beach Tours",
-            "Cultural Tours",
-            "Adventure Tours",
-            "Wildlife Tours",
-            "Ayurvedic Tours",
-            "Hill Country Tours",
-            "Honeymoon Tours",
-            "Family Tours",
-            "Golf Tours",
-            "Ramayana Tours",
-            ...dbCategories
-          ]))];
-          setCategories(merged);
+          if (Array.isArray(data) && data.length > 0) {
+            setTours(data);
+            const dbCategories = Array.from(new Set(data.map((t: any) => t.category))).filter(Boolean) as string[];
+            const merged = ["All", ...Array.from(new Set([...defaultCategories.slice(1), ...dbCategories]))];
+            setCategories(merged);
+          } else {
+            setTours(mockTours);
+            setCategories(defaultCategories);
+          }
+        } else {
+          setTours(mockTours);
+          setCategories(defaultCategories);
         }
       } catch (err) {
-        console.error("Failed to load tour packages:", err);
+        console.warn("Failed to load tour packages from DB, using fallback mock tours:", err);
+        setTours(mockTours);
+        setCategories(defaultCategories);
       } finally {
         setIsLoadingTours(false);
       }
@@ -503,7 +496,7 @@ function ToursContent() {
                           priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                        <div className="absolute bottom-4 right-4 bg-white text-black px-4 py-1.5 rounded-xl font-bold text-xs shadow-md font-montserrat uppercase">
+                        <div className="absolute bottom-4 right-4 bg-white text-black px-4 py-1.5 rounded-xl font-bold text-xs shadow-md font-montserrat">
                           {formatFromPrice(selectedTour.price)}
                         </div>
                       </div>

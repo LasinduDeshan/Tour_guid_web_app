@@ -53,7 +53,7 @@ const Hero = () => {
             {t("hero.title_part1")} <br />
             <span className="font-purgatory text-7xl md:text-5xl text-white inline-block py-2 leading-none">{t("hero.title_part2")}</span>
           </h1>
-          <p className="text-base md:text-lg max-w-[750px] mx-auto mb-16 font-light opacity-90 drop-shadow-md">
+          <p className="text-base md:text-m max-w-[750px] mx-auto mb-16 font-light opacity-90 drop-shadow-md">
             {t("hero.subtitle")}
           </p>
         </motion.div>
@@ -63,12 +63,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col md:flex-row items-center bg-white p-2 rounded-[2rem] md:rounded-full w-full max-w-[850px] border border-black/5 shadow-2xl gap-3 md:gap-0"
+          className="flex flex-col md:flex-row items-center bg-/50 p-2 rounded-[2rem] md:rounded-full w-full max-w-[850px] border border-black/5 shadow-2xl gap-3 md:gap-0"
         >
           <div className="flex-1 flex items-center gap-4 py-3.5 px-6 bg-neutral-50 md:bg-transparent rounded-2xl md:rounded-none w-full">
-            <div className="text-black flex-shrink-0"><MapPin size={18} /></div>
+            <div className="text-white flex-shrink-0"><MapPin size={18} /></div>
             <div className="flex flex-col items-start w-full">
-              <label className="text-[0.65rem] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">{t("hero.where_to")}</label>
+              <label className="text-xs font-medium text-neutral-400 mb-0.5">{t("hero.where_to")}</label>
               <input 
                 type="text" 
                 value={whereTo}
@@ -79,10 +79,10 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="flex-1 flex items-center gap-4 py-3.5 px-6 bg-neutral-50 md:bg-transparent rounded-2xl md:rounded-none w-full md:border-l md:border-black/10">
-            <div className="text-black flex-shrink-0"><Calendar size={18} /></div>
+          <div className="flex-1 flex items-center gap-4 py-3.5 px-6 bg-neutral-50 md:bg-transparent rounded-2xl md:rounded-none w-full md:border-l md:border-white/20">
+            <div className="text-white flex-shrink-0"><Calendar size={18} /></div>
             <div className="flex flex-col items-start w-full">
-              <label className="text-[0.65rem] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">{t("hero.when")}</label>
+              <label className="text-xs font-medium text-neutral-400 mb-0.5">{t("hero.when")}</label>
               <input 
                 type="text" 
                 value={when}
@@ -93,7 +93,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <button type="submit" className="bg-black text-white hover:bg-neutral-800 rounded-2xl md:rounded-full py-4 px-8 text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
+          <button type="submit" className="bg-white text-black hover:bg-white/90 rounded-2xl md:rounded-full py-4 px-8 text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
             <Search size={16} />
             {t("hero.search_btn")}
           </button>

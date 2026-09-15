@@ -72,7 +72,7 @@ const LoginPage = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-semibold text-neutral-500 uppercase tracking-wider font-poppins">Email Address</label>
+            <label className="text-xs font-semibold text-neutral-600 font-poppins">Email Address</label>
             <div className="flex items-center gap-3.5 p-3.5 px-4 bg-neutral-50 rounded-xl border-2 border-transparent focus-within:border-black focus-within:bg-white transition-all duration-200">
               <Mail size={18} className="text-neutral-400 flex-shrink-0" />
               <input 
@@ -87,7 +87,7 @@ const LoginPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-semibold text-neutral-500 uppercase tracking-wider font-poppins">Password</label>
+            <label className="text-xs font-semibold text-neutral-600 font-poppins">Password</label>
             <div className="flex items-center gap-3.5 p-3.5 px-4 bg-neutral-50 rounded-xl border-2 border-transparent focus-within:border-black focus-within:bg-white transition-all duration-200">
               <Lock size={18} className="text-neutral-400 flex-shrink-0" />
               <input 

@@ -17,17 +17,15 @@ export interface Tour {
   price: number;
   duration: string;
   category: 
-    | "Colombo Tours"
-    | "Beach Tours"
-    | "Cultural Tours"
-    | "Adventure Tours"
-    | "Wildlife Tours"
-    | "Ayurvedic Tours"
-    | "Hill Country Tours"
-    | "Honeymoon Tours"
-    | "Family Tours"
-    | "Golf Tours"
-    | "Ramayana Tours";
+    | "Private Sri Lanka Tours"
+    | "Custom / Tailor-Made Trips"
+    | "Day Tours & Excursions"
+    | "Wildlife & Safari"
+    | "Culture & Heritage"
+    | "Beaches & Coastal Escapes"
+    | "Hill Country & Tea"
+    | "Adventure & Nature"
+    | "Honeymoon & Couples";
   facilities: string[];
   roadmap: ItineraryStep[];
 }
@@ -35,18 +33,18 @@ export interface Tour {
 export const mockTours: Tour[] = [
   {
     id: "1",
-    title: "Chalo Colombo & Haalo Sri Lanka City Wonders",
+    title: "Colombo City Highlights & Cultural Wonders",
     description: "Explore the bustling commercial capital of Sri Lanka. Visit the colonial Dutch Hospital, marvel at the sacred Gangarama Temple on Beira Lake, shop at local bazaars, and walk the iconic Galle Face Green at sunset.",
     image: "/tours/kandy.jpg",
-    price: 45,
+    price: 65,
     duration: "1 Day",
-    category: "Colombo Tours",
+    category: "Day Tours & Excursions",
     facilities: [
-      "Luxury air-conditioned sedan",
-      "Professional English guide",
-      "All landmark entry tickets",
+      "Private air-conditioned vehicle",
+      "Experienced English-speaking chauffeur-guide",
+      "Gangarama Temple & museum entry tickets",
       "Chilled bottled water",
-      "Complimentary high-speed Wi-Fi"
+      "Flexible pick-up and drop-off"
     ],
     roadmap: [
       {
@@ -63,18 +61,18 @@ export const mockTours: Tour[] = [
   },
   {
     id: "2",
-    title: "Mirissa Golden Coast & Beach Getaway",
-    description: "Breathe in the ultimate southern coast sunshine. Stroll pristine sandy shores, learn surfing from certified instructors, and unwind in private beachfront luxury retreats with whale-watching morning charters.",
+    title: "Mirissa & Southern Coast Beach Retreat",
+    description: "Relax along the sun-drenched southern coastline. Enjoy golden beaches, coastal drives, visit the historic Galle Fort, and join a morning whale-watching boat excursion.",
     image: "/bento/mirissa-beach.png",
-    price: 95,
+    price: 240,
     duration: "3 Days",
-    category: "Beach Tours",
+    category: "Beaches & Coastal Escapes",
     facilities: [
-      "4-star beachfront luxury hotel",
-      "Daily surf equipment hire",
-      "Private A/C van with driver",
-      "Whale watching morning charter",
-      "Daily gourmet breakfasts"
+      "Comfortable beachfront boutique hotel stays",
+      "Daily breakfast included",
+      "Private AC transport with chauffeur-guide",
+      "Morning whale watching boat tickets",
+      "Scenic coastal transfer to Galle Fort"
     ],
     roadmap: [
       {
@@ -100,8 +98,8 @@ export const mockTours: Tour[] = [
       {
         day: 3,
         location: "Galle",
-        title: "Mirissa Deep Sea Whale Watching",
-        description: "Witness blue whales on a morning charter and take sunset photos at Coconut Tree Hill.",
+        title: "Mirissa Morning Whale Watching",
+        description: "Experience morning marine life watching and take sunset photos at Coconut Tree Hill.",
         x: 92,
         y: 390,
         lat: 6.0367,
@@ -111,18 +109,18 @@ export const mockTours: Tour[] = [
   },
   {
     id: "3",
-    title: "Ancient Ruins & Sacred Cultural Triangle",
-    description: "Scale the legendary Sigiriya Rock Fortress, explore the sacred ruins of Anuradhapura, wander ancient royal gardens, and see the massive historic stupas that defined the island's golden age.",
+    title: "Ancient Kingdoms & Cultural Triangle Explorer",
+    description: "Scale the majestic Sigiriya Rock Fortress, explore the cave temples of Dambulla, wander through sacred ancient ruins in Anuradhapura, and visit the Temple of the Tooth in Kandy.",
     image: "/bento/sigiriya.png",
-    price: 180,
+    price: 360,
     duration: "4 Days",
-    category: "Cultural Tours",
+    category: "Culture & Heritage",
     facilities: [
-      "Bespoke 4-star heritage hotels",
-      "Sigiriya rock explorer passes",
-      "Private sedan with dedicated driver",
-      "Certified archaeological guide",
-      "Traditional Sri Lankan village lunch"
+      "Handpicked 3 to 4-star boutique hotels",
+      "Daily breakfast included",
+      "Sigiriya & Dambulla entry tickets included",
+      "Dedicated private vehicle & local chauffeur-guide",
+      "Traditional village cultural lunch"
     ],
     roadmap: [
       {
@@ -139,7 +137,7 @@ export const mockTours: Tour[] = [
         day: 2,
         location: "Dambulla",
         title: "Sigiriya Lion Rock Fortress",
-        description: "Ascend the legendary Sigiriya Rock Fortress at sunrise before the heat peaks.",
+        description: "Ascend the legendary Sigiriya Rock Fortress in the morning coolness.",
         x: 160,
         y: 195,
         lat: 7.8742,
@@ -159,7 +157,7 @@ export const mockTours: Tour[] = [
         day: 4,
         location: "Anuradhapura",
         title: "Royal Kandy & Tooth Temple",
-        description: "Travel to Kandy and experience the sacred Tooth Relic evening guardian ceremony.",
+        description: "Travel to Kandy and experience the sacred Tooth Relic evening ceremony.",
         x: 145,
         y: 120,
         lat: 8.3114,
@@ -169,25 +167,25 @@ export const mockTours: Tour[] = [
   },
   {
     id: "4",
-    title: "Kitulgala White Water & Peak Wilderness Adventure",
-    description: "Embark on an adrenaline-packed expedition. Go white-water rafting on Kelani River, hike through rain forests, canyon down majestic rock waterfalls, and climb Adams Peak wilderness under the starlight.",
+    title: "Kitulgala Rafting & Peak Wilderness Adventure",
+    description: "An exciting outdoor expedition. Go white-water rafting on the Kelani River, hike through lush rainforests, explore rock pools, and trek scenic mountain trails.",
     image: "/bento/ella-bridge.png",
-    price: 110,
+    price: 180,
     duration: "2 Days",
-    category: "Adventure Tours",
+    category: "Adventure & Nature",
     facilities: [
-      "Certified adventure instructor",
-      "Premium safety & rafting gear",
-      "Adams Peak night hiking permits",
-      "Eco-lodge forest accommodations",
-      "All canyoning and zipline passes"
+      "Experienced rafting instructor & safety gear",
+      "Comfortable riverside eco-lodge stay",
+      "Private AC transport throughout",
+      "Daily breakfast & energy refreshments",
+      "Rainforest trail exploration"
     ],
     roadmap: [
       {
         day: 1,
         location: "Colombo",
-        title: "Kelani River Rapid Rafting",
-        description: "Tackle Class II and III rapids in Kitulgala and canyon down rock waterfalls.",
+        title: "Kelani River Rafting in Kitulgala",
+        description: "Tackle Class II and III rapids in Kitulgala and swim in natural rock pools.",
         x: 80,
         y: 300,
         lat: 6.9271,
@@ -196,8 +194,8 @@ export const mockTours: Tour[] = [
       {
         day: 2,
         location: "Kandy",
-        title: "Peak Wilderness Pilgrimage Trail",
-        description: "Embark on a midnight trek up Adams Peak to watch the sunrise break through clouds.",
+        title: "Peak Wilderness Nature Hike",
+        description: "Hike scenic forest paths and enjoy mountain vistas before heading back.",
         x: 160,
         y: 240,
         lat: 7.2906,
@@ -207,25 +205,35 @@ export const mockTours: Tour[] = [
   },
   {
     id: "5",
-    title: "Yala National Park Elite Leopard Expedition",
-    description: "Witness the majestic wildlife of Sri Lanka in deep comfort. Join private 4x4 safaris with naturalists to track leopards, giant elephant herds, sloth bears, and beautiful marine wetlands in Yala.",
+    title: "Yala & Udawalawe Wildlife Safari Experience",
+    description: "Witness Sri Lanka's wildlife in their natural habitat. Embark on private 4x4 jeep safaris to spot leopards, wild elephant herds, sloth bears, and abundant birdlife in Yala.",
     image: "/bento/leopard.png",
-    price: 160,
-    duration: "1 Day",
-    category: "Wildlife Tours",
+    price: 290,
+    duration: "2 Days",
+    category: "Wildlife & Safari",
     facilities: [
-      "Private customized 4x4 safari jeep",
-      "Dedicated expert park naturalist",
-      "Yala National Park entry permits",
-      "Luxury A/C round-trip transport",
-      "Gourmet picnic lunch in the park"
+      "Private 4x4 safari jeep with experienced park tracker",
+      "National park entrance permits included",
+      "Comfortable safari lodge stay with breakfast",
+      "Private AC transport from Colombo or South Coast",
+      "Chilled bottled water on all drives"
     ],
     roadmap: [
       {
         day: 1,
+        location: "Colombo",
+        title: "Transfer to Yala & Afternoon Safari",
+        description: "Drive to Yala and embark on an afternoon 4x4 game drive tracking leopards.",
+        x: 80,
+        y: 300,
+        lat: 6.9271,
+        lng: 79.8612
+      },
+      {
+        day: 2,
         location: "Yala",
-        title: "Udawalawe & Yala Deep Safari",
-        description: "Depart early for a multi-hour leopard tracking and wild elephant safari inside Yala.",
+        title: "Early Morning Safari & Coastal Return",
+        description: "Catch early morning wildlife activity before returning along the south coast.",
         x: 215,
         y: 360,
         lat: 6.3725,
@@ -235,25 +243,25 @@ export const mockTours: Tour[] = [
   },
   {
     id: "6",
-    title: "Traditional Hela Ayurvedic Wellness & Spa Retreat",
-    description: "Restore your mind, body, and spirit. Stay in an award-winning eco-luxury wellness villa and experience custom herbal steam baths, personalized oil therapies, guided yoga, and detoxifying nutrition paths.",
+    title: "Ayurvedic Nature & Wellness Retreat",
+    description: "Relax and rejuvenate your mind and body. Stay in a peaceful green sanctuary and experience traditional herbal steam baths, authentic oil therapies, and guided morning yoga.",
     image: "/tours/kandy.jpg",
-    price: 250,
+    price: 480,
     duration: "5 Days",
-    category: "Ayurvedic Tours",
+    category: "Custom / Tailor-Made Trips",
     facilities: [
-      "Eco-luxury private pool villa",
-      "Personal Ayurvedic doctor consult",
-      "Daily specialized herbal therapies",
-      "Guided yoga & sunrise meditation",
-      "Full board organic detox meals"
+      "Tranquil nature resort accommodation",
+      "Consultation with resident Ayurvedic practitioner",
+      "Daily traditional herbal oil therapies & steam baths",
+      "Morning yoga & meditation sessions",
+      "Nutritious healthy breakfast included"
     ],
     roadmap: [
       {
         day: 1,
         location: "Colombo",
-        title: "Bespoke Wellness Sanctuary",
-        description: "Check into your tranquil eco-villa and enjoy a personal medical wellness consultation.",
+        title: "Arrival & Ayurvedic Wellness Consultation",
+        description: "Check into your tranquil wellness retreat and meet your wellness practitioner.",
         x: 80,
         y: 300,
         lat: 6.9271,
@@ -262,8 +270,8 @@ export const mockTours: Tour[] = [
       {
         day: 2,
         location: "Bentota",
-        title: "Hela Herbal Baths & Massage",
-        description: "Receive deep hot oil massages, herbal steam baths, and dynamic acupuncture.",
+        title: "Herbal Oil Therapy & Steam Baths",
+        description: "Experience traditional herbal body massages and steam baths.",
         x: 82,
         y: 345,
         lat: 6.4200,
@@ -272,8 +280,8 @@ export const mockTours: Tour[] = [
       {
         day: 3,
         location: "Bentota",
-        title: "Sinharaja Rainforest Forest Bathing",
-        description: "Trek quietly through the pristine UNESCO reserve to connect with natural energy.",
+        title: "Sinharaja Rainforest Walking Meditation",
+        description: "A gentle guided walk through the lush green canopy of the forest reserve.",
         x: 82,
         y: 345,
         lat: 6.4200,
@@ -282,8 +290,8 @@ export const mockTours: Tour[] = [
       {
         day: 4,
         location: "Sinharaja",
-        title: "Rampart Yoga in Ancient Galle Fort",
-        description: "Practice peaceful yoga overlooking the Indian Ocean from the Galle ramparts.",
+        title: "Gentle Coastal Yoga in Galle",
+        description: "Practice peaceful yoga overlooking the Indian Ocean from the ramparts.",
         x: 125,
         y: 355,
         lat: 6.3986,
@@ -292,8 +300,8 @@ export const mockTours: Tour[] = [
       {
         day: 5,
         location: "Galle",
-        title: "Ayurvedic Farewell Consultation",
-        description: "Conclude with diet planning recommendations and enjoy a smooth transfer back.",
+        title: "Wellness Summary & Return Transfer",
+        description: "Conclude your wellness retreat with lifestyle tips and private return transfer.",
         x: 92,
         y: 390,
         lat: 6.0367,
@@ -304,24 +312,24 @@ export const mockTours: Tour[] = [
   {
     id: "7",
     title: "Misty Ella & Nuwara Eliya Hill Country Escape",
-    description: "Ride the iconic blue train through rolling valleys, admire the stone columns of Nine Arch Bridge, hike mist-shrouded tea plantations, and stay in gorgeous mountain bungalows overlooking valleys.",
+    description: "Ride the scenic hill country train through rolling green valleys, admire the Nine Arch Bridge, hike among tea plantations, and stay in comfortable mountain hotels.",
     image: "/bento/ella-bridge.png",
-    price: 140,
+    price: 260,
     duration: "3 Days",
-    category: "Hill Country Tours",
+    category: "Hill Country & Tea",
     facilities: [
-      "First-class observation rail tickets",
-      "Historic colonial tea bungalow stay",
-      "Private tea factory estate tour",
-      "Dedicated mountain driver guide",
-      "All viewpoint entry permits"
+      "Scenic train tickets between Kandy and Ella",
+      "Charming mountain view hotel stays",
+      "Guided tea estate & factory visit with tasting",
+      "Private AC vehicle with experienced mountain driver",
+      "Daily breakfast included"
     ],
     roadmap: [
       {
         day: 1,
         location: "Colombo",
-        title: "Observation Deck Blue Train",
-        description: "Board the legendary blue train through misty pine forests and tea hills to Nuwara Eliya.",
+        title: "Scenic Drive & Train to Hill Country",
+        description: "Travel inland to Nuwara Eliya and enjoy cool mountain air and tea hills.",
         x: 80,
         y: 300,
         lat: 6.9271,
@@ -330,8 +338,8 @@ export const mockTours: Tour[] = [
       {
         day: 2,
         location: "Nuwara Eliya",
-        title: "Ella Nine Arch & Mini Adams Peak",
-        description: "Walk the Nine Arch Bridge, hike Little Adams Peak, and admire the sweeping views.",
+        title: "Nine Arch Bridge & Little Adam's Peak",
+        description: "Walk the Nine Arch Bridge, hike Little Adam's Peak, and enjoy valley views.",
         x: 165,
         y: 290,
         lat: 6.9497,
@@ -340,8 +348,8 @@ export const mockTours: Tour[] = [
       {
         day: 3,
         location: "Ella",
-        title: "Kandy Tea Gardens & Waterfalls",
-        description: "Tour historic tea production rooms, watch tea pluckers, and return through Kandy.",
+        title: "Tea Factory Tour & Waterfalls",
+        description: "Tour an authentic tea factory, watch tea processing, and visit Ravana Falls.",
         x: 180,
         y: 315,
         lat: 6.8724,
@@ -351,25 +359,25 @@ export const mockTours: Tour[] = [
   },
   {
     id: "8",
-    title: "Romantic Escape & Private Canopy Pool Villas",
-    description: "Create unforgettable memories on your premium honeymoon. Unwind in exclusive private canopy villas in Ella, enjoy candlelit dinners on Mirissa's shore, and take private helicopter transfers across islands.",
+    title: "Romantic Sri Lanka Couples Escape",
+    description: "Create lasting memories on a private romantic escape. Unwind in boutique hill country hotels, enjoy a candlelit beach dinner on the southern coast, and explore at your own relaxed pace.",
     image: "/bento/mirissa-beach.png",
-    price: 320,
+    price: 620,
     duration: "6 Days",
-    category: "Honeymoon Tours",
+    category: "Honeymoon & Couples",
     facilities: [
-      "Private canopy plunge pool villa",
-      "VIP scenic helicopter island transfer",
-      "Private beach candlelit dinners",
-      "Luxury SUV with private chauffeur",
-      "VIP airport arrivals lounge access"
+      "Handpicked romantic boutique hotels & villas",
+      "Daily breakfast included",
+      "Special candlelit dinner by the beach",
+      "Private air-conditioned sedan with chauffeur-guide",
+      "Customizable daily schedule for couples"
     ],
     roadmap: [
       {
         day: 1,
         location: "Colombo",
-        title: "Candlelit Kandy Lake Dinner",
-        description: "Check into a luxury estate in Kandy and enjoy private lakeside fine dining.",
+        title: "Arrival & Kandy Lake Stroll",
+        description: "Check into your boutique stay in Kandy and enjoy a lakeside stroll.",
         x: 80,
         y: 300,
         lat: 6.9271,
@@ -378,8 +386,8 @@ export const mockTours: Tour[] = [
       {
         day: 2,
         location: "Kandy",
-        title: "British High Tea in Misty Hills",
-        description: "Sip tea overlooking green valleys at the Grand Hotel gardens in Nuwara Eliya.",
+        title: "Tea Country High Tea & Waterfalls",
+        description: "Sip Ceylon tea overlooking misty valleys in Nuwara Eliya.",
         x: 160,
         y: 240,
         lat: 7.2906,
@@ -388,8 +396,8 @@ export const mockTours: Tour[] = [
       {
         day: 3,
         location: "Nuwara Eliya",
-        title: "Ella Valley Canopy Villa Retreat",
-        description: "Relax in your private pool villa hanging over the mist-clad mountain ravines.",
+        title: "Ella Valley Scenic Retreat",
+        description: "Relax in your scenic mountain hotel with views over Ella Gap.",
         x: 165,
         y: 290,
         lat: 6.9497,
@@ -398,8 +406,8 @@ export const mockTours: Tour[] = [
       {
         day: 4,
         location: "Ella",
-        title: "Luxury Glamping Safari in Yala",
-        description: "Stay in an ultra-luxury glamping tent and trace leopards at sunset in Yala.",
+        title: "Yala Afternoon Safari Drive",
+        description: "Enjoy a private 4x4 game drive in Yala National Park.",
         x: 180,
         y: 315,
         lat: 6.8724,
@@ -408,8 +416,8 @@ export const mockTours: Tour[] = [
       {
         day: 5,
         location: "Yala",
-        title: "Couples Massage in Ancient Galle",
-        description: "Unwind with deep-tissue therapies inside a 400-year-old Dutch villa spa.",
+        title: "Galle Fort & Candlelit Beach Dinner",
+        description: "Explore the cobblestone ramparts of Galle Fort and enjoy a beach dinner.",
         x: 215,
         y: 360,
         lat: 6.3725,
@@ -418,8 +426,8 @@ export const mockTours: Tour[] = [
       {
         day: 6,
         location: "Galle",
-        title: "Scenic Helicopter Flyback",
-        description: "Take a memorable private helicopter flight back over beaches to Colombo airport.",
+        title: "Relaxed Coastal Return",
+        description: "Enjoy morning beach time before your private transfer to the airport.",
         x: 92,
         y: 390,
         lat: 6.0367,
@@ -429,25 +437,25 @@ export const mockTours: Tour[] = [
   },
   {
     id: "9",
-    title: "Ultimate Family Multi-Generational Explorer",
-    description: "A meticulously balanced holiday designed for families. Includes interactive cultural scavenger hunts, kid-friendly wildlife safaris, baby turtle releases on coastlines, and stays in luxury resorts with extensive amenities.",
-    image: "/bento/mirissa-beach.png",
-    price: 220,
-    duration: "7 Days",
-    category: "Family Tours",
+    title: "Windmark Signature Discovery Island Tour",
+    description: "Our comprehensive 10-day island journey. Thoughtfully paced to connect ancient cultural kingdoms, misty tea hills, thrilling wildlife safaris, and relaxing southern beaches in one seamless itinerary.",
+    image: "/anthony-lim-H-qDQSXBBBc-unsplash.jpg",
+    price: 890,
+    duration: "10 Days",
+    category: "Private Sri Lanka Tours",
     facilities: [
-      "Spacious luxury family touring van",
-      "Interactive kids scavenger hunt book",
-      "Private family wildlife safaris",
-      "Beachfront child-friendly resorts",
-      "Dedicated 24/7 family guide support"
+      "9 nights in handpicked boutique hotels & lodges",
+      "Daily breakfast included throughout",
+      "Private AC vehicle with dedicated chauffeur-guide",
+      "All major entrance tickets (Sigiriya, Dambulla, Tooth Temple)",
+      "Private 4x4 jeep safari in Minneriya or Yala"
     ],
     roadmap: [
       {
         day: 1,
         location: "Colombo",
-        title: "Negombo Sunset Lagoon Ride",
-        description: "Check into a beach hotel and sail Negombo lagoon to see local fishermen.",
+        title: "Negombo & Coastal Welcome",
+        description: "Arrive in Sri Lanka and relax at a comfortable beach hotel in Negombo.",
         x: 80,
         y: 300,
         lat: 6.9271,
@@ -456,8 +464,8 @@ export const mockTours: Tour[] = [
       {
         day: 2,
         location: "Negombo",
-        title: "Sigiriya Treasure Quest hike",
-        description: "Participate in a fun, interactive historic treasure hunt climbing Lion Rock.",
+        title: "Dambulla Cave Temple",
+        description: "Journey inland and climb the stunning cave temple complex of Dambulla.",
         x: 80,
         y: 260,
         lat: 7.2089,
@@ -466,8 +474,8 @@ export const mockTours: Tour[] = [
       {
         day: 3,
         location: "Sigiriya",
-        title: "Minneriya Wild Elephant Gathering",
-        description: "Board custom safari jeeps to witness hundreds of elephants gather by the lake.",
+        title: "Sigiriya Lion Rock Fortress",
+        description: "Climb the ancient rock fortress and explore the water gardens below.",
         x: 165,
         y: 175,
         lat: 7.9570,
@@ -476,8 +484,8 @@ export const mockTours: Tour[] = [
       {
         day: 4,
         location: "Minneriya",
-        title: "Kandy Cultural Fire Dance show",
-        description: "Watch spectacular drumming, acrobatic spinning, and traditional fire-walking.",
+        title: "Minneriya Elephant Gathering Safari",
+        description: "Board private safari jeeps to observe wild elephant herds in Minneriya.",
         x: 185,
         y: 150,
         lat: 8.0261,
@@ -486,8 +494,8 @@ export const mockTours: Tour[] = [
       {
         day: 5,
         location: "Kandy",
-        title: "Nuwara Eliya Tea Pluck Challenge",
-        description: "Participate in a friendly tea-plucking contest with estate workers in Nuwara Eliya.",
+        title: "Royal Botanical Gardens & Tooth Temple",
+        description: "Visit Peradeniya Botanical Gardens and the sacred Temple of the Tooth in Kandy.",
         x: 160,
         y: 240,
         lat: 7.2906,
@@ -496,8 +504,8 @@ export const mockTours: Tour[] = [
       {
         day: 6,
         location: "Nuwara Eliya",
-        title: "Kosgoda Sea Turtle Hatchery",
-        description: "Adopt and release newborn baby sea turtles into the warm Indian Ocean waves.",
+        title: "Tea Plantations & Nuwara Eliya",
+        description: "Tour tea factories and admire cascading waterfalls in the cool hill country.",
         x: 165,
         y: 290,
         lat: 6.9497,
@@ -505,109 +513,43 @@ export const mockTours: Tour[] = [
       },
       {
         day: 7,
-        location: "Bentota",
-        title: "Sandy Beach Games & Departure",
-        description: "Enjoy beach volleyball and jet-skiing before your private transfer to the airport.",
-        x: 82,
-        y: 345,
-        lat: 6.4200,
-        lng: 79.9997
-      }
-    ]
-  },
-  {
-    id: "10",
-    title: "Signature Fairways: Victoria Golf & Country Resort",
-    description: "Tee off in absolute paradise. Play on the award-winning 18-hole championship golf course nestled along the scenic Victoria reservoir and surrounded by Kandy's gorgeous tropical mountain forest.",
-    image: "/bento/leopard.png",
-    price: 195,
-    duration: "2 Days",
-    category: "Golf Tours",
-    facilities: [
-      "18-hole championship green fees",
-      "Private golf cart & dedicated caddy",
-      "Victoria Golf luxury bungalow stay",
-      "Executive sedan with private chauffeur",
-      "Welcome dinner at the Lakeview Club"
-    ],
-    roadmap: [
+        location: "Ella",
+        title: "Scenic Train Ride & Nine Arch Bridge",
+        description: "Ride the iconic train to Ella and walk across the Nine Arch Bridge.",
+        x: 180,
+        y: 315,
+        lat: 6.8724,
+        lng: 81.0476
+      },
       {
-        day: 1,
+        day: 8,
+        location: "Yala",
+        title: "Yala National Park Safari",
+        description: "Embark on an afternoon 4x4 safari tracking leopards and wildlife in Yala.",
+        x: 215,
+        y: 360,
+        lat: 6.3725,
+        lng: 81.5160
+      },
+      {
+        day: 9,
+        location: "Galle",
+        title: "Historic Galle Fort & Mirissa Beach",
+        description: "Explore the UNESCO-listed Galle Fort ramparts and relax on the beach.",
+        x: 92,
+        y: 390,
+        lat: 6.0367,
+        lng: 80.2170
+      },
+      {
+        day: 10,
         location: "Colombo",
-        title: "Scenic drive to Victoria Golf Club",
-        description: "Tee off on a world-class course nestled alongside the majestic Knuckles mountain range.",
+        title: "Colombo Highlights & Departure",
+        description: "Enjoy a brief city tour of Colombo before your airport transfer.",
         x: 80,
         y: 300,
         lat: 6.9271,
         lng: 79.8612
-      },
-      {
-        day: 2,
-        location: "Kandy",
-        title: "Championship Round & Return",
-        description: "Play your second round, enjoy lakeside lunch, and head back in luxury to Colombo.",
-        x: 160,
-        y: 240,
-        lat: 7.2906,
-        lng: 80.6337
-      }
-    ]
-  },
-  {
-    id: "11",
-    title: "Legendary Ramayana Trail Pilgrimage Tour",
-    description: "Journey through sacred epic history. Visit the legendary Seetha Amman temple in Ashoka Vatika, explore Ravana caves and Ella waterfalls, and climb ancient mountain ruins mentioned in sacred texts.",
-    image: "/bento/sigiriya.png",
-    price: 150,
-    duration: "4 Days",
-    category: "Ramayana Tours",
-    facilities: [
-      "Private A/C sedan with driver",
-      "Certified Ramayana history guide",
-      "Excellent 4-star vegetarian hotel stays",
-      "Puja offering arrangements at shrines",
-      "All sacred site entry permits"
-    ],
-    roadmap: [
-      {
-        day: 1,
-        location: "Colombo",
-        title: "Munneswaram & Manavari Kovils",
-        description: "Visit ancient shrines dedicated to Lord Rama and perform traditional puja rituals.",
-        x: 80,
-        y: 300,
-        lat: 6.9271,
-        lng: 79.8612
-      },
-      {
-        day: 2,
-        location: "Sigiriya",
-        title: "Ashoka Vatika & Seetha Amman temple",
-        description: "Wander the legendary gardens where Princess Seetha was held captive in Nuwara Eliya.",
-        x: 165,
-        y: 175,
-        lat: 7.9570,
-        lng: 80.7603
-      },
-      {
-        day: 3,
-        location: "Kandy",
-        title: "Ravana Ella Caves & Waterfalls",
-        description: "Hike up the rock cliffs to explore the hidden cave vaults and legendary waterfall drops.",
-        x: 160,
-        y: 240,
-        lat: 7.2906,
-        lng: 80.6337
-      },
-      {
-        day: 4,
-        location: "Nuwara Eliya",
-        title: "Sanjeevani Hills Rumassala trek",
-        description: "Trek the Rumassala hill in Galle, believed to be a dropped piece of the Himalayas.",
-        x: 165,
-        y: 290,
-        lat: 6.9497,
-        lng: 80.7891
       }
     ]
   }
@@ -628,17 +570,15 @@ export interface Destination {
   lat: number;
   lng: number;
   categoryFilter: 
-    | "Colombo Tours"
-    | "Beach Tours"
-    | "Cultural Tours"
-    | "Adventure Tours"
-    | "Wildlife Tours"
-    | "Ayurvedic Tours"
-    | "Hill Country Tours"
-    | "Honeymoon Tours"
-    | "Family Tours"
-    | "Golf Tours"
-    | "Ramayana Tours";
+    | "Private Sri Lanka Tours"
+    | "Custom / Tailor-Made Trips"
+    | "Day Tours & Excursions"
+    | "Wildlife & Safari"
+    | "Culture & Heritage"
+    | "Beaches & Coastal Escapes"
+    | "Hill Country & Tea"
+    | "Adventure & Nature"
+    | "Honeymoon & Couples";
 }
 
 export const mockDestinations: Destination[] = [
@@ -646,140 +586,140 @@ export const mockDestinations: Destination[] = [
     id: "d1",
     name: "Sigiriya Rock Fortress",
     region: "Cultural Triangle",
-    description: "A towering 200-meter volcanic plug topped by an ancient palace fortress built by King Kasyapa. Wander through manicured water gardens and climb through giant lion-paw gateways.",
+    description: "Ideal for history lovers and adventurous walkers. Climb the ancient 5th-century rock citadel at sunrise for panoramic jungle views, see ancient fresco paintings, and explore manicured royal water gardens.",
     image: "/bento/sigiriya.png",
-    bestTime: "May - September",
+    bestTime: "May - September (Dry) / Year-round",
     temp: "31°C",
-    attractions: ["Sigiriya Lion Rock", "Mirror Wall", "Water Gardens"],
-    activities: ["Climbing the fortress", "Sigiriya museum walkthrough", "Wandering royal gardens"],
+    attractions: ["Sigiriya Lion Rock", "Mirror Wall Frescoes", "Ancient Water Gardens"],
+    activities: ["Climbing the rock fortress at dawn", "Visiting Sigiriya archaeological museum", "Exploring Pidurangala viewpoint"],
     lat: 7.9570,
     lng: 80.7603,
-    categoryFilter: "Cultural Tours"
+    categoryFilter: "Culture & Heritage"
   },
   {
     id: "d2",
     name: "Ella Mountain Retreat",
     region: "Mountain Country",
-    description: "A mist-veiled sanctuary surrounded by rolling green tea hills, sweeping valleys, and majestic stone railway columns. Perfect for mountain hikers and café wanderers.",
+    description: "Best for hikers, couples, and scenic train riders. A laid-back mountain town surrounded by cool cloud forests, tea estates, the iconic Nine Arch Bridge, and dramatic hiking trails like Little Adam's Peak.",
     image: "/bento/ella-bridge.png",
-    bestTime: "January - April",
+    bestTime: "January - April (Clear skies)",
     temp: "22°C",
     attractions: ["Nine Arch Bridge", "Little Adam's Peak", "Ravana Falls"],
-    activities: ["Hiking Little Adam's Peak", "Nine Arch bridge photography", "Exploring Ella Rock"],
+    activities: ["Scenic blue train ride from Kandy", "Sunrise hike at Little Adam's Peak", "Nine Arch bridge photography"],
     lat: 6.8724,
     lng: 81.0476,
-    categoryFilter: "Hill Country Tours"
+    categoryFilter: "Hill Country & Tea"
   },
   {
     id: "d3",
     name: "Yala National Park",
     region: "Dry Zone Coast",
-    description: "An untamed scrubland where leopards stalk, wild elephants roam, and dry tropical forests meet the ocean. Has one of the highest leopard densities in the world.",
+    description: "A must-visit for wildlife photographers and safari enthusiasts. Famous for having one of the world's highest concentrations of leopards, plus wild elephants, sloth bears, crocodiles, and diverse birdlife.",
     image: "/bento/leopard.png",
-    bestTime: "February - June",
+    bestTime: "February - July (Peak wildlife activity)",
     temp: "29°C",
-    attractions: ["Leopard safaris", "Sithulpawwa Rock Temple", "Beach dunes"],
-    activities: ["Leopard tracking 4x4 safari", "Wetland birdwatching", "Jungle campfire dining"],
+    attractions: ["Leopard safaris (Block 1)", "Sithulpawwa Ancient Temple", "Coastal dunes & lagoons"],
+    activities: ["Morning and evening 4x4 jeep safaris", "Birdwatching around wetland lakes", "Stay in nearby safari lodges"],
     lat: 6.3725,
     lng: 81.5160,
-    categoryFilter: "Wildlife Tours"
+    categoryFilter: "Wildlife & Safari"
   },
   {
     id: "d4",
     name: "Mirissa Coastal Paradise",
     region: "Deep South Coast",
-    description: "Pristine golden sands, turquoise surfing bays, colonial historic towns, and majestic deep-sea blue whale migrations.",
+    description: "Perfect for sun-seekers, marine enthusiasts, and relaxed beach vacations. Known for gentle golden beaches, lively evening seafood spots, morning whale-watching boat excursions, and surfing bays.",
     image: "/bento/mirissa-beach.png",
-    bestTime: "December - April",
+    bestTime: "December - April (Calm seas & whales)",
     temp: "28°C",
     attractions: ["Coconut Tree Hill", "Secret Beach", "Parrot Rock"],
-    activities: ["Deep-sea whale watching", "Surfing pristine bays", "Sunset walks on Coconut Hill"],
+    activities: ["Morning blue whale watching cruise", "Surfing gentle southern breaks", "Sunset photos at Coconut Tree Hill"],
     lat: 5.9482,
     lng: 80.4578,
-    categoryFilter: "Beach Tours"
+    categoryFilter: "Beaches & Coastal Escapes"
   },
   {
     id: "d5",
     name: "Kandy Mountain City",
     region: "Hill Country",
-    description: "The final royal bastion of ancient Sri Lankan kings, nestled around a beautiful lake and rich botanical forests. Home to the sacred Tooth Relic.",
+    description: "Great for culture enthusiasts and spiritual explorers. Sri Lanka's historic hill capital nestled around a serene lake, housing the sacred Temple of the Tooth Relic and lush Royal Botanical Gardens.",
     image: "/tours/kandy.jpg",
     bestTime: "December - April",
     temp: "25°C",
-    attractions: ["Temple of the Tooth Relic", "Peradeniya Gardens", "Kandy Lake sunset"],
-    activities: ["Attending Tooth guardian puja", "Walking botanical canopies", "Traditional Kandyan fire dances"],
+    attractions: ["Temple of the Sacred Tooth Relic", "Peradeniya Royal Botanical Gardens", "Kandy Lake Promenade"],
+    activities: ["Attending evening Tooth Relic ceremony", "Walking giant palm avenues at Peradeniya", "Watching traditional Kandyan cultural dances"],
     lat: 7.2906,
     lng: 80.6337,
-    categoryFilter: "Colombo Tours"
+    categoryFilter: "Culture & Heritage"
   },
   {
     id: "d6",
     name: "Galle Fort UNESCO Citadel",
     region: "Deep South Coast",
-    description: "A 400-year-old Dutch fortress blending colonial European architecture with South Asian traditions. Walk along cobblestone pathways and ocean-facing ramparts.",
+    description: "Ideal for walking tours, architecture buffs, and boutique shopping. A living 400-year-old Dutch colonial fortress on the ocean, featuring cobblestone alleys, lighthouse viewpoints, and artisan cafes.",
     image: "/bento/tomas-malik-UL23OjMTHXE-unsplash.jpg",
     bestTime: "December - April",
     temp: "28°C",
-    attractions: ["Galle Lighthouse", "Dutch Reform Church", "Flag Rock Bastion"],
-    activities: ["Walking the colonial ramparts", "Boutique shopping & fine dining", "Watching cliff divers at Flag Rock"],
+    attractions: ["Galle Lighthouse", "Dutch Reformed Church", "Flag Rock Bastion"],
+    activities: ["Sunset walk along ocean ramparts", "Exploring artisan boutiques and gem shops", "Dining in restored colonial courtyards"],
     lat: 6.0267,
     lng: 80.2170,
-    categoryFilter: "Beach Tours"
+    categoryFilter: "Beaches & Coastal Escapes"
   },
   {
     id: "d7",
     name: "Nuwara Eliya (Little England)",
     region: "Mountain Country",
-    description: "A colonial mountain getaway known as 'Little England'. Dotted with Tudor-style bungalows, neat rose gardens, Gregory Lake, and cool mountain mist.",
+    description: "Perfect for travelers seeking cool mountain weather, tea history, and colonial charm. Dotted with emerald tea estates, cascading waterfalls, British colonial bungalows, and strawberry farms.",
     image: "/anthony-lim-H-qDQSXBBBc-unsplash.jpg",
-    bestTime: "January - April",
-    temp: "18°C",
-    attractions: ["Gregory Lake", "Pedro Tea Estate", "Hakgala Gardens"],
-    activities: ["British high tea at Grand Hotel", "Boating on Gregory Lake", "Ceylon tea factory tour & tasting"],
+    bestTime: "January - April (Sunny & crisp)",
+    temp: "16°C",
+    attractions: ["Pedro Tea Estate", "Gregory Lake", "Hakgala Botanical Gardens"],
+    activities: ["Authentic tea factory tour & tasting", "High tea at historic Grand Hotel", "Boating on Gregory Lake"],
     lat: 6.9497,
     lng: 80.7891,
-    categoryFilter: "Hill Country Tours"
+    categoryFilter: "Hill Country & Tea"
   },
   {
     id: "d8",
     name: "Anuradhapura Sacred Capital",
     region: "Cultural Triangle",
-    description: "The ancient first capital of Sri Lanka, showcasing colossal stupas, massive stone reservoirs, and the sacred Sri Maha Bodhi tree—the oldest recorded human-planted tree.",
+    description: "Best for travelers interested in ancient civilizations and Buddhism. The oldest kingdom of Sri Lanka, home to colossal 2,000-year-old brick stupas, sacred bodhi trees, and expansive ancient reservoirs.",
     image: "/bento/sigiriya.png",
-    bestTime: "May - September",
+    bestTime: "May - September (Warm & dry)",
     temp: "31°C",
-    attractions: ["Ruwanwelisaya Stupa", "Jaya Sri Maha Bodhi", "Abhayagiri Monastery"],
-    activities: ["Bicycle tours of ruins", "Paying respects at ancient shrines", "Sunset photography over reservoirs"],
+    attractions: ["Ruwanwelisaya Stupa", "Jaya Sri Maha Bodhi", "Abhayagiri Monastery Complex"],
+    activities: ["Bicycle exploration of ancient ruins", "Sunset visits to sacred shrines", "Photography of ancient granite stone carvings"],
     lat: 8.3114,
     lng: 80.4037,
-    categoryFilter: "Cultural Tours"
+    categoryFilter: "Culture & Heritage"
   },
   {
     id: "d9",
     name: "Polonnaruwa Medieval Kingdom",
     region: "Cultural Triangle",
-    description: "The second kingdom of Sri Lanka, displaying exceptionally preserved medieval ruins, royal palace brickwork, and monumental granite Buddha statues carved into living rock.",
+    description: "Ideal for cycling among remarkably preserved medieval ruins. Explore royal palace walls, intricate audience halls, and the world-famous Gal Vihara rock-cut Buddha statues.",
     image: "/bento/ella-bridge.png",
     bestTime: "May - September",
     temp: "30°C",
-    attractions: ["Gal Vihara Stupas", "Royal Palace Ruins", "Quadrangle Shrines"],
-    activities: ["Exploring stone ruins by bicycle", "Wandering Gal Vihara Buddha shrines", "Bird watching in historical reserves"],
+    attractions: ["Gal Vihara Rock Statues", "Royal Palace Ruins", "Sacred Quadrangle"],
+    activities: ["Cycling through shaded archaeological parks", "Admiring massive rock Buddha carvings", "Birdwatching around the ancient sea of Parakrama"],
     lat: 7.9397,
     lng: 81.0012,
-    categoryFilter: "Cultural Tours"
+    categoryFilter: "Culture & Heritage"
   },
   {
     id: "d10",
     name: "Arugam Bay Surf Haven",
     region: "Eastern Coast",
-    description: "A world-renowned surf capital situated along the dry-zone eastern coast. Features epic reef point-breaks, relaxed beach bars, and wild lagoons where elephants graze.",
+    description: "Best for surfers, beach lovers, and relaxed summer holidays. A vibrant east-coast bay offering world-class right-hand point breaks, relaxed beachfront cafes, and nearby lagoon wildlife safaris.",
     image: "/bento/mirissa-beach.png",
-    bestTime: "June - September",
+    bestTime: "May - September (Peak surfing season)",
     temp: "32°C",
     attractions: ["Main Point Break", "Whiskey Point", "Pottuvil Lagoon"],
-    activities: ["Surfing championship breaks", "Pottuvil lagoon elephant safaris", "Yoga & beachfront sunset drinks"],
+    activities: ["Surfing world-class point breaks", "Pottuvil lagoon safari with wild elephants", "Beachfront yoga and sunset dining"],
     lat: 6.8424,
     lng: 81.8311,
-    categoryFilter: "Beach Tours"
+    categoryFilter: "Beaches & Coastal Escapes"
   }
 ];

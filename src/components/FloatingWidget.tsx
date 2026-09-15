@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X, MessageCircle, Send, CheckCircle, Loader2, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WHATSAPP_NUMBER = "94771234567"; // Replace with real number
+const WHATSAPP_NUMBER = "94742276037";
 
 export default function FloatingWidget() {
   const [isOpen, setIsOpen] = useState(false);

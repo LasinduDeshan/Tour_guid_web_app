@@ -5,10 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { 
-  Award, 
-  Compass, 
-  Leaf, 
-  Sparkles, 
   ArrowRight, 
   ShieldCheck, 
   Users, 
@@ -173,7 +169,7 @@ const BentoIntro = () => {
             </div>
           </motion.div>
 
-          {/* Card 4: Stat Card - 50+ Years */}
+          {/* Card 4: Stat Card - 6+ Years */}
           <motion.div 
             variants={cardVariants}
             className="lg:col-span-1 lg:row-span-1 p-8 rounded-2xl relative overflow-hidden bg-white  flex flex-col justify-center items-center text-center transition-all duration-500 "
@@ -184,10 +180,10 @@ const BentoIntro = () => {
             <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-light">{t("bento.years_desc")}</p>
           </motion.div>
 
-          {/* Card 5: Yala Safari Wildlife (Wide Image) */}
+          {/* Card 5: Ancient Heritage (Wide Image) */}
           <motion.div 
             variants={cardVariants}
-            className="lg:col-span-2 lg:row-span-1 aspect-[2/1] lg:aspect-auto  relative overflow-hidden border border-neutral-100/50 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-black/30 group"
+            className="lg:col-span-2 lg:row-span-1 aspect-[2/1] lg:aspect-auto relative overflow-hidden border border-neutral-100/50 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-black/30 group min-h-[220px]"
           >
             <div className="absolute inset-0 z-0">
               <Image 
@@ -211,23 +207,11 @@ const BentoIntro = () => {
           {/* Card 6: Stat Card - 100% Bespoke */}
           <motion.div 
             variants={cardVariants}
-            className="lg:col-span-1 lg:row-span-1 p-8 rounded-2xl relative overflow-hidden bg-white  flex flex-col justify-center items-center text-center transition-all duration-500 "
+            className="lg:col-span-2 lg:row-span-1 p-8 rounded-2xl relative overflow-hidden bg-white border border-neutral-100 flex flex-col justify-center items-center text-center transition-all duration-500 hover:shadow-lg min-h-[220px]"
           >
-            
-            <div className="text-4xl md:text-5xl font-bold mb-2 font-montserrat bg-clip-text text-black ">{t("bento.bespoke_num")}</div>
+            <div className="text-4xl md:text-5xl font-bold mb-2 font-montserrat bg-clip-text text-black">{t("bento.bespoke_num")}</div>
             <h4 className="text-base md:text-lg font-semibold text-neutral-800 mb-1 font-montserrat">{t("bento.bespoke_title")}</h4>
-            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-light font-poppins">{t("bento.bespoke_desc")}</p>
-          </motion.div>
-
-          {/* Card 7: Stat Card - Eco-Conscious */}
-          <motion.div 
-            variants={cardVariants}
-            className="lg:col-span-1 lg:row-span-1 p-8 rounded-2xl relative overflow-hidden bg-white  flex flex-col justify-center items-center text-center transition-all duration-500 "
-          >
-            
-            <div className="text-4xl md:text-5xl font-bold mb-2 font-montserrat bg-clip-text text-black ">{t("bento.carbon_num")}</div>
-            <h4 className="text-base md:text-lg font-semibold text-neutral-800 mb-1 font-montserrat">{t("bento.carbon_title")}</h4>
-            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-light">{t("bento.carbon_desc")}</p>
+            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-light font-poppins max-w-[400px]">{t("bento.bespoke_desc")}</p>
           </motion.div>
 
         </motion.div>

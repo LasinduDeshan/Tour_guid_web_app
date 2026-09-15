@@ -46,7 +46,7 @@ const TourCard = ({ tour }: TourCardProps) => {
         <div className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full flex items-center gap-1.5 z-20 border border-white/10 shadow-md">
           <span className="text-[0.65rem] font-bold font-poppins">{tour.category}</span>
         </div>
-        <div className="absolute bottom-0 right-4 bg-white text-black px-4 py-2 rounded-t-xl font-bold text-sm shadow-md z-20 font-montserrat uppercase">
+        <div className="absolute bottom-0 right-4 bg-white text-black px-4 py-2 rounded-t-xl font-bold text-sm shadow-md z-20 font-montserrat">
           {formatFromPrice(tour.price)}
         </div>
       </div>

@@ -148,6 +148,15 @@ function DestinationsContent() {
   const [liveWeather, setLiveWeather] = useState<{ temp: number; condition: string; wind: number; humidity: number; visibility: number } | null>(null);
   const [isWeatherLoading, setIsWeatherLoading] = useState(false);
 
+  const [selectedPurpose, setSelectedPurpose] = useState<string>("All");
+  const travelPurposes = [
+    "All",
+    "Culture & Heritage",
+    "Wildlife & Safari",
+    "Hill Country & Tea",
+    "Beaches & Coastal Escapes"
+  ];
+
   // Climate Planner dynamic navigation
   const [climateSubTab, setClimateSubTab] = useState<"seasons" | "monthly">("seasons");
   const [selectedMonthIdx, setSelectedMonthIdx] = useState<number>(new Date().getMonth());
@@ -822,83 +831,115 @@ function DestinationsContent() {
 
       </section>
 
-      {/* 3. Modern Alternating Curved Carousel Section (Screenshot 3 Concept) */}
-      <section className="w-full py-16 bg-[#0E1B15] text-white select-none relative overflow-hidden">
+      {/* 3. Browse Destinations by Travel Purpose Section */}
+      <section className="w-full py-20 bg-[#0E1B15] text-white select-none relative overflow-hidden">
         {/* Decorative background glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="container mx-auto px-8 max-w-[1280px] relative z-10 text-left">
           
           {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div className="space-y-3">
-              
-              
-              <h2 className="text-3xl md:text-4xl font-light font-montserrat tracking-tight leading-tight max-w-[650px]">
+              <span className="text-m font-normal   text-[#9CBFA7] ">
+                Explore Sri Lanka by Region & Purpose
+              </span>
+              <h2 className="text-3xl md:text-5xl font-light font-montserrat tracking-tight leading-tight max-w-[750px]">
                 {t("destinations.carousel_headline", "Although a picture describes a thousand words, some story and experiences are better described in detail.")}
               </h2>
             </div>
-            
-            {/* Round chevrons navigation */}
-            <div className="flex gap-2.5">
-              <button 
-                onClick={handlePrev}
-                className="w-11 h-11 rounded-full border border-white/20 text-white hover:border-white hover:bg-white/10 flex items-center justify-center transition-all"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button 
-                onClick={handleNext}
-                className="w-11 h-11 rounded-full border border-white/20 text-white hover:border-white hover:bg-white/10 flex items-center justify-center transition-all"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
           </div>
 
-          {/* Cards carousel grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {destinations.slice(0, 4).map((dest, idx) => {
-              // Map display index dynamically based on pagination offset if desired, or show first 4 for high fidelity
-              const absoluteIdx = idx; 
-              const isSelected = absoluteIdx === activeIndex;
-
+          {/* Purpose Filter Buttons */}
+          <div className="flex flex-wrap gap-2.5 mb-10 pb-2">
+            {travelPurposes.map((purpose) => {
+              const isActive = selectedPurpose === purpose;
               return (
-                <div 
-                  key={dest.id}
-                  onClick={() => {
-                    setActiveIndex(absoluteIdx);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className={`relative aspect-[3/4] overflow-hidden cursor-pointer shadow-lg transition-all duration-500 group select-none rounded-none`}
+                <button
+                  key={purpose}
+                  onClick={() => setSelectedPurpose(purpose)}
+                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 font-poppins border ${
+                    isActive
+                      ? "bg-white text-neutral-900 border-white shadow-lg"
+                      : "bg-white/10 text-neutral-300 border-white/15 hover:bg-white/20 hover:text-white"
+                  }`}
                 >
-                  {/* Card Background image */}
-                  <NextImage 
-                    src={dest.image}
-                    alt={dest.name}
-                    fill
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                    sizes="(max-width: 768px) 250px"
-                  />
-                  {/* Subtle dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent z-10" />
-
-                  {/* Overlapping text box at the bottom (Screenshot 3 Concept) */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-white text-neutral-900 p-5 rounded-2xl z-20 shadow-md text-left flex flex-col justify-between">
-                    <div>
-                      <h4 className="font-montserrat font-semibold text-[0.82rem] tracking-tight mb-1 text-neutral-900">
-                        {t(dest.name)}
-                      </h4>
-                      <p className="text-[9px] text-neutral-400 font-poppins font-light leading-normal line-clamp-2">
-                        {t(dest.description)}
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
+                  {t(purpose, purpose)}
+                </button>
               );
             })}
           </div>
+
+          {/* Cards grid filtered by travel purpose */}
+          {(() => {
+            const filtered = selectedPurpose === "All"
+              ? destinations
+              : destinations.filter(d => (d.categoryFilter as string) === selectedPurpose);
+
+            return (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {filtered.map((dest) => {
+                  const absoluteIdx = destinations.findIndex(d => d.id === dest.id);
+                  const isCurrent = absoluteIdx === activeIndex;
+
+                  return (
+                    <div 
+                      key={dest.id}
+                      onClick={() => {
+                        if (absoluteIdx !== -1) {
+                          setActiveIndex(absoluteIdx);
+                        }
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                      className={`relative aspect-[3/4] overflow-hidden cursor-pointer shadow-xl transition-all duration-500 group select-none rounded-2xl border ${
+                        isCurrent ? "border-[#9CBFA7] ring-2 ring-[#9CBFA7]/40" : "border-white/10 hover:border-white/30"
+                      }`}
+                    >
+                      {/* Card Background image */}
+                      <NextImage 
+                        src={dest.image}
+                        alt={dest.name}
+                        fill
+                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 300px"
+                      />
+                      {/* Subtle dark overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
+
+                      {/* Top Category Badge */}
+                      <div className="absolute top-4 left-4 z-20">
+                        <span className="text-[10px] font-bold font-poppins px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#9CBFA7] border border-white/10">
+                          {t(dest.region)}
+                        </span>
+                      </div>
+
+                      {/* Overlapping text box at the bottom */}
+                      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md text-neutral-900 p-4 rounded-xl z-20 shadow-md text-left flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-1">
+                        <div>
+                          <div className="flex justify-between items-center mb-1">
+                            <h4 className="font-montserrat font-bold text-sm tracking-tight text-neutral-900 line-clamp-1">
+                              {t(dest.name)}
+                            </h4>
+                            <span className="text-[10px] font-semibold text-neutral-500 font-poppins">{dest.temp}</span>
+                          </div>
+                          <p className="text-[10px] text-neutral-600 font-poppins font-light leading-relaxed line-clamp-2 mb-2">
+                            {t(dest.description)}
+                          </p>
+                          <div className="flex justify-between items-center pt-2 border-t border-neutral-100">
+                            <span className="text-[9px] text-emerald-800 font-semibold font-poppins">{dest.bestTime}</span>
+                            <span className="text-[10px] font-bold text-neutral-900 font-poppins group-hover:text-emerald-700 flex items-center gap-0.5">
+                              View ↗
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
 
         </div>
       </section>

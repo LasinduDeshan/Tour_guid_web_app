@@ -82,15 +82,15 @@ const packages: Package[] = [
   {
     id: "grand-odyssey",
     title: "Signature",
-    highlight: "Odyssey.",
-    headerDesc: "Our flagship all-in-one handcrafted package, meticulously designed to bring you the perfect harmony of heritage, highlands, and wilderness in one luxurious journey.",
-    tabName: "Grand Odyssey",
+    highlight: "Discovery.",
+    headerDesc: "Our flagship handcrafted itinerary, designed to give you the perfect balance of ancient heritage, misty tea hills, wildlife, and scenic southern coastlines.",
+    tabName: "Signature Tour",
     sectionBg: "bg-[#9CBFA7]",
     
-    card1Title: "The Grand Island Odyssey.",
-    card1Desc: "Designed for travelers who refuse to compromise, our flagship Odyssey represents the absolute pinnacle of luxury, adventure, and deep cultural immersion. This carefully paced journey connects Sri Lanka's most iconic wonders into a singular, unforgettable narrative.",
-    card1FooterTitle: "Signature Odyssey",
-    card1FooterSub: "10-Day Ultra-Premium Tour",
+    card1Title: "Windmark Signature Discovery.",
+    card1Desc: "Designed for travelers who want a complete, unhurried Sri Lankan journey. This carefully paced route seamlessly connects ancient kingdoms, cool tea country valleys, thrilling safaris, and golden sandy beaches.",
+    card1FooterTitle: "Signature Discovery",
+    card1FooterSub: "10-Day Complete Island Journey",
     card1Bg: "bg-[#0E1B15]",
     card1Text: "text-white",
     
@@ -102,13 +102,13 @@ const packages: Package[] = [
 
     card3Bg: "bg-[#C5B4F3]",
     card3Text: "text-[#002244]",
-    card3Title: "Premium Facilities",
-    card3Footer: "*Customizable extensions & full board dining included",
+    card3Title: "Trip Inclusions",
+    card3Footer: "*Customizable pacing, optional extensions & daily breakfast included",
     card3Inclusions: [
-      { icon: "Hotel", title: "5-Star Luxury Stays", desc: "Boutique heritage villas & jungle eco-resorts" },
-      { icon: "Car", title: "Private Chauffeur & Guide", desc: "Dedicated local storyteller & chauffeur-guide" },
-      { icon: "Compass", title: "Bespoke 4x4 Wild Safaris", desc: "Private Yala National Park safari with expert naturalists" },
-      { icon: "Ticket", title: "All VIP Pre-booked Passes", desc: "All-inclusive, skip-the-line monument entries" }
+      { icon: "Hotel", title: "Handpicked Boutique Stays", desc: "Comfortable scenic hotels, tea country lodges & seaside villas" },
+      { icon: "Car", title: "Private AC Transport", desc: "Dedicated local chauffeur-guide throughout your journey" },
+      { icon: "Compass", title: "Guided 4x4 Wildlife Safari", desc: "Jeep safari in Yala or Minneriya with experienced trackers" },
+      { icon: "Ticket", title: "Pre-arranged Admissions", desc: "Hassle-free admissions to Sigiriya, tea estates & key sites" }
     ],
 
     card4Title: "Highland Soul.",
@@ -121,36 +121,36 @@ const packages: Package[] = [
     id: "wild-safari",
     title: "Untamed",
     highlight: "Wilderness.",
-    headerDesc: "A deep dive into Sri Lanka's spectacular biodiverse ecosystems. Spot leopards, giant elephant herds, and rare migratory birds with top-tier comfort.",
+    headerDesc: "A deep dive into Sri Lanka's rich wildlife sanctuaries. Spot leopards, wild elephant gatherings, and colorful birdlife in comfort.",
     tabName: "Wild Safari",
     sectionBg: "bg-[#A3937C]",
 
     card1Title: "Bespoke Wildlife Safari.",
-    card1Desc: "Step into deep sanctuaries where nature reigns supreme. Designed for wildlife enthusiasts and adventure seekers, this journey brings you up close with elusive leopards, colossal elephant gatherings, and prime marine sanctuaries, all under expert guidance.",
+    card1Desc: "Step into deep sanctuaries where nature thrives. Designed for wildlife lovers and nature photographers, this journey brings you close to wild elephants, leopards, and diverse flora with experienced local naturalists.",
     card1FooterTitle: "Wilderness Expedition",
-    card1FooterSub: "7-Day Premium Safari",
+    card1FooterSub: "7-Day Wildlife & Nature Tour",
     card1Bg: "bg-[#1E1915]",
     card1Text: "text-white",
 
     card2Title: "Leopard Kingdom.",
-    card2Desc: "Track the world's highest density of leopards through the dry-zone forests of Yala National Park.",
+    card2Desc: "Track leopards and native wildlife through the dry-zone forests of Yala National Park in a private 4x4 jeep.",
     card2Image: "/bento/leopard.png",
     card2Link: "/tours/3",
     card2Button: "Explore Yala ↗",
 
     card3Bg: "bg-[#F3DEC5]",
     card3Text: "text-[#4A2E05]",
-    card3Title: "Expedition Benefits",
+    card3Title: "Safari Inclusions",
     card3Footer: "*Custom 4x4 vehicles & local park trackers included",
     card3Inclusions: [
-      { icon: "Hotel", title: "Jungle Luxury Eco-Lodges", desc: "Premium glamping & design-forward eco cabins" },
-      { icon: "Compass", title: "Specialist Naturalists", desc: "Private guidance by certified local wildlife biologists" },
-      { icon: "Car", title: "Unlimited Game Drives", desc: "Sunrise & sunset exclusive entry to reserve sectors" },
-      { icon: "Ticket", title: "Conservation Contribution", desc: "Direct funding to local elephant & leopard research projects" }
+      { icon: "Hotel", title: "Quality Nature Lodges", desc: "Comfortable nature lodges & safari hotels near national parks" },
+      { icon: "Compass", title: "Experienced Trackers", desc: "Knowledgeable local guides with deep wildlife spotting skills" },
+      { icon: "Car", title: "Dedicated Safari Jeeps", desc: "Private 4x4 game drives timed for best animal sightings" },
+      { icon: "Ticket", title: "Park Entry & Permits", desc: "All sanctuary permits and park entrance fees covered" }
     ],
 
     card4Title: "Majestic Herds.",
-    card4Desc: "Witness the magnificent gathering of hundreds of Asian elephants at the scenic Minneriya tank reservoirs.",
+    card4Desc: "Witness the magnificent gathering of Asian elephants drinking and grazing at the scenic Minneriya reservoir.",
     card4Image: "/tours/yala.jpg",
     card4Link: "/tours/3",
     card4Button: "View Safari ↗"
@@ -159,70 +159,70 @@ const packages: Package[] = [
     id: "beach-escape",
     title: "Oceanic",
     highlight: "Sanctuaries.",
-    headerDesc: "Unwind along Sri Lanka's sun-drenched southern coastlines. Enjoy elite beach club dining, private yacht cruises, and pristine surfing reefs.",
+    headerDesc: "Unwind along Sri Lanka's sun-drenched southern coastlines. Enjoy fresh seafood, coastal walks, and calm turquoise waters.",
     tabName: "Beach Escape",
     sectionBg: "bg-[#7CA3A8]",
 
-    card1Title: "Premium Coasts & Cruises.",
-    card1Desc: "Breathe in the golden horizons of Mirissa and the historical elegance of Galle Fort. Enjoy beachfront villa privacy, guided reef snorkeling, and custom yacht charters to spot blue whales, combined with private wellness retreats.",
+    card1Title: "Southern Coasts & Galle.",
+    card1Desc: "Breathe in the golden horizons of Mirissa and the historical charm of Galle Fort. Enjoy beachfront relaxation, boat trips to spot blue whales, and cobblestone heritage walks at an easy, enjoyable pace.",
     card1FooterTitle: "Coastal Escape",
-    card1FooterSub: "8-Day Luxury Retreat",
+    card1FooterSub: "8-Day Southern Island Tour",
     card1Bg: "bg-[#091C2C]",
     card1Text: "text-white",
 
     card2Title: "Golden Mirissa.",
-    card2Desc: "Unwind on soft sandy beaches, sip local king coconut, and swim with sea turtles in crystal-clear waters.",
+    card2Desc: "Unwind on soft sandy beaches, sip fresh king coconuts, and take in the relaxing ocean breeze.",
     card2Image: "/bento/mirissa-beach.png",
-    card2Link: "/tours?category=Wellness",
+    card2Link: "/tours?category=Beach%20Tours",
     card2Button: "Explore Beaches ↗",
 
     card3Bg: "bg-[#C4E1F3]",
     card3Text: "text-[#002B49]",
-    card3Title: "Beach Amenities",
-    card3Footer: "*Private surf coaching & custom spa treatments included",
+    card3Title: "Coastal Highlights",
+    card3Footer: "*Custom extensions & beachfront recommendations included",
     card3Inclusions: [
-      { icon: "Hotel", title: "Oceanfront Boutique Stays", desc: "Private pool villas overlooking Mirissa bay" },
-      { icon: "Ticket", title: "Private Yacht Charter", desc: "Exclusive sunrise cruise for whale & dolphin watching" },
-      { icon: "Compass", title: "Marine Biologist Escort", desc: "Guided ocean excursions with deep marine insights" },
-      { icon: "Car", title: "Galle Fort Tour", desc: "Curated architectural walks through the UNESCO Dutch fortress" }
+      { icon: "Hotel", title: "Seaside Boutique Hotels", desc: "Handpicked beach resorts and comfortable ocean-view stays" },
+      { icon: "Ticket", title: "Whale Watching Excursion", desc: "Morning boat trip off Mirissa coast to spot whales & dolphins" },
+      { icon: "Compass", title: "Galle Fort Walking Tour", desc: "Guided stroll along Dutch ramparts, lighthouse, and artisan lanes" },
+      { icon: "Car", title: "Private Coastal Transit", desc: "Comfortable air-conditioned private rides along the southern expressway" }
     ],
 
     card4Title: "Highland & Shore Flow.",
-    card4Desc: "Traverse the scenic rails of Ella before winding down in beautiful coastal beach clubs.",
+    card4Desc: "Combine the cool misty rails of Ella with relaxed sunny afternoons on golden southern shores.",
     card4Image: "/bento/ella-bridge.png",
-    card4Link: "/tours?category=Wellness",
+    card4Link: "/tours?category=Beach%20Tours",
     card4Button: "View Retreat ↗"
   },
   {
     id: "royal-heritage",
     title: "Cultural",
     highlight: "Resplendence.",
-    headerDesc: "Journey through the ancient kingdoms of the cultural triangle. Walk among sacred stupas, royal palaces, and temple ruins.",
-    tabName: "Royal Heritage",
+    headerDesc: "Journey through the ancient kingdoms of the Cultural Triangle. Walk among sacred stupas, royal palaces, and timeless temple ruins.",
+    tabName: "Cultural Route",
     sectionBg: "bg-[#A57C8A]",
 
     card1Title: "Ancient Kingdoms Tour.",
-    card1Desc: "Explore the profound spiritual and historical foundations of Sri Lanka. From the last royal bastion in misty Kandy to the monumental dagobas of Anuradhapura, this tour is tailored for history enthusiasts and heritage seekers.",
-    card1FooterTitle: "Royal Chronicles",
-    card1FooterSub: "6-Day Cultural Tour",
+    card1Desc: "Explore the rich spiritual and architectural legacy of Sri Lanka. From the last royal kingdom in Kandy to the rock fortress of Sigiriya, this route is crafted for travelers who love history and culture.",
+    card1FooterTitle: "Cultural Journey",
+    card1FooterSub: "6-Day Heritage & Hills Tour",
     card1Bg: "bg-[#2A0B1A]",
     card1Text: "text-white",
 
     card2Title: "Sacred Kandy.",
-    card2Desc: "Visit the revered Temple of the Tooth Relic, stroll the royal botanical gardens, and see the lake sunset.",
+    card2Desc: "Visit the revered Temple of the Tooth Relic, stroll the royal botanical gardens, and admire sunset over Kandy lake.",
     card2Image: "/tours/kandy.jpg",
     card2Link: "/tours/2",
     card2Button: "Explore Kandy ↗",
 
     card3Bg: "bg-[#F3C5DC]",
     card3Text: "text-[#4A0025]",
-    card3Title: "Heritage Services",
-    card3Footer: "*All temple offerings & traditional VIP access passes included",
+    card3Title: "Heritage Inclusions",
+    card3Footer: "*All temple visits & cultural admissions included",
     card3Inclusions: [
-      { icon: "Hotel", title: "Heritage Palace Stays", desc: "Converted historic bungalows & royal retreats" },
-      { icon: "Compass", title: "Private Archaeologist", desc: "Detailed historical walks led by academic guides" },
-      { icon: "Ticket", title: "VIP Cultural Seats", desc: "Front-row reservations for traditional Kandyan dance rituals" },
-      { icon: "Car", title: "Misty Mountain Drive", desc: "Comfortable scenic drive through the tea-lined Kadugannawa pass" }
+      { icon: "Hotel", title: "Comfortable Heritage Stays", desc: "Charming historic bungalows and peaceful hillside hotels" },
+      { icon: "Compass", title: "Knowledgeable Guide", desc: "Insightful commentary on Sri Lankan history, flora, and customs" },
+      { icon: "Ticket", title: "Cultural Dance Tickets", desc: "Traditional Kandyan drumming & dance performance entry" },
+      { icon: "Car", title: "Scenic Mountain Transfers", desc: "Smooth driving through lush mountain passes and spice gardens" }
     ],
 
     card4Title: "Sigiriya Golden Hours.",
@@ -405,7 +405,7 @@ const TourCategories = ({ initialPackages }: TourCategoriesProps) => {
 
                 <Link 
                   href={activePkg.card2Link}
-                  className="w-full bg-white text-black py-3.5 px-6 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors font-poppins"
+                  className="w-full bg-white text-black py-3.5 px-6 rounded-full text-xs font-semibold flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors font-poppins"
                 >
                   {t(activePkg.card2Button)}
                 </Link>
@@ -427,7 +427,7 @@ const TourCategories = ({ initialPackages }: TourCategoriesProps) => {
               </div>
               
               <div className="text-left space-y-4">
-                <h4 className="text-xs uppercase tracking-wider font-bold font-poppins opacity-80 mb-4">
+                <h4 className="text-xs font-semibold font-poppins opacity-80 mb-4">
                   {t(activePkg.card3Title)}
                 </h4>
                 <ul className="space-y-4 text-xs font-medium font-poppins opacity-95">
@@ -486,7 +486,7 @@ const TourCategories = ({ initialPackages }: TourCategoriesProps) => {
 
                 <Link 
                   href={activePkg.card4Link}
-                  className="w-full bg-white text-black py-3.5 px-6 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors font-poppins"
+                  className="w-full bg-white text-black py-3.5 px-6 rounded-full text-xs font-semibold flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors font-poppins"
                 >
                   {t(activePkg.card4Button)}
                 </Link>

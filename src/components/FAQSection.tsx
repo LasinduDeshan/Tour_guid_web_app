@@ -16,28 +16,28 @@ interface FAQItem {
 
 const staticFallbackFaqs: FAQItem[] = [
   {
-    question: "Best time to visit Sri Lanka?",
-    answer: "The best time to visit Sri Lanka depends on the coast you want to explore. For the south and west coasts (including Galle, Mirissa, and Colombo), the dry season runs from December to April. For the east coast and ancient cultural triangle (including Trincomalee, Pasikudah, and Sigiriya), the dry season is from May to September."
+    question: "When is the best time to visit Sri Lanka?",
+    answer: "Sri Lanka is a wonderful year-round destination thanks to its two distinct monsoon seasons. For the south and west coasts (Galle, Mirissa, Colombo) and the central highlands, the driest months are December through April. For the east coast (Trincomalee, Pasikudah) and the Cultural Triangle, May through September offers glorious sunny weather."
   },
   {
-    question: "Is it Safe to Travel to Sri Lanka?",
-    answer: "Yes, Sri Lanka is generally exceptionally safe for international travelers. Sri Lankans are world-renowned for their hospitality, warmth, and friendliness. Standard travel precautions apply: secure your belongings, use certified tour operators, and respect local cultural customs, especially when visiting sacred Buddhist and Hindu temples."
+    question: "Is it safe to travel in Sri Lanka?",
+    answer: "Yes, Sri Lanka is widely recognized as a safe, welcoming, and friendly destination for international travelers, solo explorers, couples, and families. Standard travel awareness is always sensible, and having your own dedicated private chauffeur-guide makes traveling between destinations smooth, comfortable, and reassuring."
   },
   {
-    question: "Do I need a visa to Sri Lanka?",
-    answer: "Most foreign nationals require an Electronic Travel Authorization (ETA) or online tourist visa to enter Sri Lanka. You can easily apply for this online before your flight. It typically grants a 30-day stay with double-entry privileges, which can be extended at the Department of Immigration in Colombo if needed."
+    question: "Do I need a visa to visit Sri Lanka?",
+    answer: "Most foreign passport holders require an Electronic Travel Authorization (ETA) or online tourist visa before traveling. You can easily apply for this online prior to your flight. It typically grants an initial 30-day stay and is simple to obtain."
   },
   {
-    question: "What to pack when you are visiting Sri Lanka?",
-    answer: "We recommend lightweight, breathable cotton or linen clothing suitable for tropical weather. Modest clothing covering shoulders and knees is mandatory for sacred temple visits. If you plan to travel to the highlands (like Nuwara Eliya or Ella), bring a light jacket or sweater as temperatures drop. Sun protection and bug spray are also essential."
+    question: "What should I pack for my journey?",
+    answer: "We recommend light, breathable cotton or linen clothing suitable for warm tropical weather. Modest clothing covering both shoulders and knees is required when visiting sacred Buddhist and Hindu temples. For cool hill country destinations like Ella or Nuwara Eliya, pack a light jacket or sweater."
   },
   {
-    question: "What currency is used in Sri Lanka, and are credit cards widely accepted?",
-    answer: "The official currency is the Sri Lankan Rupee (LKR). Major credit and debit cards (Visa/Mastercard) are widely accepted in high-end hotels, boutiques, and restaurants in urban areas. However, carrying cash is highly recommended for small markets, local street food vendors, transport, and tipping."
+    question: "What currency is used, and are cards accepted?",
+    answer: "The local currency is the Sri Lankan Rupee (LKR). Visa and Mastercard are widely accepted at hotels, restaurants, and shopping centers in major towns. We recommend carrying a modest amount of cash for local markets, tipping, and roadside fresh king coconuts."
   },
   {
-    question: "Why should I use a travel agency to plan my trip to Sri Lanka?",
-    answer: "Using a dedicated, licensed agency ensures a completely seamless, premium experience. We manage private, highly comfortable air-conditioned transport, handpicked 5-star or boutique hotel bookings, pre-purchased skip-the-line monument entries, and private expert naturalists, saving you extensive planning time."
+    question: "Why plan your trip with Windmark Tours?",
+    answer: "We believe travel should be flexible, personal, and unhurried. Backed by 6+ years of travel experience, we handle the logistics—from reliable private air-conditioned vehicles and handpicked accommodations to thoughtful local advice—so you can immerse yourself in Sri Lanka at your own pace."
   }
 ];
 
@@ -139,7 +139,7 @@ const FAQSection = ({ initialFAQs }: FAQSectionProps) => {
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black shadow-lg transition-transform duration-500 group-hover:rotate-[360deg] group-hover/btn:scale-105">
                     <Plus size={20} strokeWidth={2.5} />
                   </div>
-                  <span className="text-[10px] md:text-xs tracking-[0.2em] font-bold text-white uppercase font-poppins transition-colors duration-300 group-hover/btn:text-neutral-200">
+                  <span className="text-xs md:text-sm font-semibold text-white font-poppins transition-colors duration-300 group-hover/btn:text-neutral-200">
                     {t("faq.view_all")}
                   </span>
                 </Link>

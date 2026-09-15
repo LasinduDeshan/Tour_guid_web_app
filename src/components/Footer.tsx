@@ -39,10 +39,10 @@ const Footer = () => {
         <div className="flex flex-col">
           <h3 className="text-lg font-semibold mb-6 pb-3 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-[2px] after:bg-white font-montserrat">{t("footer.tour_types")}</h3>
           <ul className="list-none flex flex-col gap-3 font-poppins text-sm font-light">
-            <li><Link href="/tours?category=Colombo%20Tours" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Day Tours")}</Link></li>
-            <li><Link href="/tours" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Round Tours")}</Link></li>
-            <li><Link href="/tours?category=Ayurvedic%20Tours" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Wellness & Yoga")}</Link></li>
-            <li><Link href="/tours?category=Wildlife%20Tours" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Wildlife Safaris")}</Link></li>
+            <li><Link href="/tours?category=Day%20Tours%20%26%20Excursions" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Day Tours & Excursions")}</Link></li>
+            <li><Link href="/tours?category=Private%20Sri%20Lanka%20Tours" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Private Sri Lanka Tours")}</Link></li>
+            <li><Link href="/tours?category=Wildlife%20%26%20Safari" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Wildlife & Safari")}</Link></li>
+            <li><Link href="/tours?category=Culture%20%26%20Heritage" className="text-neutral-400 hover:text-white transition-all duration-200 block">{t("Culture & Heritage")}</Link></li>
           </ul>
         </div>
 
@@ -50,11 +50,11 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2 pb-3 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-[2px] after:bg-white font-montserrat">{t("footer.contact_us")}</h3>
           <div className="flex items-start gap-4 text-neutral-300 text-sm font-light font-poppins mt-2">
             <MapPin size={16} className="mt-1 flex-shrink-0 text-white" />
-            <span>45 Galle Road, Colombo 03, Sri Lanka</span>
+            <span>Vihara Mawatha, Hewagama, Kaduwela, Sri Lanka</span>
           </div>
           <div className="flex items-start gap-4 text-neutral-300 text-sm font-light font-poppins">
             <Phone size={16} className="mt-1 flex-shrink-0 text-white" />
-            <span>+94 77 123 4567</span>
+            <span>+94 74 227 6037</span>
           </div>
           <div className="flex items-start gap-4 text-neutral-300 text-sm font-light font-poppins">
             <Mail size={16} className="mt-1 flex-shrink-0 text-white" />

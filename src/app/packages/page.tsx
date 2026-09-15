@@ -80,40 +80,40 @@ export default function PackagesPage() {
     {
       name: "Day Tours",
       duration: "1 Day",
-      category: "Short Escapes",
-      priceValue: 85,
-      description: "Single-day private custom excursions to top cultural landmarks, tropical beaches, or historic cities, designed for travelers wanting focused and swift local experiences.",
-      link: "/tours?category=Colombo%20Tours",
+      category: "Day Tours & Excursions",
+      priceValue: 65,
+      description: "Single-day private custom excursions to Colombo, Galle Fort, or Sigiriya with dedicated AC transport, entry tickets, and friendly local chauffeur-guide.",
+      link: "/tours?category=Day%20Tours%20%26%20Excursions",
       color: "bg-[#0A0A0C]",
       icon: "Compass"
     },
     {
       name: "Round Tours",
       duration: "5 - 12 Days",
-      category: "Multi-Day Loops",
-      priceValue: 1250,
-      description: "All-inclusive multi-day loops charting the comprehensive cultural triangle, misty central highlands, and southern tropical coasts in one seamless private journey.",
-      link: "/tours",
+      category: "Private Sri Lanka Tours",
+      priceValue: 550,
+      description: "Comprehensive private island routes connecting ancient kingdoms, misty tea hills, wildlife safaris, and tropical beaches at your own relaxed pace.",
+      link: "/tours?category=Private%20Sri%20Lanka%20Tours",
       color: "bg-[#0A0A0C]",
       icon: "Route"
     },
     {
       name: "Wildlife Safaris",
-      duration: "3 - 7 Days",
-      category: "Untamed Nature",
-      priceValue: 650,
-      description: "Thrilling 4x4 guided game drives and marine cruises tracking leopards inside dry-zone Yala forest, colossal wild elephant herds, and blue whales.",
-      link: "/tours?category=Wildlife%20Tours",
+      duration: "2 - 6 Days",
+      category: "Wildlife & Safari",
+      priceValue: 290,
+      description: "Exciting 4x4 guided game drives in Yala and Minneriya with experienced local park trackers to observe leopards, wild elephants, and rich birdlife.",
+      link: "/tours?category=Wildlife%20%26%20Safari",
       color: "bg-[#0A0A0C]",
       icon: "Trees"
     },
     {
-      name: "Wellness & Yoga",
+      name: "Wellness & Nature",
       duration: "4 - 8 Days",
-      category: "Mind & Body",
-      priceValue: 850,
-      description: "Restorative Ayurvedic healing escapes featuring holistic steam baths, traditional herbal oil therapies, and guided sunrise yoga in private pool canopy villas.",
-      link: "/tours?category=Ayurvedic%20Tours",
+      category: "Custom / Tailor-Made Trips",
+      priceValue: 480,
+      description: "Rejuvenating wellness journeys featuring traditional herbal steam therapies, authentic Ayurvedic treatments, and peaceful nature stays.",
+      link: "/tours?category=Custom%20%2F%20Tailor-Made%20Trips",
       color: "bg-[#0A0A0C]",
       icon: "Flower"
     }
@@ -427,7 +427,7 @@ export default function PackagesPage() {
         <div className="container mx-auto px-8 max-w-[1280px] relative z-10 space-y-12">
           {/* Main Section Header */}
           <div className="pb-4">
-            <span className="text-xs uppercase tracking-widest font-bold text-neutral-500 font-poppins">
+            <span className="text-xs font-semibold text-neutral-500 font-poppins">
               {t("beach.sec_num")}
             </span>
           </div>
@@ -437,7 +437,7 @@ export default function PackagesPage() {
             {/* Left Image & Text block (Wider, Col Span 7) */}
             <div className="lg:col-span-7 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-400 font-poppins">
+              <span className="text-xs font-medium text-neutral-500 font-poppins">
                 {t("beach.micro_left")}
               </span>
               
@@ -456,7 +456,7 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-900 leading-tight font-montserrat uppercase">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
                   {t("beach.title_left")}
                 </h3>
                 
@@ -495,7 +495,7 @@ export default function PackagesPage() {
             {/* Right Image & Text block (Narrower, Col Span 5) */}
             <div className="lg:col-span-5 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-400 font-poppins">
+              <span className="text-xs font-medium text-neutral-500 font-poppins">
                 {t("beach.micro_right")}
               </span>
               
@@ -514,7 +514,7 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-neutral-900 leading-tight font-montserrat uppercase">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 leading-tight font-montserrat">
                   {t("beach.title_right")}
                 </h3>
                 
@@ -555,8 +555,8 @@ export default function PackagesPage() {
           {/* Action CTA Button positioned perfectly at the bottom */}
           <div className="pt-6 flex justify-start">
             <Link 
-              href="/tours?category=Beach%20Tours" 
-              className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-teal-950 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-teal-950/15 hover:-translate-y-0.5 group font-poppins"
+              href="/tours?category=Beaches%20%26%20Coastal%20Escapes" 
+              className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-teal-950 px-8 py-4 rounded-full text-xs font-semibold transition-all duration-300 shadow-md hover:shadow-teal-950/15 hover:-translate-y-0.5 group font-poppins"
             >
               <span>{t("beach.cta")}</span>
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -573,7 +573,7 @@ export default function PackagesPage() {
         <div className="container mx-auto px-8 max-w-[1280px] relative z-10 space-y-12">
           {/* Main Section Header */}
           <div className="pb-4">
-            <span className="text-xs uppercase tracking-widest font-bold text-neutral-500 font-poppins">
+            <span className="text-xs font-semibold text-neutral-500 font-poppins">
               {t("wildlife.sec_num")}
             </span>
           </div>
@@ -583,7 +583,7 @@ export default function PackagesPage() {
             {/* Left Image & Text block (Narrower, Col Span 5) */}
             <div className="lg:col-span-5 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-400 font-poppins">
+              <span className="text-xs font-medium text-neutral-500 font-poppins">
                 {t("wildlife.micro_left")}
               </span>
               
@@ -602,7 +602,7 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-neutral-900 leading-tight font-montserrat uppercase">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 leading-tight font-montserrat">
                   {t("wildlife.title_left")}
                 </h3>
                 
@@ -641,7 +641,7 @@ export default function PackagesPage() {
             {/* Right Image & Text block (Wider, Col Span 7, Offset Staggered Downwards) */}
             <div className="lg:col-span-7 flex flex-col space-y-6 lg:pt-16">
               {/* Micro Header */}
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-400 font-poppins">
+              <span className="text-xs font-medium text-neutral-500 font-poppins">
                 {t("wildlife.micro_right")}
               </span>
               
@@ -660,7 +660,7 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-900 leading-tight font-montserrat uppercase">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
                   {t("wildlife.title_right")}
                 </h3>
                 
@@ -701,8 +701,8 @@ export default function PackagesPage() {
           {/* Action CTA Button positioned perfectly at the bottom */}
           <div className="pt-6 flex justify-start">
             <Link 
-              href="/tours?category=Wildlife%20Tours" 
-              className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-emerald-950 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-emerald-950/15 hover:-translate-y-0.5 group font-poppins"
+              href="/tours?category=Wildlife%20%26%20Safari" 
+              className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-emerald-950 px-8 py-4 rounded-full text-xs font-semibold transition-all duration-300 shadow-md hover:shadow-emerald-950/15 hover:-translate-y-0.5 group font-poppins"
             >
               <span>{t("wildlife.cta")}</span>
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -767,10 +767,10 @@ export default function PackagesPage() {
       {/* 3.5 Dynamic Tour Packages Grid Catalog */}
       <section className="container mx-auto px-8 max-w-[1280px] py-16 text-left border-t border-neutral-200/50">
         <div className="space-y-3 mb-10">
-          <span className="text-xs uppercase tracking-widest font-bold text-neutral-400 font-poppins">
+          <span className="text-xs font-medium text-neutral-500 font-poppins">
             Signature Curation
           </span>
-          <h2 className="text-3xl md:text-4xl font-light font-montserrat text-neutral-900 uppercase">
+          <h2 className="text-3xl md:text-4xl font-light font-montserrat text-neutral-900">
             All Signature Tour Packages
           </h2>
           <p className="text-neutral-500 font-light text-xs md:text-sm font-poppins max-w-2xl leading-relaxed">
@@ -901,7 +901,7 @@ export default function PackagesPage() {
                           <div className="w-full h-full bg-gradient-to-br from-black to-neutral-950" />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                        <div className="absolute bottom-4 right-4 bg-white text-black px-4 py-1.5 rounded-xl font-bold text-xs shadow-md font-montserrat uppercase">
+                        <div className="absolute bottom-4 right-4 bg-white text-black px-4 py-1.5 rounded-xl font-bold text-xs shadow-md font-montserrat">
                           {formatFromPrice(selectedTour.price)}
                         </div>
                       </div>
