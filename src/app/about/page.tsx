@@ -115,13 +115,7 @@ export default function AboutPage() {
           }}
         />
         <div className="container mx-auto max-w-5xl relative z-10 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 text-[#9CBFA7] text-xs font-semibold font-poppins mb-4"
-          >
-            <Compass size={14} /> Our Story & Approach
-          </motion.span>
+          
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -277,25 +271,25 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-7 rounded-2xl border border-neutral-200/70 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
+              className="bg-neutral-50 hover:bg-white p-7 rounded-2xl border border-neutral-200/80 hover:border-neutral-300 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-[10px] font-semibold px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full font-poppins">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-[10px] font-semibold px-3 py-1 bg-white text-neutral-700 border border-neutral-200/80 rounded-full font-poppins shadow-2xs">
                     {serv.badge}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold font-montserrat text-neutral-900 mb-2">
+                <h3 className="text-lg font-bold font-montserrat text-neutral-900 mb-2 group-hover:text-black transition-colors">
                   {serv.title}
                 </h3>
                 <p className="text-xs text-neutral-500 font-light leading-relaxed font-poppins">
                   {serv.desc}
                 </p>
               </div>
-              <div className="pt-5 mt-4 border-t border-neutral-100 flex justify-end">
+              <div className="pt-5 mt-4 border-t border-neutral-200/60 flex justify-end">
                 <Link
                   href={serv.link}
-                  className="text-xs font-bold text-neutral-900 group-hover:text-emerald-700 flex items-center gap-1 font-poppins transition-colors"
+                  className="text-xs font-bold text-neutral-900 group-hover:text-black flex items-center gap-1 font-poppins transition-colors"
                 >
                   Explore Route <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </Link>
