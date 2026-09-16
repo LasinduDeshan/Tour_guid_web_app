@@ -204,6 +204,42 @@ export async function ensureOfflineStatus(): Promise<void> {
   }
 }
 
+async function translateWithMicrosoft(text: string, targetLang: string, sourceLang = "en"): Promise<string | null> {
+  const apiKey = process.env.AZURE_TRANSLATOR_KEY || process.env.MICROSOFT_TRANSLATOR_KEY;
+  if (!apiKey) return null;
+
+  const region = process.env.AZURE_TRANSLATOR_REGION || process.env.MICROSOFT_TRANSLATOR_REGION || "global";
+  const azureTarget = targetLang === "zh" ? "zh-Hans" : targetLang;
+  const endpoint = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+
+  try {
+    const res = await fetch(`${endpoint}&from=${sourceLang}&to=${azureTarget}`, {
+      method: "POST",
+      headers: {
+        "Ocp-Apim-Subscription-Key": apiKey.trim(),
+        "Ocp-Apim-Subscription-Region": region.trim(),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([{ Text: text }]),
+      signal: AbortSignal.timeout(3000),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data[0]?.translations?.[0]?.text) {
+        return data[0].translations[0].text;
+      }
+    } else {
+      const errText = await res.text();
+      console.warn("[Microsoft Translator API Warning]:", res.status, errText);
+    }
+  } catch (err: any) {
+    console.warn("[Microsoft Translator Failed]:", err.message || err);
+  }
+
+  return null;
+}
+
 export async function translateText(text: string, targetLang: string, sourceLang = "en"): Promise<string> {
   if (!text || !targetLang || targetLang === sourceLang) return text;
   
@@ -220,6 +256,18 @@ export async function translateText(text: string, targetLang: string, sourceLang
     return LOCAL_DICTIONARY[trimmed][target];
   }
 
+  const cacheKey = `${sourceLang}-${target}-${text}`;
+  if (TRANSLATION_CACHE[cacheKey]) {
+    return TRANSLATION_CACHE[cacheKey];
+  }
+
+  // 1. Try Microsoft Translator API if configured in .env
+  const msResult = await translateWithMicrosoft(text, target, sourceLang);
+  if (msResult) {
+    TRANSLATION_CACHE[cacheKey] = msResult;
+    return msResult;
+  }
+
   // Fast fail-safe bypass if the server was detected as offline to prevent socket congestion
   if (IS_TRANSLATION_OFFLINE) {
     if (Date.now() - LAST_OFFLINE_CHECK < OFFLINE_COOLDOWN) {
@@ -228,13 +276,8 @@ export async function translateText(text: string, targetLang: string, sourceLang
       IS_TRANSLATION_OFFLINE = false;
     }
   }
-  
-  const cacheKey = `${sourceLang}-${target}-${text}`;
-  if (TRANSLATION_CACHE[cacheKey]) {
-    return TRANSLATION_CACHE[cacheKey];
-  }
 
-  // Try each mirror in order in case of transient errors
+  // 2. Try public fallback mirrors in order
   for (const mirror of LIBRETRANSLATE_MIRRORS) {
     try {
       const response = await fetch(mirror, {
@@ -279,7 +322,7 @@ export async function translateText(text: string, targetLang: string, sourceLang
     }
   }
 
-  // Fallback to original text if mirrors fail
+  // Fallback to original text if all sources fail
   return text;
 }
 

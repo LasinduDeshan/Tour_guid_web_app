@@ -111,10 +111,10 @@ export function Map({
 
     mapRef.current = map;
 
-    // Add clean openstreetmap tile layer
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 20
+    // Add clean topographic tile layer (no API key required)
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
+      attribution: '&copy; <a href="https://www.esri.com/">Esri</a>, USGS, NOAA',
+      maxZoom: 19
     }).addTo(map);
 
     // Standardize zoom buttons on bottom-right

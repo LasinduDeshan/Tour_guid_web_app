@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import BentoIntro from "@/components/BentoIntro";
+import SriLankaExplorerSection from "@/components/SriLankaExplorerSection";
 import TourCategories from "@/components/TourCategories";
 import TourCard from "@/components/TourCard";
 import FAQSection from "@/components/FAQSection";
@@ -16,6 +17,7 @@ export default async function Home() {
   let featuredTours: any[] = [];
   let bentoPackages: any[] = [];
   let faqs: any[] = [];
+  let destinations: any[] = [];
 
   try {
     // Fetch first 3 featured tours directly from PostgreSQL database natively on the server
@@ -46,11 +48,19 @@ export default async function Home() {
         order: "asc",
       },
     });
+
+    // Fetch Destinations from database
+    destinations = await prisma.destination.findMany({
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
   } catch (error) {
     console.warn("Database is unreachable at 127.0.0.1:5435. Using fallback mock data:", error);
     featuredTours = mockTours.slice(0, 3);
     bentoPackages = [];
     faqs = [];
+    destinations = [];
   }
 
   // If DB returned no featured tours, fallback to mock tours
@@ -63,6 +73,8 @@ export default async function Home() {
       <Hero />
       
       <BentoIntro />
+
+      <SriLankaExplorerSection initialDestinations={JSON.parse(JSON.stringify(destinations))} />
 
       <TourCategories initialPackages={JSON.parse(JSON.stringify(bentoPackages))} />
 
