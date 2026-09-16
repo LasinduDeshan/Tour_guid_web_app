@@ -143,15 +143,53 @@ const ImageGridSection = () => {
           </p>
         </div>
 
-        {/* Dynamic Bento Grid of exactly 60vh height */}
-        <div className="h-[60vh] max-h-[600px] min-h-[380px] w-full">
-          <div className="grid grid-cols-6 grid-rows-3 h-full gap-2 md:gap-3">
+        {/* DESKTOP: Dynamic Bento Grid of exactly 60vh height */}
+        <div className="hidden lg:block h-[560px] max-h-[600px] min-h-[420px] w-full">
+          <div className="grid grid-cols-6 grid-rows-3 h-full gap-2.5">
             {gridLayout.map((layout) => (
               <BentoSlot
                 key={layout.id}
                 src={visibleImages[layout.id]}
                 span={layout.span}
               />
+            ))}
+          </div>
+        </div>
+
+        {/* MOBILE & TABLET: User-Friendly High-Fidelity 2-Col / 3-Col Gallery */}
+        <div className="block lg:hidden w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4">
+            {visibleImages.slice(0, 6).map((imgSrc, idx) => (
+              <div 
+                key={idx} 
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/60 shadow-sm group"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={imgSrc}
+                    initial={{ opacity: 0, scale: 1.06 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.7, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <NextImage
+                      src={imgSrc}
+                      alt="Windmark Traveler Experience"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Subtle bottom gradient & location badge */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 text-white pointer-events-none">
+                  <MapPin size={10} className="text-amber-300" />
+                  <span className="text-[10px] font-medium font-poppins drop-shadow-sm">Sri Lanka</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -28,12 +28,25 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
 const Navbar = () => {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileToursOpen, setMobileToursOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const [searchVal, setSearchVal] = useState("");
   const { t, language, setLanguage } = useTranslation();
   const { currency, setCurrency } = useCurrency();
+
+  // Prevent background body scrolling when mobile drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -387,123 +400,211 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`fixed top-0 right-0 h-screen bg-white z-[1001] flex flex-col p-20 gap-6 transition-all duration-300 shadow-2xl text-neutral-800 ${isOpen ? "w-[80%] max-w-[300px]" : "w-0 pointer-events-none opacity-0"}`}>
-        <button className="absolute top-5 right-5 text-neutral-900" onClick={toggleMenu} title="Close menu">
-          <X size={28} />
-        </button>
-        <div className="flex flex-col gap-2">
-          <Link 
-            href="/" 
-            onClick={toggleMenu} 
-            className={`text-lg font-poppins transition-colors duration-200 ${
-              pathname === "/" ? "font-semibold text-[#0E1B15]" : "font-light text-neutral-500 hover:text-black"
-            }`}
-          >
-            {t("nav.home")}
+      {/* Mobile Backdrop */}
+      <div 
+        onClick={() => setIsOpen(false)}
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[1001] transition-opacity duration-300 lg:hidden ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Mobile Slide-in Drawer */}
+      <div 
+        className={`fixed top-0 right-0 h-full w-[85%] sm:w-[380px] max-w-[400px] bg-white z-[1002] shadow-2xl flex flex-col justify-between overflow-y-auto transition-transform duration-300 ease-out lg:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Drawer Header */}
+        <div className="p-5 sm:p-6 border-b border-neutral-100 flex items-center justify-between">
+          <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-light font-montserrat tracking-tight flex items-center gap-2 text-neutral-900">
+            <Compass size={18} className="text-[#0E1B15]" />
+            <span>windmark<span className="font-semibold text-black">tours</span></span>
           </Link>
-          <Link 
-            href="/packages" 
-            onClick={toggleMenu} 
-            className={`text-lg font-poppins transition-colors duration-200 ${
-              isActive("/packages") ? "font-semibold text-[#0E1B15]" : "font-light text-neutral-500 hover:text-black"
-            }`}
+          <button 
+            onClick={() => setIsOpen(false)} 
+            aria-label="Close menu"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-neutral-600 hover:text-black hover:bg-neutral-100 transition-colors"
           >
-            {t("nav.tours")}
-          </Link>
-          {/* Mobile Categories list (indented, small, high fidelity) */}
-          <div className="flex flex-col gap-1.5 pl-4 border-l border-black/5 max-h-[140px] overflow-y-auto pr-1">
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Drawer Main Navigation */}
+        <div className="p-5 sm:p-6 flex-1 flex flex-col gap-5 overflow-y-auto">
+          <div className="flex flex-col gap-1.5">
             <Link 
-              href="/packages" 
-              onClick={toggleMenu}
-              className="text-[0.75rem] font-medium text-neutral-400 hover:text-black font-poppins"
+              href="/" 
+              onClick={() => setIsOpen(false)} 
+              className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-poppins transition-colors ${
+                pathname === "/" 
+                  ? "bg-[#0E1B15] text-white font-medium" 
+                  : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
+              }`}
             >
-              {t("nav.explore_packages")}
+              <span>{t("nav.home")}</span>
             </Link>
-            {categories.map(cat => (
-              <Link 
-                key={cat.title}
-                href={`/tours?category=${encodeURIComponent(cat.title)}`} 
-                onClick={toggleMenu}
-                className="text-[0.75rem] text-neutral-400 hover:text-black font-poppins"
+
+            {/* Tours Link + Collapsible Submenu */}
+            <div className="flex flex-col">
+              <div 
+                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-poppins transition-colors ${
+                  isActive("/packages") || isActive("/tours")
+                    ? "bg-neutral-100 text-black font-semibold"
+                    : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
+                }`}
               >
-                {t(cat.title)}
-              </Link>
-            ))}
+                <Link 
+                  href="/packages" 
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1"
+                >
+                  {t("nav.tours")}
+                </Link>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileToursOpen(!mobileToursOpen);
+                  }}
+                  className="p-1 text-neutral-500 hover:text-black transition-transform"
+                >
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${mobileToursOpen ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+
+              {/* Submenu Accordion */}
+              {mobileToursOpen && (
+                <div className="flex flex-col gap-1 pl-3 pr-1 py-2 my-1 border-l-2 border-[#0E1B15]/20 ml-3 max-h-[200px] overflow-y-auto">
+                  <Link 
+                    href="/packages" 
+                    onClick={() => setIsOpen(false)}
+                    className="py-1.5 px-2.5 rounded-lg text-xs font-semibold text-[#0E1B15] hover:bg-neutral-100 font-poppins"
+                  >
+                    ✦ {t("nav.explore_packages")}
+                  </Link>
+                  {categories.map((cat) => (
+                    <Link 
+                      key={cat.title}
+                      href={`/tours?category=${encodeURIComponent(cat.title)}`} 
+                      onClick={() => setIsOpen(false)}
+                      className="py-1 px-2.5 rounded-lg text-xs text-neutral-600 hover:text-black hover:bg-neutral-100 font-poppins"
+                    >
+                      {t(cat.title)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link 
+              href="/destinations" 
+              onClick={() => setIsOpen(false)} 
+              className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-poppins transition-colors ${
+                isActive("/destinations") 
+                  ? "bg-[#0E1B15] text-white font-medium" 
+                  : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
+              }`}
+            >
+              <span>{t("nav.destinations")}</span>
+            </Link>
+
+            <Link 
+              href="/about" 
+              onClick={() => setIsOpen(false)} 
+              className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-poppins transition-colors ${
+                isActive("/about") 
+                  ? "bg-[#0E1B15] text-white font-medium" 
+                  : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
+              }`}
+            >
+              <span>{t("nav.about")}</span>
+            </Link>
+
+            <Link 
+              href="/contact" 
+              onClick={() => setIsOpen(false)} 
+              className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-poppins transition-colors ${
+                isActive("/contact") 
+                  ? "bg-[#0E1B15] text-white font-medium" 
+                  : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
+              }`}
+            >
+              <span>{t("nav.contact")}</span>
+            </Link>
+          </div>
+
+          {/* Preferences Section: Language & Currency */}
+          <div className="pt-4 border-t border-neutral-100 flex flex-col gap-4">
+            <div>
+              <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-2 font-poppins">Language</p>
+              <div className="grid grid-cols-5 gap-1 bg-neutral-100 p-1 rounded-xl">
+                {(["en", "fr", "de", "es", "zh"] as Language[]).map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setLanguage(lang)}
+                    className={`py-1.5 text-xs font-semibold rounded-lg uppercase transition-all duration-200 ${
+                      language === lang 
+                        ? "bg-white text-black shadow-sm font-bold" 
+                        : "text-neutral-600 hover:text-black"
+                    }`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-2 font-poppins">Currency</p>
+              <div className="grid grid-cols-5 gap-1 bg-neutral-100 p-1 rounded-xl">
+                {(["USD", "EUR", "GBP", "LKR", "CNY"] as Currency[]).map((cur) => (
+                  <button
+                    key={cur}
+                    onClick={() => setCurrency(cur)}
+                    className={`py-1.5 text-[10px] font-semibold rounded-lg uppercase transition-all duration-200 ${
+                      currency === cur 
+                        ? "bg-white text-black shadow-sm font-bold" 
+                        : "text-neutral-600 hover:text-black"
+                    }`}
+                  >
+                    {cur}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-        <Link 
-          href="/destinations" 
-          onClick={toggleMenu} 
-          className={`text-lg font-poppins transition-colors duration-200 ${
-            isActive("/destinations") ? "font-semibold text-[#0E1B15]" : "font-light text-neutral-500 hover:text-black"
-          }`}
-        >
-          {t("nav.destinations")}
-        </Link>
-        <Link 
-          href="/about" 
-          onClick={toggleMenu} 
-          className={`text-lg font-poppins transition-colors duration-200 ${
-            isActive("/about") ? "font-semibold text-[#0E1B15]" : "font-light text-neutral-500 hover:text-black"
-          }`}
-        >
-          {t("nav.about")}
-        </Link>
-        <Link 
-          href="/contact" 
-          onClick={toggleMenu} 
-          className={`text-lg font-poppins transition-colors duration-200 ${
-            isActive("/contact") ? "font-semibold text-[#0E1B15]" : "font-light text-neutral-500 hover:text-black"
-          }`}
-        >
-          {t("nav.contact")}
-        </Link>
-        
-        {/* Mobile Language Selector Toggle */}
-        <div className="flex flex-wrap gap-2 pt-2 border-t border-black/5">
-          {(["en", "fr", "de", "es", "zh"] as Language[]).map(lang => (
-            <button
-              key={lang}
-              onClick={() => { setLanguage(lang); toggleMenu(); }}
-              className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200 uppercase ${
-                language === lang 
-                  ? "bg-black text-white border-black" 
-                  : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
-              }`}
-            >
-              {lang}
-            </button>
-          ))}
-        </div>
 
-        {/* Mobile Currency Selector Toggle */}
-        <div className="flex flex-wrap gap-2 pt-2 border-t border-black/5">
-          {(["USD", "EUR", "GBP", "LKR", "CNY"] as Currency[]).map(cur => (
-            <button
-              key={cur}
-              onClick={() => { setCurrency(cur); toggleMenu(); }}
-              className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200 uppercase ${
-                currency === cur 
-                  ? "bg-black text-white border-black" 
-                  : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
-              }`}
+        {/* Drawer Footer Actions */}
+        <div className="p-5 sm:p-6 border-t border-neutral-100 bg-neutral-50 flex flex-col gap-2.5">
+          {session ? (
+            <>
+              {session.user && (session.user as any).role === "ADMIN" && (
+                <Link 
+                  href="/admin" 
+                  onClick={() => setIsOpen(false)} 
+                  className="w-full text-center py-2.5 px-4 rounded-xl bg-amber-500 text-black font-semibold text-xs font-poppins shadow-sm hover:bg-amber-400 transition-colors"
+                >
+                  {t("nav.admin")} Dashboard
+                </Link>
+              )}
+              <button 
+                onClick={() => { signOut(); setIsOpen(false); }} 
+                className="w-full text-center py-2.5 px-4 rounded-xl border border-neutral-300 text-neutral-700 hover:text-black font-medium text-xs font-poppins transition-colors"
+              >
+                {t("nav.logout")}
+              </button>
+            </>
+          ) : (
+            <Link 
+              href="/login" 
+              onClick={() => setIsOpen(false)} 
+              className="w-full bg-[#0E1B15] text-white hover:bg-black text-center py-3 px-5 rounded-xl text-xs font-semibold transition-all shadow-md font-poppins"
             >
-              {currencyMeta[cur].symbol} {cur}
-            </button>
-          ))}
+              {t("nav.login")}
+            </Link>
+          )}
         </div>
-
-        {session ? (
-          <>
-            {session.user && (session.user as any).role === "ADMIN" && (
-              <Link href="/admin" onClick={toggleMenu} className="text-lg font-light hover:text-black font-poppins">{t("nav.admin")}</Link>
-            )}
-            <button onClick={() => { signOut(); toggleMenu(); }} className="text-lg font-medium text-left hover:text-black font-poppins mt-4 border-t border-black/10 pt-4">{t("nav.logout")}</button>
-          </>
-        ) : (
-          <Link href="/login" onClick={toggleMenu} className="bg-black text-white hover:bg-neutral-800 text-center px-5 py-3.5 rounded-full text-sm font-semibold transition-all duration-200 mt-4 shadow-md font-poppins">{t("nav.login")}</Link>
-        )}
       </div>
     </nav>
   );
