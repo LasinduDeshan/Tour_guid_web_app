@@ -98,12 +98,12 @@ const FAQSection = ({ initialFAQs }: FAQSectionProps) => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-8 max-w-[1280px]">
+    <section className="py-14 sm:py-20 md:py-28 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1280px]">
         
         {/* Title */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-light text-neutral-900 font-montserrat tracking-tight leading-tight">
+        <div className="mb-8 sm:mb-12 md:mb-16 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 font-montserrat tracking-tight leading-tight">
             {t("faq.title")}
           </h2>
         </div>

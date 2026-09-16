@@ -95,7 +95,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="h-screen w-full relative flex items-end text-white overflow-hidden pb-12 md:pb-16">
+    <section className="min-h-[100dvh] md:h-screen w-full relative flex flex-col justify-end text-white overflow-hidden pb-14 sm:pb-16 md:pb-16 pt-24 sm:pt-28 md:pt-0">
       <video 
         key={HERO_VIDEOS[currentVideoIndex].src}
         autoPlay 
@@ -106,20 +106,20 @@ const Hero = () => {
       >
         <source src={HERO_VIDEOS[currentVideoIndex].src} type="video/mp4" />
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 to-black/80 z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 via-black/40 to-black/85 z-10 pointer-events-none"></div>
       
-      <div className="container mx-auto px-8 relative z-20 w-full flex flex-col items-center text-center max-w-[1280px]">
+      <div className="container mx-auto px-4 sm:px-8 relative z-20 w-full flex flex-col items-center text-center max-w-[1280px]">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="w-full"
         >
-          <h1 className="text-5xl md:text-5xl font-light mb-6 drop-shadow-xl font-montserrat tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-5 drop-shadow-xl font-montserrat tracking-tight leading-tight">
             {t("hero.title_part1")} <br />
-            <span className="font-purgatory text-7xl md:text-5xl text-white inline-block py-2 leading-none">{t("hero.title_part2")}</span>
+            <span className="font-purgatory text-5xl sm:text-6xl md:text-5xl text-white inline-block py-1 sm:py-2 leading-none">{t("hero.title_part2")}</span>
           </h1>
-          <p className="text-base md:text-m max-w-[750px] mx-auto mb-16 font-light opacity-90 drop-shadow-md">
+          <p className="text-xs sm:text-sm md:text-base max-w-[750px] mx-auto mb-6 sm:mb-8 md:mb-14 font-light opacity-90 drop-shadow-md px-2">
             {t("hero.subtitle")}
           </p>
         </motion.div>
@@ -129,19 +129,19 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative flex flex-col md:flex-row items-center bg-black/50 backdrop-blur-xl p-2 rounded-2xl md:rounded-full w-full max-w-[850px]  shadow-2xl gap-3 md:gap-0"
+          className="relative flex flex-col md:flex-row items-center bg-black/60 md:bg-black/50 backdrop-blur-xl p-1.5 sm:p-2 rounded-2xl md:rounded-full w-full max-w-[850px] shadow-2xl gap-2 sm:gap-2.5 md:gap-0 border border-white/10 md:border-transparent"
         >
           {/* Where To */}
-          <div className="flex-1 flex items-center gap-4 py-3.5 px-6 bg-white/5 md:bg-transparent rounded-xl md:rounded-none w-full">
+          <div className="flex-1 flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3.5 px-4 sm:px-6 bg-white/5 md:bg-transparent rounded-xl md:rounded-none w-full">
             <div className="text-white flex-shrink-0"><MapPin size={18} /></div>
             <div className="flex flex-col items-start w-full">
-              <label className="text-xs font-medium text-white/70 mb-0.5">{t("hero.where_to")}</label>
+              <label className="text-[11px] sm:text-xs font-medium text-white/70 mb-0.5">{t("hero.where_to")}</label>
               <input 
                 type="text" 
                 value={whereTo}
                 onChange={(e) => setWhereTo(e.target.value)}
                 placeholder={t("hero.where_placeholder")} 
-                className="border-none bg-transparent outline-none text-sm w-full text-white placeholder-white/50 font-poppins" 
+                className="border-none bg-transparent outline-none text-xs sm:text-sm w-full text-white placeholder-white/50 font-poppins" 
               />
             </div>
           </div>
@@ -149,13 +149,13 @@ const Hero = () => {
           {/* When Selector (With Direct Calendar Popup) */}
           <div 
             ref={calendarRef}
-            className="relative flex-1 flex items-center gap-4 py-3.5 px-6 bg-white/5 md:bg-transparent rounded-xl md:rounded-none w-full md:border-l md:border-white/20 cursor-pointer"
+            className="relative flex-1 flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3.5 px-4 sm:px-6 bg-white/5 md:bg-transparent rounded-xl md:rounded-none w-full md:border-l md:border-white/20 cursor-pointer"
             onClick={() => setIsCalendarOpen(prev => !prev)}
           >
             <div className="text-white flex-shrink-0"><CalendarIcon size={18} /></div>
             <div className="flex flex-col items-start w-full text-left">
-              <label className="text-xs font-medium text-white/70 mb-0.5 cursor-pointer">{t("hero.when")}</label>
-              <div className="text-sm font-poppins text-white truncate w-full flex items-center justify-between">
+              <label className="text-[11px] sm:text-xs font-medium text-white/70 mb-0.5 cursor-pointer">{t("hero.when")}</label>
+              <div className="text-xs sm:text-sm font-poppins text-white truncate w-full flex items-center justify-between">
                 <span className={when ? "text-white font-medium" : "text-white/50"}>
                   {when || t("hero.when_placeholder")}
                 </span>
@@ -183,7 +183,7 @@ const Hero = () => {
                   exit={{ opacity: 0, y: 10, scale: 0.96 }}
                   transition={{ duration: 0.2 }}
                   onClick={(e) => e.stopPropagation()}
-                  className="absolute bottom-full mb-4 left-0 md:left-1/2 md:-translate-x-1/2 w-[320px] sm:w-[350px] bg-neutral-950/95 backdrop-blur-2xl border border-neutral-800 rounded-3xl p-5 shadow-2xl z-50 text-white flex flex-col gap-4 text-left"
+                  className="absolute bottom-full mb-4 left-0 md:left-1/2 md:-translate-x-1/2 w-[300px] sm:w-[350px] bg-neutral-950/95 backdrop-blur-2xl border border-neutral-800 rounded-3xl p-4 sm:p-5 shadow-2xl z-50 text-white flex flex-col gap-4 text-left"
                 >
                   {/* Calendar Header with Navigation & Close */}
                   <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
@@ -284,7 +284,7 @@ const Hero = () => {
             </AnimatePresence>
           </div>
 
-          <button type="submit" className="bg-white text-black hover:bg-white/90 rounded-xl md:rounded-full py-4 px-8 text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
+          <button type="submit" className="bg-white text-black hover:bg-white/90 rounded-xl md:rounded-full py-3 sm:py-4 px-6 sm:px-8 text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover:-translate-y-0.5 w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0 font-poppins">
             <Search size={16} />
             {t("hero.search_btn")}
           </button>
@@ -292,8 +292,8 @@ const Hero = () => {
       </div>
 
       {/* Video Credit */}
-      <div className="absolute bottom-3 left-4 sm:left-8 z-20 flex items-center bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] text-white/80 font-poppins">
-        <p className="truncate max-w-[260px] sm:max-w-none">
+      <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-8 z-20 flex items-center bg-black/50 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-white/10 text-[10px] sm:text-[11px] text-white/85 font-poppins shadow-md">
+        <p className="truncate max-w-[220px] sm:max-w-none">
           video by{" "}
           <a
             href={HERO_VIDEOS[currentVideoIndex].creditUrl}

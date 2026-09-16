@@ -41,7 +41,7 @@ const BentoIntro = () => {
   };
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-14 sm:py-20 md:py-24 bg-white relative overflow-hidden">
       {/* Dark transition shade from Hero */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/20 via-black/5 to-transparent pointer-events-none z-10" />
 
@@ -49,16 +49,16 @@ const BentoIntro = () => {
       <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,transparent_70%)] pointer-events-none z-0" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-[radial-gradient(circle,rgba(99,102,241,0.04)_0%,transparent_70%)] pointer-events-none z-0" />
 
-      <div className="container mx-auto px-8 relative z-10 max-w-[1280px]">
+      <div className="container mx-auto px-4 sm:px-8 relative z-10 max-w-[1280px]">
         
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-14 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-light text-black leading-[1.05] tracking-tight mb-6 font-montserrat text-left"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-light text-black leading-[1.1] sm:leading-[1.05] tracking-tight mb-4 sm:mb-6 font-montserrat text-left"
           >
             {t("bento.title_part1")} <br />
             <span className="text-black font-semibold">{t("bento.title_part2")}</span>
@@ -68,7 +68,7 @@ const BentoIntro = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-[#717171] max-w-[850px] leading-relaxed text-left font-light"
+            className="text-sm sm:text-base md:text-xl text-[#717171] max-w-[850px] leading-relaxed text-left font-light"
           >
             {t("bento.subtitle")}
           </motion.p>

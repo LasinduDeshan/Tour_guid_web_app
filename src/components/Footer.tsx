@@ -9,8 +9,8 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-black text-white pt-20 mt-20">
-      <div className="container mx-auto px-8 max-w-[1280px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-12 mb-16">
+    <footer className="bg-black text-white pt-14 sm:pt-20 mt-12 sm:mt-20">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1280px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-8 sm:gap-12 mb-12 sm:mb-16">
         <div className="flex flex-col">
           <Link href="/" className="text-2xl font-light font-montserrat tracking-tight mb-6 block text-white">
             windmark<span className="font-semibold text-white font-montserrat">tours</span>

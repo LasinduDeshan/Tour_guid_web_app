@@ -127,15 +127,15 @@ const ImageGridSection = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-white border-t border-neutral-100 relative overflow-hidden">
+    <section className="py-14 sm:py-20 md:py-24 bg-white border-t border-neutral-100 relative overflow-hidden">
       {/* Decorative background glows */}
       <div className="absolute top-0 left-1/4 w-[40vw] h-[40vw] bg-[radial-gradient(circle,rgba(156,191,167,0.03)_0%,transparent_75%)] pointer-events-none z-0" />
 
-      <div className="container mx-auto px-8 max-w-[1280px] relative z-10 flex flex-col gap-12">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1280px] relative z-10 flex flex-col gap-8 sm:gap-12">
         {/* Editorial Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
           
-          <h2 className="text-4xl md:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
             Traveler <span className="font-semibold text-black">Moments</span>
           </h2>
           <p className="text-xs md:text-sm text-neutral-500 font-light font-poppins leading-relaxed">

@@ -301,16 +301,16 @@ const TourCategories = ({ initialPackages }: TourCategoriesProps) => {
   };
 
   return (
-    <section className={`py-24 ${activePkg.sectionBg} relative overflow-hidden transition-colors duration-1000`}>
+    <section className={`py-14 sm:py-20 md:py-24 ${activePkg.sectionBg} relative overflow-hidden transition-colors duration-1000`}>
       {/* Subtle organic background glowing circle */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none z-0" />
 
-      <div className="container mx-auto px-8 relative z-10 max-w-[1280px]">
+      <div className="container mx-auto px-4 sm:px-8 relative z-10 max-w-[1280px]">
         
         {/* Editorial Section Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white text-left">
+        <div className="mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 text-white text-left">
           <div className="max-w-[600px]">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight font-montserrat">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight font-montserrat">
               {t(activePkg.title)} <br />
               <span className="font-semibold">{t(activePkg.highlight)}</span>
             </h2>
