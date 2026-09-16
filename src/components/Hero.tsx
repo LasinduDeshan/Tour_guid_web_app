@@ -16,7 +16,28 @@ const Hero = () => {
 
   const calendarRef = useRef<HTMLDivElement>(null);
   
-  const videos = ["/hero-video.mp4", "/hero-video-2.mp4"];
+  const HERO_VIDEOS = [
+    {
+      src: "/hero-video.mp4",
+      title: "Nine Arches Bridge",
+      creditUrl: "https://www.pexels.com/video/drone-view-of-demodara-nine-arches-bridge-34100511/",
+    },
+    {
+      src: "/hero-video-2.mp4",
+      title: "Sigiriya Rock",
+      creditUrl: "https://www.pexels.com/video/stunning-aerial-view-of-sigiriya-rock-sri-lanka-34100385/",
+    },
+    {
+      src: "/hero-video-3.mp4",
+      title: "Mirissa Coastline",
+      creditUrl: "https://www.pexels.com/video/breathtaking-aerial-view-of-mirissa-coastline-32504536/",
+    },
+    {
+      src: "/hero-video-4.mp4",
+      title: "Ruwanweli Maha Seya",
+      creditUrl: "https://www.pexels.com/video/drone-footage-of-the-ruwanweli-maha-seya-10638148/",
+    },
+  ];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   // Close calendar popup on click outside
@@ -35,7 +56,7 @@ const Hero = () => {
   }, [isCalendarOpen]);
 
   const handleVideoEnd = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+    setCurrentVideoIndex((prev) => (prev + 1) % HERO_VIDEOS.length);
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -76,14 +97,14 @@ const Hero = () => {
   return (
     <section className="h-screen w-full relative flex items-end text-white overflow-hidden pb-12 md:pb-16">
       <video 
-        key={videos[currentVideoIndex]}
+        key={HERO_VIDEOS[currentVideoIndex].src}
         autoPlay 
         muted 
         onEnded={handleVideoEnd}
         playsInline 
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src={videos[currentVideoIndex]} type="video/mp4" />
+        <source src={HERO_VIDEOS[currentVideoIndex].src} type="video/mp4" />
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 to-black/80 z-10"></div>
       
@@ -268,6 +289,21 @@ const Hero = () => {
             {t("hero.search_btn")}
           </button>
         </motion.form>
+      </div>
+
+      {/* Video Credit */}
+      <div className="absolute bottom-3 left-4 sm:left-8 z-20 flex items-center bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] text-white/80 font-poppins">
+        <p className="truncate max-w-[260px] sm:max-w-none">
+          video by{" "}
+          <a
+            href={HERO_VIDEOS[currentVideoIndex].creditUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white font-medium underline underline-offset-2 hover:text-amber-300 transition-colors"
+          >
+            {HERO_VIDEOS[currentVideoIndex].title} on Pexels
+          </a>
+        </p>
       </div>
     </section>
   );
