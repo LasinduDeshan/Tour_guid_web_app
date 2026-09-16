@@ -253,7 +253,7 @@ export function Map({
       {/* Dynamic Loader Skeleton Overlay */}
       {!isLoaded && !error && (
         <div className="absolute inset-0 bg-white/80 backdrop-blur-md z-20 flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-emerald-700" />
           <span className="text-xs font-poppins text-neutral-400">Loading satellite terrain...</span>
         </div>
       )}

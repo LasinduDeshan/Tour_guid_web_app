@@ -395,7 +395,7 @@ const TourCategories = ({ initialPackages }: TourCategoriesProps) => {
               
               <div className="mt-auto space-y-4">
                 <div className="text-left">
-                  <h3 className="text-7xl font-light font-serif leading-tight tracking-tight text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl font-light font-serif leading-tight tracking-tight text-white mb-2">
                     {t(activePkg.card2Title)}
                   </h3>
                   <p className="text-xs md:text-sm text-neutral-300 font-light font-poppins leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 h-0 group-hover:h-auto overflow-hidden">

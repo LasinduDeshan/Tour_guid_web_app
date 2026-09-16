@@ -359,7 +359,7 @@ function ToursContent() {
       <div className="container mx-auto px-8 max-w-[1280px]">
         {isLoadingTours ? (
           <div className="flex flex-col gap-4 items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+            <Loader2 className="w-8 h-8 animate-spin text-emerald-700" />
             <span className="text-sm font-poppins text-neutral-400">Loading dynamic tour experiences...</span>
           </div>
         ) : filteredTours.length > 0 ? (
@@ -438,7 +438,7 @@ function ToursContent() {
                 {/* Header Info */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold text-blue-500 font-poppins">
+                    <span className="text-xs font-semibold text-emerald-700 font-poppins">
                       {selectedTour.category}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
@@ -503,7 +503,7 @@ function ToursContent() {
 
                       {/* Package Description */}
                       <div>
-                        <h5 className="text-xs font-semibold text-blue-500 mb-2 font-poppins">
+                        <h5 className="text-xs font-semibold text-emerald-700 mb-2 font-poppins">
                           About the Journey
                         </h5>
                         <p className="text-neutral-600 font-light text-xs sm:text-sm leading-relaxed font-poppins">
@@ -524,7 +524,7 @@ function ToursContent() {
                                 key={i}
                                 className="flex items-start gap-3 p-3.5 bg-neutral-50/50 hover:bg-neutral-50 rounded-2xl border border-neutral-100 transition-all duration-300 group"
                               >
-                                <div className="p-2 bg-white text-neutral-800 rounded-xl group-hover:text-blue-500 group-hover:scale-105 transition-all duration-300 border border-neutral-100 shadow-sm flex-shrink-0">
+                                <div className="p-2 bg-white text-neutral-800 rounded-xl group-hover:text-emerald-700 group-hover:scale-105 transition-all duration-300 border border-neutral-100 shadow-sm flex-shrink-0">
                                   <IconComponent size={16} />
                                 </div>
                                 <div className="flex flex-col justify-center">
@@ -567,8 +567,8 @@ function ToursContent() {
                               <div
                                 className={`absolute left-6 top-5 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full z-10 transition-all duration-300 border-2 ${
                                   isActive
-                                    ? "bg-[#0E1B15] border-blue-500 scale-125 shadow-md"
-                                    : "bg-white border-neutral-200 group-hover:border-blue-500 group-hover:scale-110"
+                                    ? "bg-[#0E1B15] border-emerald-600 scale-125 shadow-md"
+                                    : "bg-white border-neutral-200 group-hover:border-emerald-600 group-hover:scale-110"
                                 }`}
                               />
 
@@ -576,11 +576,11 @@ function ToursContent() {
                               <div
                                 className={`p-4 rounded-2xl border transition-all duration-300 ${
                                   isActive
-                                    ? "bg-blue-50/40 border-blue-200/50 shadow-sm"
+                                    ? "bg-emerald-50/40 border-emerald-200/50 shadow-sm"
                                     : "bg-white border-neutral-100 hover:border-neutral-200"
                                 }`}
                               >
-                                <span className="text-xs font-semibold text-blue-500 font-poppins block mb-0.5">
+                                <span className="text-xs font-semibold text-emerald-700 font-poppins block mb-0.5">
                                   Day {step.day}: {step.location}
                                 </span>
                                 <h6 className="text-xs font-bold text-neutral-800 font-montserrat tracking-tight mb-1">
@@ -636,7 +636,7 @@ function ToursContent() {
                       exit={{ opacity: 0 }}
                     >
                       <div className="mb-8">
-                        <span className="text-xs font-semibold text-blue-500 font-poppins md:hidden mb-1 block">
+                        <span className="text-xs font-semibold text-emerald-700 font-poppins md:hidden mb-1 block">
                           Inquire Tour
                         </span>
                         <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 font-montserrat tracking-tight mb-2">
@@ -797,7 +797,7 @@ function ToursFallback() {
   return (
     <div className="w-full min-h-screen bg-neutral-50 flex items-center justify-center pt-28">
       <div className="flex flex-col items-center gap-4">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-emerald-700" />
         <p className="text-sm font-poppins text-neutral-400">Loading crafted experiences...</p>
       </div>
     </div>

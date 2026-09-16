@@ -19,7 +19,7 @@ const contactInfo = [
     label: "Call Us",
     value: "+94 74 227 6037",
     sub: "Mon–Sat, 9am–7pm",
-    color: "bg-blue-50 text-blue-600",
+    color: "bg-emerald-50 text-emerald-700",
   },
   {
     icon: Mail,

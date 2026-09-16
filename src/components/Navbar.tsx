@@ -216,7 +216,7 @@ const Navbar = () => {
                     <Link 
                       key={cat.title} 
                       href={`/tours?category=${encodeURIComponent(cat.title)}`}
-                      className="flex flex-col gap-1 p-2 rounded-xl hover:bg-blue-50/40 border border-transparent hover:border-blue-100/55 transition-all duration-200 group/item"
+                      className="flex flex-col gap-1 p-2 rounded-xl hover:bg-emerald-50/30 border border-transparent hover:border-emerald-100/60 transition-all duration-200 group/item"
                     >
                       <div className="flex items-center gap-1 text-neutral-800 group-hover/item:text-[#0E1B15] font-semibold text-[0.78rem] font-poppins leading-none">
                         {t(cat.title)} <span className="opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 ml-0.5 text-xs text-neutral-500 font-normal">&gt;</span>

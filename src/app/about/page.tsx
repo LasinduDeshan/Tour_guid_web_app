@@ -34,7 +34,7 @@ const pillars = [
     icon: Compass,
     title: "Tailored to Your Style",
     desc: "Every traveler is unique. Whether you are traveling as a couple, family, or solo adventurer, we plan your route, stays, and activities around your exact preferences.",
-    color: "bg-blue-50 text-blue-700 border-blue-100",
+    color: "bg-emerald-50 text-emerald-700 border-emerald-100",
   },
   {
     icon: Car,

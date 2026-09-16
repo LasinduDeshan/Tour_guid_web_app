@@ -426,9 +426,14 @@ export default function PackagesPage() {
         
         <div className="container mx-auto px-8 max-w-[1280px] relative z-10 space-y-12">
           {/* Main Section Header */}
-          <div className="pb-4">
-            <span className="text-xs font-semibold text-neutral-500 font-poppins">
-              {t("beach.sec_num")}
+          <div className="pb-6 border-b border-neutral-200/60 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-neutral-950 font-montserrat tracking-tight">
+                {t("beach.sec_num")}
+              </h2>
+            </div>
+            <span className="text-xs text-neutral-400 font-poppins font-light hidden sm:inline-block">
+              Southern & Eastern Coasts
             </span>
           </div>
 
@@ -437,9 +442,11 @@ export default function PackagesPage() {
             {/* Left Image & Text block (Wider, Col Span 7) */}
             <div className="lg:col-span-7 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-xs font-medium text-neutral-500 font-poppins">
-                {t("beach.micro_left")}
-              </span>
+              <div>
+                <span className="text-sm sm:text-base font-semibold text-neutral-800 font-montserrat tracking-tight">
+                  {t("beach.micro_left")}
+                </span>
+              </div>
               
               {/* Image */}
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-neutral-200/30 group">
@@ -456,34 +463,34 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 leading-snug font-montserrat tracking-tight">
                   {t("beach.title_left")}
                 </h3>
                 
-                <p className="text-neutral-600 text-xs md:text-sm font-light leading-relaxed font-poppins text-justify">
+                <p className="text-neutral-600 text-sm leading-relaxed font-poppins text-justify font-light">
                   {t("beach.desc_left")}
                 </p>
 
                 {/* Sub Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-3">
-                  <div className="flex gap-3 items-start">
-                    <Waves className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Waves className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("beach.feat1_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("beach.feat1_desc")}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start">
-                    <Palmtree className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Palmtree className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("beach.feat2_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("beach.feat2_desc")}
                       </p>
                     </div>
@@ -495,9 +502,11 @@ export default function PackagesPage() {
             {/* Right Image & Text block (Narrower, Col Span 5) */}
             <div className="lg:col-span-5 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-xs font-medium text-neutral-500 font-poppins">
-                {t("beach.micro_right")}
-              </span>
+              <div>
+                <span className="text-sm sm:text-base font-semibold text-neutral-800 font-montserrat tracking-tight">
+                  {t("beach.micro_right")}
+                </span>
+              </div>
               
               {/* Image */}
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-neutral-200/30 group">
@@ -514,34 +523,34 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 leading-tight font-montserrat">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-neutral-900 leading-snug font-montserrat tracking-tight">
                   {t("beach.title_right")}
                 </h3>
                 
-                <p className="text-neutral-600 text-[11px] md:text-xs font-light leading-relaxed font-poppins text-justify">
+                <p className="text-neutral-600 text-sm leading-relaxed font-poppins text-justify font-light">
                   {t("beach.desc_right")}
                 </p>
 
                 {/* Sub Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-3">
-                  <div className="flex gap-3 items-start">
-                    <MapPin className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <MapPin className="w-5 h-5 text-teal-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("beach.feat3_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("beach.feat3_desc")}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start">
-                    <Sparkles className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Sparkles className="w-5 h-5 text-teal-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("beach.feat4_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("beach.feat4_desc")}
                       </p>
                     </div>
@@ -572,9 +581,14 @@ export default function PackagesPage() {
         
         <div className="container mx-auto px-8 max-w-[1280px] relative z-10 space-y-12">
           {/* Main Section Header */}
-          <div className="pb-4">
-            <span className="text-xs font-semibold text-neutral-500 font-poppins">
-              {t("wildlife.sec_num")}
+          <div className="pb-6 border-b border-neutral-200/60 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-neutral-950 font-montserrat tracking-tight">
+                {t("wildlife.sec_num")}
+              </h2>
+            </div>
+            <span className="text-xs text-neutral-400 font-poppins font-light hidden sm:inline-block">
+              National Parks & Reserves
             </span>
           </div>
 
@@ -583,9 +597,11 @@ export default function PackagesPage() {
             {/* Left Image & Text block (Narrower, Col Span 5) */}
             <div className="lg:col-span-5 flex flex-col space-y-6">
               {/* Micro Header */}
-              <span className="text-xs font-medium text-neutral-500 font-poppins">
-                {t("wildlife.micro_left")}
-              </span>
+              <div>
+                <span className="text-sm sm:text-base font-semibold text-neutral-800 font-montserrat tracking-tight">
+                  {t("wildlife.micro_left")}
+                </span>
+              </div>
               
               {/* Image */}
               <div className="relative w-full aspect-[16/11] rounded-2xl overflow-hidden shadow-lg border border-neutral-200/30 group">
@@ -602,34 +618,34 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 leading-tight font-montserrat">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-neutral-900 leading-snug font-montserrat tracking-tight">
                   {t("wildlife.title_left")}
                 </h3>
                 
-                <p className="text-neutral-600 text-[11px] md:text-xs font-light leading-relaxed font-poppins text-justify">
+                <p className="text-neutral-600 text-sm leading-relaxed font-poppins text-justify font-light">
                   {t("wildlife.desc_left")}
                 </p>
 
                 {/* Sub Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-3">
-                  <div className="flex gap-3 items-start">
-                    <Trees className="w-4 h-4 text-emerald-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Trees className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("wildlife.feat1_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("wildlife.feat1_desc")}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start">
-                    <Flame className="w-4 h-4 text-emerald-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Flame className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("wildlife.feat2_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("wildlife.feat2_desc")}
                       </p>
                     </div>
@@ -641,9 +657,11 @@ export default function PackagesPage() {
             {/* Right Image & Text block (Wider, Col Span 7, Offset Staggered Downwards) */}
             <div className="lg:col-span-7 flex flex-col space-y-6 lg:pt-16">
               {/* Micro Header */}
-              <span className="text-xs font-medium text-neutral-500 font-poppins">
-                {t("wildlife.micro_right")}
-              </span>
+              <div>
+                <span className="text-sm sm:text-base font-semibold text-neutral-800 font-montserrat tracking-tight">
+                  {t("wildlife.micro_right")}
+                </span>
+              </div>
               
               {/* Image */}
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-neutral-200/30 group">
@@ -660,34 +678,34 @@ export default function PackagesPage() {
 
               {/* Title & Description Directly Underneath Image */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-neutral-900 leading-tight font-montserrat">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 leading-snug font-montserrat tracking-tight">
                   {t("wildlife.title_right")}
                 </h3>
                 
-                <p className="text-neutral-600 text-xs md:text-sm font-light leading-relaxed font-poppins text-justify">
+                <p className="text-neutral-600 text-sm leading-relaxed font-poppins text-justify font-light">
                   {t("wildlife.desc_right")}
                 </p>
 
                 {/* Sub Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-3">
-                  <div className="flex gap-3 items-start">
-                    <Binoculars className="w-4 h-4 text-emerald-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <Binoculars className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("wildlife.feat3_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("wildlife.feat3_desc")}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start">
-                    <ShieldCheck className="w-4 h-4 text-emerald-700 mt-0.5 flex-shrink-0" />
+                  <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white/70 border border-neutral-100 shadow-sm">
+                    <ShieldCheck className="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs mb-0.5">
+                      <h4 className="font-semibold text-neutral-900 font-montserrat text-xs md:text-sm mb-1">
                         {t("wildlife.feat4_title")}
                       </h4>
-                      <p className="text-neutral-500 text-[10px] font-poppins font-light leading-relaxed">
+                      <p className="text-neutral-500 text-xs font-poppins font-light leading-relaxed">
                         {t("wildlife.feat4_desc")}
                       </p>
                     </div>
@@ -725,8 +743,8 @@ export default function PackagesPage() {
       </section>
 
       {/* 4. Luxury Philosophy trust badges section */}
-      <section className="container mx-auto px-8 max-w-[1280px] py-12">
-        <div className="bg-[#0E1B15] text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/5">
+      <section className="container mx-auto px-8 max-w-[1280px] my-20 relative z-10">
+        <div className="bg-[#0E1B15] text-white p-8 md:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden border border-white/5">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_70%)] pointer-events-none" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10 items-center">
             
@@ -765,15 +783,12 @@ export default function PackagesPage() {
       </section>
 
       {/* 3.5 Dynamic Tour Packages Grid Catalog */}
-      <section className="container mx-auto px-8 max-w-[1280px] py-16 text-left border-t border-neutral-200/50">
-        <div className="space-y-3 mb-10">
-          <span className="text-xs font-medium text-neutral-500 font-poppins">
-            Signature Curation
-          </span>
-          <h2 className="text-3xl md:text-4xl font-light font-montserrat text-neutral-900">
+      <section className="container mx-auto px-8 max-w-[1280px] pt-16 pb-20 text-left border-t border-neutral-200/60 relative z-0">
+        <div className="space-y-3 mb-10 pb-6 border-b border-neutral-200/60">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-montserrat text-neutral-900 tracking-tight">
             All Signature Tour Packages
           </h2>
-          <p className="text-neutral-500 font-light text-xs md:text-sm font-poppins max-w-2xl leading-relaxed">
+          <p className="text-neutral-600 font-light text-sm md:text-base font-poppins max-w-2xl leading-relaxed">
             Browse our complete catalog of dynamically curated journeys, hand-designed by our specialists for seamless luxury travel, heritage discovery, and wild encounters.
           </p>
         </div>
@@ -839,7 +854,7 @@ export default function PackagesPage() {
                 {/* Header Info */}
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-left">
-                    <span className="text-xs font-semibold text-blue-500 font-poppins">
+                    <span className="text-xs font-semibold text-emerald-700 font-poppins">
                       {selectedTour.category}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
@@ -908,7 +923,7 @@ export default function PackagesPage() {
 
                       {/* Package Description */}
                       <div className="text-left">
-                        <h5 className="text-xs font-semibold text-blue-500 mb-2 font-poppins">
+                        <h5 className="text-xs font-semibold text-emerald-700 mb-2 font-poppins">
                           About the Journey
                         </h5>
                         <p className="text-neutral-600 font-light text-xs sm:text-sm leading-relaxed font-poppins text-justify">
@@ -929,7 +944,7 @@ export default function PackagesPage() {
                                 key={i}
                                 className="flex items-start gap-3 p-3.5 bg-neutral-50/50 hover:bg-neutral-50 rounded-2xl border border-neutral-100 transition-all duration-300 group"
                               >
-                                <div className="p-2 bg-white text-neutral-800 rounded-xl group-hover:text-blue-500 group-hover:scale-105 transition-all duration-300 border border-neutral-100 shadow-sm flex-shrink-0">
+                                <div className="p-2 bg-white text-neutral-800 rounded-xl group-hover:text-emerald-700 group-hover:scale-105 transition-all duration-300 border border-neutral-100 shadow-sm flex-shrink-0">
                                   <IconComponent size={16} />
                                 </div>
                                 <div className="flex flex-col justify-center">
@@ -975,8 +990,8 @@ export default function PackagesPage() {
                               <div
                                 className={`absolute left-6 top-5 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full z-10 transition-all duration-300 border-2 ${
                                   isActive
-                                    ? "bg-[#0E1B15] border-blue-500 scale-125 shadow-md"
-                                    : "bg-white border-neutral-200 group-hover:border-blue-500 group-hover:scale-110"
+                                    ? "bg-[#0E1B15] border-emerald-600 scale-125 shadow-md"
+                                    : "bg-white border-neutral-200 group-hover:border-emerald-600 group-hover:scale-110"
                                 }`}
                               />
 
@@ -984,11 +999,11 @@ export default function PackagesPage() {
                               <div
                                 className={`p-4 rounded-2xl border transition-all duration-300 text-left ${
                                   isActive
-                                    ? "bg-blue-50/40 border-blue-200/50 shadow-sm"
+                                    ? "bg-emerald-50/40 border-emerald-200/50 shadow-sm"
                                     : "bg-white border-neutral-100 hover:border-neutral-200"
                                 }`}
                               >
-                                <span className="text-xs font-semibold text-blue-500 font-poppins block mb-0.5">
+                                <span className="text-xs font-semibold text-emerald-700 font-poppins block mb-0.5">
                                   Day {step.day}: {step.location}
                                 </span>
                                 <h6 className="text-xs font-bold text-neutral-800 font-montserrat tracking-tight mb-1">
@@ -1053,7 +1068,7 @@ export default function PackagesPage() {
                       exit={{ opacity: 0 }}
                     >
                       <div className="mb-8 text-left">
-                        <span className="text-xs font-semibold text-blue-500 font-poppins md:hidden mb-1 block">
+                        <span className="text-xs font-semibold text-emerald-700 font-poppins md:hidden mb-1 block">
                           Inquire Tour
                         </span>
                         <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 font-montserrat tracking-tight mb-2">

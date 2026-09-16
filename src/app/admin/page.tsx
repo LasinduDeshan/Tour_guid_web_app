@@ -366,7 +366,7 @@ export default function AdminDashboard() {
   if (status === "loading" || isLoading) {
     return (
       <div className="h-screen flex flex-col gap-3 items-center justify-center bg-neutral-50">
-        <Loader2 className="w-10 h-10 animate-spin text-blue-500" />
+        <Loader2 className="w-10 h-10 animate-spin text-emerald-700" />
         <span className="text-sm font-normal font-poppins text-neutral-400">Loading console control panel...</span>
       </div>
     );
@@ -1612,7 +1612,7 @@ export default function AdminDashboard() {
                     <div className="flex-shrink-0 mt-1.5">
                       <div className={`w-2.5 h-2.5 rounded-full ${
                         inq.status === "NEW" ? "bg-emerald-500 animate-pulse" :
-                        inq.status === "READ" ? "bg-blue-400" : "bg-neutral-300"
+                        inq.status === "READ" ? "bg-teal-400" : "bg-neutral-300"
                       }`} />
                     </div>
 
@@ -1621,7 +1621,7 @@ export default function AdminDashboard() {
                       <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
                         <span className="font-normal text-slate-800 text-sm font-poppins text-left">{inq.name}</span>
                         <span className={`text-[9px] font-normal uppercase px-2.5 py-0.5 rounded-full tracking-wider border ${
-                          inq.source === "WIDGET" ? "bg-purple-50 text-purple-600 border-purple-100" : "bg-blue-50 text-blue-600 border-indigo-100"
+                          inq.source === "WIDGET" ? "bg-purple-50 text-purple-600 border-purple-100" : "bg-emerald-50 text-emerald-700 border-emerald-100"
                         }`}>{inq.source === "WIDGET" ? "Floating Widget" : "Contact Page"}</span>
                         
                         <span className={`text-[9px] font-normal uppercase px-2.5 py-0.5 rounded-full tracking-wider border ${
@@ -2092,9 +2092,9 @@ export default function AdminDashboard() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {destForm.activities.map((act, idx) => (
-                    <span key={idx} className="bg-blue-50 text-blue-600 border border-blue-100/50 px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-xs font-normal">
+                    <span key={idx} className="bg-emerald-50 text-emerald-700 border border-emerald-100/60 px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-xs font-normal">
                       {act}
-                      <X size={12} className="cursor-pointer text-blue-400 hover:text-blue-600" onClick={() => handleRemoveActivity(idx)} />
+                      <X size={12} className="cursor-pointer text-emerald-500 hover:text-emerald-700" onClick={() => handleRemoveActivity(idx)} />
                     </span>
                   ))}
                   {destForm.activities.length === 0 && <span className="text-[11px] font-light text-neutral-400 font-poppins text-left">No activities added yet.</span>}

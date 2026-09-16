@@ -333,9 +333,9 @@ function DestinationsContent() {
     const cond = condition.toLowerCase();
     let beacon = "from-amber-400 to-rose-400 shadow-amber-500/25";
     if (cond.includes("cloud") || cond.includes("fog")) {
-      beacon = "from-blue-200 to-gray-400 shadow-neutral-400/20";
+      beacon = "from-neutral-300 to-gray-400 shadow-neutral-400/20";
     } else if (cond.includes("rain") || cond.includes("shower") || cond.includes("drizzle") || cond.includes("thunderstorm")) {
-      beacon = "from-blue-400 to-indigo-500 shadow-blue-500/25";
+      beacon = "from-teal-400 to-emerald-600 shadow-teal-500/25";
     }
     return {
       bg: "bg-white border border-neutral-200/50 shadow-md rounded-[2.5rem] text-neutral-800 transition-all duration-700",
@@ -606,13 +606,13 @@ function DestinationsContent() {
                                   <span className="text-neutral-700">{mon.name} ({mon.period})</span>
                                   <span className={
                                     mon.rating === "Perfect" ? "text-emerald-600" :
-                                    mon.rating === "Good" ? "text-blue-500" : "text-amber-500"
+                                    mon.rating === "Good" ? "text-teal-600" : "text-amber-500"
                                   }>{mon.status}</span>
                                 </div>
                                 <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden">
                                   <div className={`h-full rounded-full transition-all duration-500 ${
                                     mon.rating === "Perfect" ? "bg-emerald-500" :
-                                    mon.rating === "Good" ? "bg-blue-400" : "bg-amber-400"
+                                    mon.rating === "Good" ? "bg-teal-400" : "bg-amber-400"
                                   }`} style={{ width: `${mon.progress}%` }} />
                                 </div>
                               </div>
@@ -658,7 +658,7 @@ function DestinationsContent() {
                                   destinationClimate.months[selectedMonthIdx].suitability === "Perfect"
                                     ? "bg-emerald-100 text-emerald-800"
                                     : destinationClimate.months[selectedMonthIdx].suitability === "Good"
-                                    ? "bg-blue-100 text-blue-800"
+                                    ? "bg-teal-100 text-teal-800"
                                     : destinationClimate.months[selectedMonthIdx].suitability === "Fair"
                                     ? "bg-amber-100 text-amber-800"
                                     : "bg-red-100 text-red-800"
@@ -953,7 +953,7 @@ export default function DestinationsPage() {
     <Suspense fallback={
       <div className="w-full min-h-screen bg-neutral-50 flex items-center justify-center pt-28">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-emerald-700" />
           <p className="text-sm font-poppins text-neutral-400">Loading custom destinations...</p>
         </div>
       </div>
