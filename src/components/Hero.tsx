@@ -55,18 +55,6 @@ const Hero = () => {
     };
   }, [isCalendarOpen]);
 
-  // Background video prefetching to eliminate buffering delays
-  useEffect(() => {
-    HERO_VIDEOS.forEach((vid) => {
-      const link = document.createElement("link");
-      link.rel = "prefetch";
-      link.as = "video";
-      link.href = vid.src;
-      link.type = "video/mp4";
-      document.head.appendChild(link);
-    });
-  }, []);
-
   const handleVideoEnd = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % HERO_VIDEOS.length);
   };
@@ -114,8 +102,6 @@ const Hero = () => {
         muted 
         onEnded={handleVideoEnd}
         playsInline 
-        preload="auto"
-        poster="/hero-bg.png"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src={HERO_VIDEOS[currentVideoIndex].src} type="video/mp4" />
