@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { X, MessageCircle, Send, CheckCircle, Loader2, Phone } from "lucide-react";
+import Image from "next/image";
+import { X, MessageCircle, Send, CheckCircle, Loader2, Phone, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import popupImage from "@/assets/imgs/pexels-andreas-schnabl-1775843-19066709.jpg";
 
 const WHATSAPP_NUMBER = "94742276037";
 
@@ -51,7 +53,6 @@ export default function FloatingWidget() {
     <>
       {/* Floating Buttons Stack */}
       <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-[9000]">
-
         {/* WhatsApp Button */}
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27m%20interested%20in%20a%20tour%20to%20Sri%20Lanka%20with%20Windmark%20Tours!`}
@@ -79,129 +80,188 @@ export default function FloatingWidget() {
       {/* Inquiry Modal Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <>
+          <div className="fixed inset-0 z-[9001] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9001]"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Drawer / Card */}
+            {/* Split Modal Card (One side Image, other side Inquiry Form) */}
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 40, scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 340, damping: 28 }}
-              className="fixed bottom-6 right-6 w-[360px] bg-white rounded-3xl shadow-2xl z-[9002] overflow-hidden"
+              initial={{ opacity: 0, scale: 0.92, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 24 }}
+              transition={{ type: "spring", stiffness: 350, damping: 28 }}
+              className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl z-[9002] overflow-hidden grid grid-cols-1 md:grid-cols-12  my-auto"
             >
-              {/* Header */}
-              <div className="bg-[#0E1B15] px-6 py-5 flex items-center justify-between">
-                <div>
-                  <p className="text-white font-montserrat font-bold text-base">Quick Inquiry</p>
-                  <p className="text-neutral-400 text-xs font-poppins mt-0.5">We'll reply within 2 hours</p>
-                </div>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-neutral-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/10"
-                >
-                  <X size={18} />
-                </button>
-              </div>
+              {/* Left Side: Image + Branding + Photo Credit */}
+              <div className="md:col-span-5 relative flex flex-col justify-end p-6 sm:p-7 text-white min-h-[220px] md:min-h-[490px] overflow-hidden bg-neutral-900">
+                <Image
+                  src={popupImage}
+                  alt="Swing hanging on palm trees on sea shore"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 360px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 pointer-events-none" />
 
-              {/* Body */}
-              <div className="p-6">
-                <AnimatePresence mode="wait">
-                  {submitted ? (
-                    <motion.div
-                      key="success"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="flex flex-col items-center gap-3 py-6 text-center"
-                    >
-                      <CheckCircle className="text-emerald-500 w-14 h-14" />
-                      <p className="font-montserrat font-bold text-neutral-900">Message Sent!</p>
-                      <p className="text-neutral-500 text-sm font-poppins">We'll get back to you shortly.</p>
-                    </motion.div>
-                  ) : (
-                    <motion.form
-                      key="form"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      onSubmit={handleSubmit}
-                      className="flex flex-col gap-3"
-                    >
-                      <div className="grid grid-cols-2 gap-3">
-                        <div>
-                          <input
-                            type="text"
-                            placeholder="Your name"
-                            value={form.name}
-                            onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
-                            className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all ${errors.name ? "border-red-400 bg-red-50" : "border-neutral-200 bg-neutral-50 focus:border-neutral-900 focus:bg-white"}`}
-                          />
-                          {errors.name && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.name}</p>}
-                        </div>
-                        <div>
-                          <input
-                            type="tel"
-                            placeholder="Phone (opt.)"
-                            value={form.phone}
-                            onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
-                            className="w-full text-sm px-4 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50 focus:border-neutral-900 focus:bg-white font-poppins outline-none transition-all"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <input
-                          type="email"
-                          placeholder="Email address"
-                          value={form.email}
-                          onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
-                          className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all ${errors.email ? "border-red-400 bg-red-50" : "border-neutral-200 bg-neutral-50 focus:border-neutral-900 focus:bg-white"}`}
-                        />
-                        {errors.email && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.email}</p>}
-                      </div>
-                      <div>
-                        <textarea
-                          rows={3}
-                          placeholder="Tell us about your dream trip..."
-                          value={form.message}
-                          onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                          className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all resize-none ${errors.message ? "border-red-400 bg-red-50" : "border-neutral-200 bg-neutral-50 focus:border-neutral-900 focus:bg-white"}`}
-                        />
-                        {errors.message && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.message}</p>}
-                      </div>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-[#0E1B15] hover:bg-[#1a2e22] text-white font-semibold text-sm py-3 rounded-xl font-poppins transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60"
-                      >
-                        {isSubmitting ? (
-                          <><Loader2 size={15} className="animate-spin" /> Sending...</>
-                        ) : (
-                          <><Send size={15} /> Send Inquiry</>
-                        )}
-                      </button>
+                {/* Bottom Text & Credit */}
+                <div className="relative z-10 flex flex-col gap-3">
+                  <p className="text-white/90 text-xs sm:text-sm font-poppins leading-relaxed drop-shadow-sm">
+                    Tell us your travel plans and let our local experts tailor an unforgettable experience for you.
+                  </p>
 
-                      {/* WhatsApp alternative */}
+                  <div className="pt-2 border-t border-white/20">
+                    <p className="text-[11px] text-white/75 font-poppins">
+                      photo by{" "}
                       <a
-                        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                        href="https://www.pexels.com/photo/swing-hanging-on-palm-trees-on-sea-shore-19066709/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center gap-2 text-xs text-neutral-500 hover:text-[#25D366] font-poppins transition-colors py-1"
+                        className="text-white font-medium underline underline-offset-2 hover:text-amber-300 transition-colors"
                       >
-                        <Phone size={12} />
-                        Prefer WhatsApp instead?
+                        Andreas Schnabl on Pexels
                       </a>
-                    </motion.form>
-                  )}
-                </AnimatePresence>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: Quick Inquiry Form */}
+              <div className="md:col-span-7 flex flex-col justify-between p-6 sm:p-7 relative bg-white">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h2 className="text-neutral-900 font-montserrat font-bold text-xl">Quick Inquiry</h2>
+                    <p className="text-neutral-500 text-xs font-poppins mt-0.5">We'll reply within 2 hours</p>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close inquiry modal"
+                    className="text-neutral-400 hover:text-neutral-900 transition-colors p-1.5 rounded-full hover:bg-neutral-100"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Body */}
+                <div>
+                  <AnimatePresence mode="wait">
+                    {submitted ? (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="flex flex-col items-center gap-3 py-10 text-center"
+                      >
+                        <CheckCircle className="text-emerald-500 w-16 h-16" />
+                        <p className="font-montserrat font-bold text-lg text-neutral-900">Message Sent!</p>
+                        <p className="text-neutral-500 text-sm font-poppins max-w-xs">
+                          Thank you! We've received your inquiry and will get back to you shortly.
+                        </p>
+                      </motion.div>
+                    ) : (
+                      <motion.form
+                        key="form"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        onSubmit={handleSubmit}
+                        className="flex flex-col gap-3.5"
+                      >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <input
+                              type="text"
+                              placeholder="Your name"
+                              value={form.name}
+                              onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
+                              className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all ${
+                                errors.name
+                                  ? "border-red-400 bg-red-50"
+                                  : "border-neutral-200 bg-neutral-50/80 focus:border-neutral-900 focus:bg-white"
+                              }`}
+                            />
+                            {errors.name && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.name}</p>}
+                          </div>
+                          <div>
+                            <input
+                              type="tel"
+                              placeholder="Phone (opt.)"
+                              value={form.phone}
+                              onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
+                              className="w-full text-sm px-4 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/80 focus:border-neutral-900 focus:bg-white font-poppins outline-none transition-all"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <input
+                            type="email"
+                            placeholder="Email address"
+                            value={form.email}
+                            onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
+                            className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all ${
+                              errors.email
+                                ? "border-red-400 bg-red-50"
+                                : "border-neutral-200 bg-neutral-50/80 focus:border-neutral-900 focus:bg-white"
+                            }`}
+                          />
+                          {errors.email && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.email}</p>}
+                        </div>
+
+                        <div>
+                          <textarea
+                            rows={3}
+                            placeholder="Tell us about your dream trip..."
+                            value={form.message}
+                            onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
+                            className={`w-full text-sm px-4 py-2.5 rounded-xl border font-poppins outline-none transition-all resize-none ${
+                              errors.message
+                                ? "border-red-400 bg-red-50"
+                                : "border-neutral-200 bg-neutral-50/80 focus:border-neutral-900 focus:bg-white"
+                            }`}
+                          />
+                          {errors.message && <p className="text-red-500 text-[10px] mt-1 font-poppins">{errors.message}</p>}
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full bg-[#0E1B15] hover:bg-[#1a2e22] text-white font-semibold text-sm py-3 rounded-xl font-poppins transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-60 cursor-pointer"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <Loader2 size={16} className="animate-spin" /> Sending...
+                            </>
+                          ) : (
+                            <>
+                              <Send size={16} /> Send Inquiry
+                            </>
+                          )}
+                        </button>
+
+                        {/* WhatsApp alternative */}
+                        <a
+                          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27m%20interested%20in%20a%20tour%20to%20Sri%20Lanka%20with%20Windmark%20Tours!`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex items-center justify-center gap-2 text-xs text-neutral-500 hover:text-[#25D366] font-poppins transition-colors pt-1"
+                        >
+                          <Phone size={13} />
+                          Prefer WhatsApp instead?
+                        </a>
+                      </motion.form>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </>
