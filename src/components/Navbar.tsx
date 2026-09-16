@@ -158,7 +158,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className={`fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-auto lg:min-w-[920px] lg:max-w-[95%] h-[52px] flex items-center z-[1000] transition-all duration-300 ease-in-out bg-white border border-black/10 rounded-full text-neutral-800 shadow-md ${scrolled ? "bg-white/98 shadow-lg" : ""}`}>
+    <>
+      <nav className={`fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-auto lg:min-w-[920px] lg:max-w-[95%] h-[52px] flex items-center z-[1000] transition-all duration-300 ease-in-out bg-white border border-black/10 rounded-full text-neutral-800 shadow-md ${scrolled ? "bg-white/98 shadow-lg" : ""}`}>
       <div className="flex justify-between items-center w-full px-5 gap-4">
         <Link href="/" className="text-base font-light font-montserrat tracking-tight flex items-center gap-2 text-neutral-900 whitespace-nowrap">
           <div className="text-black">
@@ -395,18 +396,19 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden block text-neutral-900 hover:opacity-80" onClick={toggleMenu}>
+        <button className="lg:hidden block text-neutral-900 hover:opacity-80" onClick={toggleMenu} aria-label="Toggle navigation menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+    </nav>
 
-      {/* Mobile Backdrop */}
-      <div 
-        onClick={() => setIsOpen(false)}
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[1001] transition-opacity duration-300 lg:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      />
+    {/* Mobile Backdrop */}
+    <div 
+      onClick={() => setIsOpen(false)}
+      className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[1001] transition-opacity duration-300 lg:hidden ${
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      }`}
+    />
 
       {/* Mobile Slide-in Drawer */}
       <div 
@@ -606,7 +608,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

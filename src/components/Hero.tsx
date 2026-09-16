@@ -292,7 +292,7 @@ const Hero = () => {
       </div>
 
       {/* Video Credit */}
-      <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-8 z-20 flex items-center bg-black/50 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-white/10 text-[10px] sm:text-[11px] text-white/85 font-poppins shadow-md">
+      <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-8 z-20 flex items-center  px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full  text-[10px] sm:text-[11px] text-white/85 font-poppins shadow-md">
         <p className="truncate max-w-[220px] sm:max-w-none">
           video by{" "}
           <a
